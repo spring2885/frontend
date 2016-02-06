@@ -1,0 +1,27 @@
+<div ng-controller="loginCtrl"></div>
+   <div class="row">
+    <div class="col-md-2 col-md-offset-5">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <lable class="control-lable" for="inputName">Name</lable>
+                <div class="controls">
+                    <input type="text" id="inputName" placeholder="Name" ng-model="name">
+                </div>
+            </div>
+            <div class="control-group">
+                <lable class="control-lable" for="inputPassword">Password</lable>
+                <div class="controls">
+                    <input type="password" id="inputPassword" placeholder="Password" ng-model="password">
+                </div>
+             </div>
+            </br>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" class="btn btn-primary" ng-click="login()">Sign In</button>
+                </div>
+            </div>
+        </form>
+        
+        <h3>Hello {{name}}</h3>
+    </div>
+</div>
