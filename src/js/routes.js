@@ -25,16 +25,16 @@
      
             //view a profile
             $stateProvider
-                .state('profile-view', {
-                url: '/profiles/:id',
+                .state('profile-list', {
+                url: '/profiles',
                 templateUrl: 'src/views/profile/profileIndex.html',
                 controller: 'profileIndexCtrl'
             });
      
             //list profiles
             $stateProvider
-                .state('profile-list', {
-                url: '/profiles',
+                .state('profile-view', {
+                url: '/profiles/:id',
                 templateUrl: 'src/views/profile/profileShow.html',
                 controller: 'profileShowCtrl'
             });
@@ -49,18 +49,18 @@
      
             //newesfeed show
             $stateProvider
-                .state('newsfeed-show', {
+                .state('newsfeed-index', {
                 url: '/newsfeed',
-                templateUrl: 'src/views/newsfeed/newsFeedShow.html',
-                controller: 'newsfeedShowCtrl'
+                templateUrl: 'src/views/newsfeed/newsFeedIndex.html',
+                controller: 'newsfeedIndexCtrl'
             });
      
             //show a single news item in a newsfeed
             $stateProvider
                 .state('newsfeed-item', {
                 url: '/newsfeed/:id',
-                templateUrl: 'src/views/newsfeed/newsfeedIndex.html',
-                controller: 'newsfeedIndexCtrl'
+                templateUrl: 'src/views/newsfeed/newsfeedShow.html',
+                controller: 'newsfeedShowCtrl'
             });
      
             //create-edit a newsfeed post
@@ -74,7 +74,7 @@
             //job listing show
             $stateProvider
                 .state('jobs-show', {
-                url: '/jobs',
+                url: '/jobs/:id',
                 templateUrl: 'src/views/jobs/jobsShow.html',
                 controller: 'jobsShowCtrl'
             });
@@ -82,7 +82,7 @@
             //view a job
             $stateProvider
                 .state('job-index', {
-                url: '/jobs/:id',
+                url: '/jobs',
                 templateUrl: 'src/views/jobs/jobsIndex.html',
                 controller: 'jobsIndexCtrl'
             });
