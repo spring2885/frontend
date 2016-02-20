@@ -1,0 +1,15 @@
+        {
+			"name": "Bruce Wayne",
+			"id": "1234",
+            "student_id": 1,
+            "birthdate": 2/19,
+            "email": "bruce@wayneenterprises.com",
+			"profile_img": "/path",
+			"occupation": "Playboy",
+			"company": "Wayne Enterprises",
+			"title": "Shhhhh...",
+            "about_me": "I'm rich and my parents are dead.",
+            "resume_url": null,
+            "variety": "0",
+			"last_online": 2/18/2016
+		}

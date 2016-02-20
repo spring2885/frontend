@@ -5,7 +5,7 @@
             $scope.isLoggedIn = false;
             $scope.login = function(){
                 $scope.isLoggedIn = true;
-                $state.go('newsfeed-show');
+                $state.go('newsfeed-index');
             };
     }]);
 })();
