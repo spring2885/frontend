@@ -1,0 +1,16 @@
+    {
+			"name": "Lando Calrissian",
+			"id": "6789",
+            "student_id": 3,
+            "birthdate": null,
+            "email": "lando@heyubaby.net",
+            "phone": null,
+			"img_url": "/path",
+			"occupation": "General",
+			"company_name": "Rebel Alliance",
+			"title": "How you doing you old pirate?!",
+            "about_me": "Have you ever been to cloud city?  Yeah, that's me.",
+            "resume_url": null,
+            "variety": "0",
+			"last_online": 2/14/2016
+		}

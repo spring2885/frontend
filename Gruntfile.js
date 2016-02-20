@@ -99,8 +99,8 @@ module.exports = function(grunt) {
                 files: {
                     'generated/index.html' : 'src/index.html',
                     'dist/index.html' : 'src/index.html',
-                    'generated/' : ['src/views/**','src/templates/**', '!*.js'],
-                    'dist/' : ['src/views/**','src/templates/**', '!*.js']
+                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'backend/**'],
+                    'dist/' : ['src/views/**','src/templates/**', '!*.js'] 
                 }
             },
             
