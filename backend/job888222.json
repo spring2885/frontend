@@ -1,0 +1,15 @@
+        {
+			"id": "888222",
+			"poster_id": "5678",
+			"poster_name": "Khan",
+			"poster_company": "Genesis",
+			"poster_occupation": "Evil Genius",
+			"poster_email": "khan@reliant.net",
+			"poster_img": "/path",
+			"title": "Looking for Planetary Science Expert",
+			"type": "Internship",
+			"start_date": "today",
+			"end_date": null,
+			"location": "Mutara nebula",
+			"description": "We are looking for qualified people with a background in science and ideally planatery formation.  Must be able to take orders and be comfortable around a startship."
+		}
