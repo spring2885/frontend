@@ -1,3 +1,4 @@
+<!--
 <div ng-controller="loginCtrl"></div>
    <div class="row">
     <div class="col-md-2 col-md-offset-5">
@@ -23,5 +24,70 @@
         </form>
         
         <h3>Hello {{name}}</h3>
+    </div>
+</div>-->
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+       <!-- What the app is -->
+        <div class="col-md-7">
+            <div class="col-md-7">
+                
+            </div>
+        </div>
+        <!-- Sign Up -->
+        <div class="col-md-5 col-centered login-box" ng-controller="signUpCtrl">
+           <form>
+               
+               <div class="form-group col-centered">
+                  <div class="col-md-10">
+                   <h2>Sign Up</h2>
+                   <h4><small>And Connect with the Community Today!</small></h4>
+                   </div>
+                    <div class="col-md-6 text-centered form-padding">
+                        <input class="form-control" type="text" id="inputFName" placeholder="First Name">
+                    </div>
+                    <div class="col-md-6 text-centered form-padding">
+                        <input class="form-control" type="text" id="inputLName" placeholder="Last Name">
+                    </div>
+                   
+                    <div class="col-md-3 text-centered form-padding">
+                        <label style="vertical-align: middle !important;">I am a...</label>
+                    </div>
+                    <div class="col-md-9 text-centered form-padding">
+                       <select class="col-md-12 form-control"
+                            chosen
+                            ng-model="typeDropDown"
+                            allow-single-deselect="true" 
+                            placeholder="Choose One"
+                            ng-options="person for person in personType.person"
+                            >
+                              <option value=""></option>
+                      </select>
+                    </div>
+                    
+                    <div class="col-md-12 text-centered form-padding">
+                        <input class="form-control" type="email" id="email" placeholder="Email Address">
+                    </div>
+                    <div class="col-md-12 text-centered form-padding">
+                        <input class="form-control" type="tel" id="phone" placeholder="Phone Number">
+                    </div>
+                    <!-- choosen person type -->
+                    <div class="col-md-6 text-centered form-padding">
+                        <input class="form-control" type="text" id="occupation" placeholder="Occupation">
+                    </div>
+                    <div class="col-md-6 text-centered form-padding">
+                        <input class="form-control" type="text" id="company" placeholder="Current Company">
+                    </div>
+                    <div class="col-md-12 text-centered form-padding">
+                        <input class="form-control" type="password" id="password" placeholder="New Password">
+                    </div>
+               </div>
+           </form>
+            
+        </div>
     </div>
 </div>
