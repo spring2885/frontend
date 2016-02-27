@@ -1,1 +1,8 @@
-<h4>View a profile</h4>
+<div ng-controller="profileIndexCtrl">
+    <h4>Profiles</h4>
+    
+    <ul>
+        <li ng-repeat="profile in profiles"><a ng-href="/profiles/{{profile.id}}">{{profile.name}}</a></li>
+    </ul>
+    
+</div>
