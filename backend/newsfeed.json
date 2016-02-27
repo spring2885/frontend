@@ -3,7 +3,7 @@
 			"id": "999999",
 			"poster_id": "1234",
 			"poster_name": "Bruce Wayne",
-			"poster_img": "/path",
+			"poster_img": "http://images2.fanpop.com/image/photos/9000000/Bruce-Wayne-the-dark-knight-9041631-367-500.jpg",
 			"poster_company": "Wayne Enterprises",
 			"title": "I'm Drunk...",
 			"date_posted": "2/18/2016",
@@ -15,7 +15,7 @@
 					"date_posted": "2/18/2016",
 					"commentor_id": "5678",
 					"commentor_name": "Khan",
-					"commentor_img": "/path",
+					"commentor_img": "http://www.wired.com/images_blogs/underwire/images/2009/01/14/st2khan.gif",
 					"comment": "Impressive, for a normal human."
 				}
 			]
@@ -24,7 +24,7 @@
 			"id": "444444",
 			"poster_id": "1234",
 			"poster_name": "Bruce Wayne",
-			"poster_img": "/path",
+			"poster_img": "http://images2.fanpop.com/image/photos/9000000/Bruce-Wayne-the-dark-knight-9041631-367-500.jpg",
 			"poster_company": "Wayne Enterprises",
 			"title": "Who is this Batman",
 			"date_posted": "2/12/2016",
@@ -36,7 +36,7 @@
 					"date_posted": "2/13/2016",
 					"commentor_id": "5678",
 					"commentor_name": "Khan",
-					"commentor_img": "/path",
+					"commentor_img": "http://www.wired.com/images_blogs/underwire/images/2009/01/14/st2khan.gif",
 					"comment": "Don't insult my intelligence"
 				}
 			]
@@ -45,7 +45,7 @@
 			"id": "37892",
 			"poster_id": "6789",
 			"poster_name": "Lando Calrissian",
-			"poster_img": "/path",
+			"poster_img": "http://media.comicbook.com/wp-content/uploads/2012/11/lando-calrissian.jpg",
 			"poster_company": "Rebel Alliance",
 			"title": "Looking for help",
 			"date_posted": "2/18/2016",
