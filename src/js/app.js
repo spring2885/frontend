@@ -8,7 +8,8 @@
         'ngResource',
         'pascalprecht.translate',
         'ngAnimate',
-        'message-center'
+        'message-center',
+        'localytics.directives'
        ]
     );
 })();

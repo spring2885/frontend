@@ -5,12 +5,12 @@
             "birthdate": null,
             "email": "lando@heyubaby.net",
             "phone": null,
-			"img_url": "/path",
+			"img_url": "http://media.comicbook.com/wp-content/uploads/2012/11/lando-calrissian.jpg",
 			"occupation": "General",
 			"company_name": "Rebel Alliance",
 			"title": "How you doing you old pirate?!",
             "about_me": "Have you ever been to cloud city?  Yeah, that's me.",
             "resume_url": null,
             "variety": "0",
-			"last_online": 2/14/2016
+			"last_online": "2/14/2016"
 		}
