@@ -35,7 +35,7 @@
             $stateProvider
                 .state('profile-view', {
                 url: '/profiles/:id',
-                templateUrl: 'src/views/profile/profileShow.html',
+                templateUrl: '/src/views/profile/profileShow.html',
                 controller: 'profileShowCtrl'
             });
      
@@ -43,7 +43,7 @@
             $stateProvider
                 .state('profile-edit', {
                 url: '/profiles/:id/edit',
-                templateUrl: 'src/views/profile/profileEdit.html',
+                templateUrl: '/src/views/profile/profileEdit.html',
                 controller: 'profileEditCtrl'
             });
      
@@ -75,7 +75,7 @@
             $stateProvider
                 .state('jobs-show', {
                 url: '/jobs/:id',
-                templateUrl: 'src/views/jobs/jobsShow.html',
+                templateUrl: '/src/views/jobs/jobsShow.html',
                 controller: 'jobsShowCtrl'
             });
      
