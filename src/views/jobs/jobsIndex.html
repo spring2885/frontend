@@ -1,1 +1,8 @@
-<h4>Show a job listing</h4>
+<div ng-controller="jobsIndexCtrl">
+    <h4>Jobs</h4>
+    
+    <ul>
+        <li ng-repeat="job in jobs"><a ng-href="/jobs/{{job.id}}">{{job.title}}</a></li>
+    </ul>
+    
+</div>
