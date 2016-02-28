@@ -5,10 +5,15 @@
                 function($scope, $state, $http) {
             console.log('loginCtrl');
             var me = this;
+            /** TODO: Get this from the page. */
             me.credentials = {
                 username: "rob",
                 password: "welcome"
             };
+            /** 
+              * Calls /user to check if the user is authenticated, and also
+              * returns data.name which is the name of the user.
+              */
             var authenticate = function(callback) {
                 $http.get('user').success(function(data) {
                 console.log("/user success: " + JSON.stringify(data));
@@ -27,6 +32,11 @@
                 });
             };
 
+            /**
+             * Calls /formlogin as a post to login.  This used to be /login
+             * but conflicted with the /login in here, so I moved it on the
+             * backend.
+             */
             $scope.login = function(){
                 var urlEncodedData = 'username=' + 
                     encodeURIComponent(me.credentials.username)+ 
@@ -35,6 +45,14 @@
                 $http.post('formlogin', urlEncodedData, {
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }                    
                 }).then(function successCallback(response) {
+                        /**
+                         * Since /formlogin will always return a 200, we need to now
+                         * check with /user to see if we're authenticated.
+                         * Reading http://blog.ionic.io/angularjs-authentication/ makes
+                         * it seem like if we set withCredentials on the $http object
+                         * then the JSESSIONID will be included on all requests.
+                         * Also http://stackoverflow.com/questions/17064791/http-doesnt-send-cookie-in-requests
+                         */
                         authenticate();
                         console.log("Login succeeded " + JSON.stringify(response));
                         $state.go('newsfeed-index');
@@ -47,6 +65,10 @@
                         $scope.error = true;
                     });
             };
+            /**
+             * This isn't implemented but should just call a get on /logout
+             * and then set isLoggedIn to false.
+             */
             $scope.logout = function() {
                 $scope.isLoggedIn = false;
                 $state.go('login');
