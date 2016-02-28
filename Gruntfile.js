@@ -1,6 +1,3 @@
-//var modRewrite = require('connect-modrewrite');
-//var mountFolder = function (connect, dir) {
-//   return connect.static(require('path').resolve(dir));
 
 module.exports = function(grunt) {
   'use strict';
@@ -8,7 +5,9 @@ module.exports = function(grunt) {
 
     //Grunt looks here for an Object with the same name of the task
     var rewrite = require('connect-modrewrite');
-    // var urlRewrite = require('grunt-connect-rewrite');
+    var history = require('connect-history-api-fallback');
+    var urlRewrite = require('grunt-connect-rewrite');
+    
     grunt.initConfig({
         
         pkg: grunt.file.readJSON('package.json'),
@@ -49,7 +48,6 @@ module.exports = function(grunt) {
                 'MegaNavbar/assets/css/animation/*.css',
                 'MegaNavbar/assets/css/skins/*.css',
                 'bower_components/chosen/chosen.min.css'
-                //'MegaNavbar/assets/plugins/simple-line-icons/*.css'
             ],
             vendor_assets: [
                 'MegaNavbar/assets/plugins/simple-line-icons/**',
@@ -85,10 +83,7 @@ module.exports = function(grunt) {
                 src: ['<%= files.vendor_css %>', 'src/assets/css/**/*.css'],
                 dest: 'generated/styles.min.css'
             },
-            dev_assets: {
-                src: ['<%= files.vendor_assets %>', 'src/assets/**'],
-                dest: 'generated/assets'
-            }
+            
         },
         
         //Minify JS files
@@ -119,12 +114,19 @@ module.exports = function(grunt) {
                 files: {
                     'generated/index.html' : 'src/index.html',
                     'dist/index.html' : 'src/index.html',
-                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'backend/**', 'src/assets/languages/**', 'src/assets/images/**'],
+                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'src/assets/**', 'backend/**', 'src/assets/languages/**', 'src/assets/images/**'],
                     'dist/' : ['src/views/**','src/templates/**', '!*.js'] 
                 }
             },
             
-            //grab other icons for assets
+            dev_assets: {
+//                src: ['<%= files.vendor_assets %>', 'src/assets/**'],
+//                dest: 'generated/assets/'
+                files: {
+                    //'generated/': 'src/assets/**',
+                    //'generated/assets/': '<%= files.vendor_assets %>'
+                }
+            }
             
 
         },
@@ -136,60 +138,44 @@ module.exports = function(grunt) {
         
         //Static File Server
         connect: {  
-//            options: {
-//               port: 8000,
-//               hostname: 'localhost',
-//           },
-            dev: {
-                options: {
-                    port: 8001,
-                   // hostname: 'spring-2885.org',
-                    middleware: function(connect, options, middlewares) {
-
-                        // the rules that shape our mod-rewrite behavior
-                        var rules = [
-                            '!\\.html|\\.js|\\.css|\\.svg|\\.jp(e?)g|\\.png|\\.gif$ /index.html'
-                        ];
-
-                        // add rewrite as first item in the chain of middlewares
-                        middlewares.unshift(rewrite(rules));
-
-                        return middlewares;
-                    },
-                    base: {
+            options: {
+               port: 8000,
+               hostname: 'localhost',
+           },
+            test: {
+                port: 8001,
+                base: {
                         path: 'generated/',
                         options: {
                            index: 'index.html' //need rewrite rule for angular
                         }
-                       },
-                    // http://danburzo.ro/grunt/chapters/server/
-                    
-                  //  middleware: function(connect, options, middlewares) {
-                        
-                    // 1. mod-rewrite behavior
-                    
-//                    var rules = [
-////                        '^/profiles/\\d*$ /index.html [L]',
-////                        '^/profiles/\\d*/\\d*$ /index.html [L]',
-////                        '^/profiles/(.*)$ /index.html [L]' ,
-////                        '^/profiles/*$ /index.html [L]',
-//                        '!\\.html|\\.js|\\.css|\\.svg|\\.jp(e?)g|\\.png|\\.gif$ /index.html [L]',
-//                        '^[^\\.]*$ /index.html [L]'
-//                        
-//                    ];
-//                    middlewares.unshift(rewrite(rules));
-//                        return middlewares; 
-//                    }  
-                       /*  return [
-              // redirect all urls to index.html in build folder
-              urlRewrite('generated', 'index.html'),
+                },
+                middleware: function(connect, options) {
+                    return [
+                      // redirect all urls to index.html in build folder
+                      urlRewrite('build', 'index.html'),
 
-              // Serve static files.
-              connect.static(options.base),
+                      // Serve static files.
+                      connect.static(options.base),
 
-              // Make empty directories browsable.
-              connect.directory(options.base)
-            ]; */
+                      // Make empty directories browsable.
+                      connect.directory(options.base)
+                    ];
+                }
+            },
+            dev: {
+                 options: {
+                    port: 8001,
+                    middleware: function(connect, options, middleware) {
+                        middleware.unshift(history())
+                        return middleware
+                    },
+                    base: {
+                        path: 'generated/',
+                        options: {
+                           index: 'index.html'
+                        }
+                    },
                 } 
             },
             build: {
