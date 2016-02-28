@@ -69,7 +69,7 @@ module.exports = function(grunt) {
             options: {
                 banner: '// <%= pkg.name %> - v<%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd") %>)\n' +                          '// http://www.spring-2885.org\n'
             },
-            dev_js: {
+            js: {
                 src:[ '<%= files.vendor_js %>',
                      'src/js/app.js', 
                      'src/js/config.js',
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                      'src/**/*.js'],
                 dest: 'generated/app.min.js',
             },
-            dev_css: {
+            css: {
                 src: ['<%= files.vendor_css %>', 'src/assets/css/**/*.css'],
                 dest: 'generated/styles.min.css'
             },
@@ -89,7 +89,8 @@ module.exports = function(grunt) {
         //Minify JS files
         uglify: {
             options: {
-                banner: '// <%= pkg.name %> - v<%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd") %>)\n' +                          '// http://www.spring-2885.org\n'
+  		    mangle: false,
+		    banner: '// <%= pkg.name %> - v<%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd") %>)\n' +                          '// http://www.spring-2885.org\n',
             },
             build: {
                 src: 'generated/app.min.js',
@@ -100,6 +101,7 @@ module.exports = function(grunt) {
         //Minify CSS
         cssmin: {
             options: {
+                processImport: false,
                 banner: '// <%= pkg.name %> - v<%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd") %>)\n' +                          '// http://www.spring-2885.org\n'
             },
             build: {
@@ -111,7 +113,7 @@ module.exports = function(grunt) {
         //Copy Files
         copy: {
             html: {
-                files: {
+		    files: {
                     'generated/index.html' : 'src/index.html',
                     'dist/index.html' : 'src/index.html',
                     'generated/' : ['src/views/**','src/templates/**', '!*.js', 'src/assets/**', 'backend/**', 'src/assets/languages/**', 'src/assets/images/**'],
@@ -227,7 +229,7 @@ module.exports = function(grunt) {
     
     grunt.registerTask('default', ['jshint', 'concat', 'copy', 'connect:dev', 'open:dev', 'watch']);
     grunt.registerTask('prodsim', ['build', 'connect:build', 'open:build']);
-    grunt.registerTask('build', ['clean', 'cssmin:build', 'uglify:build', 'copy']);
+    grunt.registerTask('build', ['clean', 'concat', 'cssmin:build', 'uglify:build', 'copy']);
     
     
     // Print a timestamp (useful for when watching)
