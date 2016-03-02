@@ -26,10 +26,25 @@ body {
 
 .login-box {
     background-color: #e8eded;
+    height: 100% !important;
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
     border-color: black;
+}
+
+.sign-up-explain-box {
+    background: url(src/assets/images/gradhats2.jpg) #e8eded;
+    height: 100% !important;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    border-color: black;
+}
+
+.sign-up-explain-box ul {
+    padding-left: 85px;
 }
 
 .form-padding {
@@ -56,4 +71,8 @@ body {
 
 .logged-out-footer-lower {
     background-color: #8f8f8c;
+}
+
+.logged-out-nav {
+    background-color: #313335;
 }
