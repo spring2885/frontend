@@ -10,7 +10,7 @@
             //loging page
             $stateProvider
                 .state('login', {
-                    url: '/login',
+                    url: '/',
                     templateUrl: 'src/views/login/loginIndex.html',
                     controller: 'loginCtrl'
              });
@@ -23,7 +23,7 @@
                 controller: 'signupCtrl'
             });
      
-            //view a profile
+            //list profiles
             $stateProvider
                 .state('profile-list', {
                 url: '/profiles',
@@ -31,11 +31,11 @@
                 controller: 'profileIndexCtrl'
             });
      
-            //list profiles
+            //view a profile
             $stateProvider
                 .state('profile-view', {
                 url: '/profiles/:id',
-                templateUrl: 'src/views/profile/profileShow.html',
+                templateUrl: '/src/views/profile/profileShow.html',
                 controller: 'profileShowCtrl'
             });
      
@@ -43,7 +43,7 @@
             $stateProvider
                 .state('profile-edit', {
                 url: '/profiles/:id/edit',
-                templateUrl: 'src/views/profile/profileEdit.html',
+                templateUrl: '/src/views/profile/profileEdit.html',
                 controller: 'profileEditCtrl'
             });
      
@@ -71,15 +71,15 @@
                 controller: 'newsfeedEditCtrl'
             });
      
-            //job listing show
+            //job view page
             $stateProvider
                 .state('jobs-show', {
                 url: '/jobs/:id',
-                templateUrl: 'src/views/jobs/jobsShow.html',
+                templateUrl: '/src/views/jobs/jobsShow.html',
                 controller: 'jobsShowCtrl'
             });
      
-            //view a job
+            //Jobs list page
             $stateProvider
                 .state('job-index', {
                 url: '/jobs',
@@ -97,7 +97,7 @@
      
             //show events
             $stateProvider
-                .state('events-show', {
+                .state('events-index', {
                 url: '/events',
                 templateUrl: 'src/views/events/eventsShow.html',
                 controller: 'eventsShowCtrl'
@@ -105,7 +105,7 @@
      
             //view an event
             $stateProvider
-                .state('events-index', {
+                .state('events-show', {
                 url: '/events/:id',
                 templateUrl: 'src/views/events/eventsIndex.html',
                 controller: 'eventsIndexCtrl'

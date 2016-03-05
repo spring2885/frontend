@@ -1,6 +1,3 @@
-//var modRewrite = require('connect-modrewrite');
-//var mountFolder = function (connect, dir) {
-//   return connect.static(require('path').resolve(dir));
 
 module.exports = function(grunt) {
   'use strict';
@@ -8,6 +5,9 @@ module.exports = function(grunt) {
 
     //Grunt looks here for an Object with the same name of the task
     var rewrite = require('connect-modrewrite');
+    var history = require('connect-history-api-fallback');
+    var urlRewrite = require('grunt-connect-rewrite');
+    
     grunt.initConfig({
         
         pkg: grunt.file.readJSON('package.json'),
@@ -32,15 +32,29 @@ module.exports = function(grunt) {
               'bower_components/bootstrap-material-design/dist/js/material.min.js',
               'bower_components/bootstrap-material-design/dist/js/ripples.min.js',
               'bower_components/angular-message-center/dist/js/message-center.min.js',
-              'bower_components/api-check/api-check.min.js'
+              'bower_components/api-check/api-check.min.js',
+              'bower_components/angular-chosen-localytics/chosen.js',
+              'bower_components/chosen/chosen.jquery.min.js',
+              'bower_components/chosen/chosen.proto.min.js'
           ] ,
             vendor_css: [
                 'bower_components/bootstrap/dist/css/bootstrap.min.css',
                 'bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min',
                 'bower_components/bootstrap-material-design/dist/css/ripples.min.css',
                 'bower_components/font-awesome/css/font-awesome.mon.css',
-                'bower_components/angular-message-center/dist/css/message-center.min.css'         
-            ]
+                'bower_components/angular-message-center/dist/css/message-center.min.css',
+                'bower_components/angular-chosen-localytics/chosen-spinner.css',
+                'MegaNavbar/assets/css/MegaNavbar.min.css',
+                'MegaNavbar/assets/css/animation/*.css',
+                'MegaNavbar/assets/css/skins/*.css',
+                'bower_components/chosen/chosen.min.css'
+            ],
+            vendor_assets: [
+                'MegaNavbar/assets/plugins/simple-line-icons/**',
+                'bower_components/angular-chosen-localytics/spinner.gif',
+                'bower_components/chosen/**.png'
+                
+            ],
         },
      
         //Find JavaScript Problems
@@ -68,7 +82,8 @@ module.exports = function(grunt) {
             dev_css: {
                 src: ['<%= files.vendor_css %>', 'src/assets/css/**/*.css'],
                 dest: 'generated/styles.min.css'
-            }
+            },
+            
         },
         
         //Minify JS files
@@ -99,12 +114,19 @@ module.exports = function(grunt) {
                 files: {
                     'generated/index.html' : 'src/index.html',
                     'dist/index.html' : 'src/index.html',
-                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'backend/**'],
+                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'src/assets/**', 'backend/**', 'src/assets/languages/**', 'src/assets/images/**'],
                     'dist/' : ['src/views/**','src/templates/**', '!*.js'] 
                 }
             },
             
-            //grab other icons for assets
+            dev_assets: {
+//                src: ['<%= files.vendor_assets %>', 'src/assets/**'],
+//                dest: 'generated/assets/'
+                files: {
+                    //'generated/': 'src/assets/**',
+                    //'generated/assets/': '<%= files.vendor_assets %>'
+                }
+            }
             
 
         },
@@ -120,25 +142,41 @@ module.exports = function(grunt) {
                port: 8000,
                hostname: 'localhost',
            },
-            dev: {
-                options: {
-                    port: 8001,
-                    base: {
-                        path: 'generated',
+            test: {
+                port: 8001,
+                base: {
+                        path: 'generated/',
                         options: {
                            index: 'index.html' //need rewrite rule for angular
                         }
-                       },
-                    // http://danburzo.ro/grunt/chapters/server/
-                    middleware: function(connect, options, middlewares) {
-                    // 1. mod-rewrite behavior
-                    var rules = [
-                        '!\\.html|\\.js|\\.css|\\.svg|\\.jp(e?)g|\\.png|\\.gif$ /index.html'
+                },
+                middleware: function(connect, options) {
+                    return [
+                      // redirect all urls to index.html in build folder
+                      urlRewrite('build', 'index.html'),
+
+                      // Serve static files.
+                      connect.static(options.base),
+
+                      // Make empty directories browsable.
+                      connect.directory(options.base)
                     ];
-                    middlewares.unshift(rewrite(rules));
-                        return middlewares;
-                    }
                 }
+            },
+            dev: {
+                 options: {
+                    port: 8001,
+                    middleware: function(connect, options, middleware) {
+                        middleware.unshift(history())
+                        return middleware
+                    },
+                    base: {
+                        path: 'generated/',
+                        options: {
+                           index: 'index.html'
+                        }
+                    },
+                } 
             },
             build: {
                 options: {

@@ -3,6 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/index.html">
   
    <title>Spring-2885</title>
    
@@ -15,10 +16,26 @@
         <link rel="stylesheet" type="text/css" href="styles.min.css">    
     </head>
     
-    <body>
+    <body ng-controller="loginCtrl">
+       <div id="wrap">
+       
+       <!-- Nav Bar -->
+       <div ng-switch on="isLoggedIn">
+           <div ng-switch-when="true"><logged-in-nav></logged-in-nav></div>
+           <div ng-switch-when="false"><logged-out-nav></logged-out-nav></div>
+       </div>
        
         <!-- This is the section that gets replaced with our Views -->
         <div id="container" class="container" ui-view></div>
+        
+        <!-- Footer -->
+        <div ng-switch on="isLoggedIn">
+           <div ng-switch-when="true"><logged-in-footer></logged-in-footer></div>
+            <div ng-switch-when="false"><logged-out-footer></logged-out-footer></div>
+       </div>
+        
+        
+        </div> <!-- End Wrap -->
         
         <!-- Include all Vendor and App JS -->
         <script src="app.min.js"></script>
