@@ -24,7 +24,7 @@ module.exports = function(grunt) {
               'bower_components/angular-translate/angular-translate.min.js',
               'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
               'bower_components/angular-cookies/angular-cookies.min.js',
-              'bower_components/ngstorage/ngstorage.min.js',
+	      'bower_components/ngstorage/ngStorage.min.js',
               'bower_components/angular-resource/angular-resource.min.js',
               'bower_components/angular-animate/angular-animate.min.js',
               'bower_components/angular-bootstrap/ui-bootstrap.min.js',
