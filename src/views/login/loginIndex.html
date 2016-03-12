@@ -1,12 +1,11 @@
 
-<div class="row">
+<div class="row" ng-controller="loginCtrl">
     <div class="col-md-12">
       
        <!-- What the app is -->
         <div class="col-md-6 sign-up-explain-box">
            <h2>Connect with the NDNU Community!</h2> <br>
             <div class="col-md-7">
-                
                 <p>This site brings together student, alumni and faculty in a friendly relaxed atmosphere that discourages spam.</p>
                 <ul>
                     <li>See relevant news from your fellow Argonaughts</li><br>
@@ -18,6 +17,7 @@
             </div>
         </div>
         
+        <div ng-hide="isLoggedIn">
         <!-- Lazy Spacing -->
         <div class="col-md-1"></div>
         
@@ -41,7 +41,7 @@
                     </div>
                    
                     <div class="col-md-3 text-centered form-padding">
-                        <label style="vertical-align: middle !important;">I am a...</label>
+                        <label style="verti`-align: middle !important;">I am a...</label>
                     </div>
                     <div class="col-md-9 text-centered form-padding">
                        <select class="col-md-12 form-control"
@@ -84,6 +84,31 @@
                </div>
            </form>
             
+        </div>
+
+        <!-- Rob's hacks -->
+        <div class="col-md-1"></div>
+        <div class="col-md-5 form-group col-centered  login-box" ng-controller="signUpCtrl">
+
+          <div class="col-md-10">
+                <h2>Log In</h2>
+                <h4><small>And Connect Today!</small></h4>
+           </div>
+
+            <form role="form" ng-submit="login()">
+                <div class="form-group">
+                    <label for="username">Username:</label> <input type="text"
+                        class="form-control" id="username" name="username" ng-model="credentials.username"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label> <input type="password"
+                        class="form-control" id="password" name="password" ng-model="credentials.password"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+
+        </div>
         </div>
     </div>
 </div>
