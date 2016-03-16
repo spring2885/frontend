@@ -41,7 +41,7 @@ module.exports = function(grunt) {
                 'bower_components/bootstrap/dist/css/bootstrap.min.css',
                 'bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min',
                 'bower_components/bootstrap-material-design/dist/css/ripples.min.css',
-                'bower_components/font-awesome/css/font-awesome.mon.css',
+                'bower_components/font-awesome/css/font-awesome.min.css',
                 'bower_components/angular-message-center/dist/css/message-center.min.css',
                 'bower_components/angular-chosen-localytics/chosen-spinner.css',
                 'MegaNavbar/assets/css/MegaNavbar.min.css',
