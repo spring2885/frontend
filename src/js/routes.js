@@ -12,7 +12,7 @@
                 .state('login', {
                     url: '/',
                     templateUrl: 'src/views/login/loginIndex.html',
-                    controller: 'loginCtrl'
+                    //controller: 'loginCtrl'
              });
      
             //sign up page
