@@ -3,7 +3,7 @@
     angular.module('spring-2885')   
         .controller('chooseLangCtrl', ['$scope', function($scope){
             
-            //$scope.storage = $localStorage
+           // $scope.storage = $localStorage
             $scope.chooseLang = function(langKey) {
               switch(langKey) {
                   case 'zh_CN':
@@ -19,8 +19,8 @@
                       break;
               }
                 $translate.use(langKey);
-                //$scope.storage.profile.myLanguage = langKey;
-                //tmhDynamicLocale.set(langKet.toLowerCase().replace(/_/g, /'-')); //i18 filenames are lowercase
+               // $scope.storage.profile.myLanguage = langKey;
+                tmhDynamicLocale.set(langKet.toLowerCase().replace(/_/g, '-'));
             };
     }]);
 })();
