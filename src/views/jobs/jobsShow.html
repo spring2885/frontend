@@ -1,7 +1,16 @@
 <div ng-controller="jobsShowCtrl">
-    <h4>Look at this Job!</h4>
+	
+    <h4>Jobs Listing Details</h4>
 
-    <div class="row">
-        {{job.title}}
-    </div>    
+    <div class="row">{{job.title}}</div> 
+    <div class="row">Company: {{job.poster_company}}</div> 
+    <div class="row">Contact: {{job.poster_email}}</div> 
+    <div class="row">Type: {{job.type}}</div>    
+    <div class="row">Location: {{job.location}}</div>    
+    <div class="row">Start Date: {{job.start_date}}</div>    
+    <div class="row">Type: {{job.type}}</div> 
+    <br><div class="row">Description:</div>
+    <div class="row">	 {{job.description}}</div>       
+
 </div>
+
