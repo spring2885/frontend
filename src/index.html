@@ -16,17 +16,20 @@
         <link rel="stylesheet" type="text/css" href="styles.min.css">    
     </head>
     
-    <body ng-controller="loginCtrl">
-       <div id="wrap">
-       
+    <body ng-controller="mainCtrl">
+
        <!-- Nav Bar -->
        <div ng-switch on="isLoggedIn">
            <div ng-switch-when="true"><logged-in-nav></logged-in-nav></div>
            <div ng-switch-when="false"><logged-out-nav></logged-out-nav></div>
        </div>
        
+       <div id="wrap">
+       
         <!-- This is the section that gets replaced with our Views -->
         <div id="container" class="container" ui-view></div>
+        
+        </div> <!-- End Wrap -->
         
         <!-- Footer -->
         <div ng-switch on="isLoggedIn">
@@ -34,9 +37,7 @@
             <div ng-switch-when="false"><logged-out-footer></logged-out-footer></div>
        </div>
         
-        
-        </div> <!-- End Wrap -->
-        
+
         <!-- Include all Vendor and App JS -->
         <script src="app.min.js"></script>
     </body>
