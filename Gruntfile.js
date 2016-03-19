@@ -24,13 +24,12 @@ module.exports = function(grunt) {
               'bower_components/angular-translate/angular-translate.min.js',
               'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
               'bower_components/angular-cookies/angular-cookies.min.js',
-              'bower_components/ngstorage/ngstorage.min.js',
+              'bower_components/ngstorage/ngStorage.min.js',
               'bower_components/angular-resource/angular-resource.min.js',
               'bower_components/angular-animate/angular-animate.min.js',
               'bower_components/angular-bootstrap/ui-bootstrap.min.js',
               'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
               'bower_components/bootstrap-material-design/dist/js/material.min.js',
-              'bower_components/bootstrap-material-design/dist/js/ripples.min.js',
               'bower_components/angular-message-center/dist/js/message-center.min.js',
               'bower_components/api-check/api-check.min.js',
               'bower_components/angular-chosen-localytics/chosen.js',
@@ -39,9 +38,10 @@ module.exports = function(grunt) {
           ] ,
             vendor_css: [
                 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
                 'bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min',
                 'bower_components/bootstrap-material-design/dist/css/ripples.min.css',
-                'bower_components/font-awesome/css/font-awesome.mon.css',
+                'bower_components/font-awesome/css/font-awesome.min.css',
                 'bower_components/angular-message-center/dist/css/message-center.min.css',
                 'bower_components/angular-chosen-localytics/chosen-spinner.css',
                 'MegaNavbar/assets/css/MegaNavbar.min.css',
@@ -52,7 +52,9 @@ module.exports = function(grunt) {
             vendor_assets: [
                 'MegaNavbar/assets/plugins/simple-line-icons/**',
                 'bower_components/angular-chosen-localytics/spinner.gif',
-                'bower_components/chosen/**.png'
+                'bower_components/bootstrap/dist/fonts/**',
+                'bower_components/chosen/**.png',
+                'bower_components/font-awesome/fonts/**'
                 
             ],
         },
@@ -120,15 +122,34 @@ module.exports = function(grunt) {
             },
             
             dev_assets: {
-//                src: ['<%= files.vendor_assets %>', 'src/assets/**'],
-//                dest: 'generated/assets/'
-                files: {
-                    //'generated/': 'src/assets/**',
-                    //'generated/assets/': '<%= files.vendor_assets %>'
-                }
+
+                fonts: [{
+                    
+//                    cwd:'bower_components/bootstrap/dist/fonts/',
+//                    src: '**/*',
+//                    dest: 'generated/fonts',
+////                    expand: true,
+//                    flatten: true,
+//                    filter: 'isFile'
+                    expand: true,
+                    cwd:'bower_components/bootstrap/dist/fonts',
+                    src:['**'],
+                    dest: 'generated/fonts/'
+                    
+                    
+//                    'generated/': 'bower_components/font-awesome/fonts/**',
+//                    'dist/': 'bower_components/font-awesome/fonts/**',
+//                    'generated/': 'bower_components/bootstrap/dist/fonts/**',
+//                    'dist/': 'bower_components/bootstrap/dist/fonts/**'
+//                    'generated/assets': 'MegaNavbar/assets/plugins/simple-line-icons/**',
+//                    'dist/assets': 'MegaNavbar/assets/plugins/simple-line-icons/**',
+//                    'generated/assets': 'bower_components/angular-chosen-localytics/spinner.gif',
+//                    'dist/': 'bower_components/angular-chosen-localytics/spinner.gif',
+//                    'generated/assets': 'bower_components/chosen/**.png',
+//                    'dist/': 'bower_components/chosen/**.png'
+                }]
             }
             
-
         },
         
         //Clean Generated Files
