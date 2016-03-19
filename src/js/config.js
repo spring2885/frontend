@@ -7,7 +7,7 @@
         }])
         .config(['$translateProvider', function($translateProvider){
             $translateProvider.useStaticFilesLoader({
-                prefix: '/languages/lang-',
+                prefix: '/src/assets/languages/lang-',
                 suffix: '.json'
             });
             $translateProvider.preferredLanguage('en_US');
