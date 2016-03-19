@@ -1,11 +1,68 @@
 <div ng-controller="newsfeedIndexCtrl">
-    <h4>Your Newsfeed!</h4>
-    
-    <ul>
-        <li ng-repeat="news in newsfeed">{{news.title}}</li>
-    </ul>
-    
-    
-    
-    
-</div>
+
+    <div class="row">
+        <!-- Row that repeast for each Profile -->
+        <div class="row" ng-repeat="news in newsfeed">
+            <a class="pull-left" href="#">
+            	<img class="media-object img-circle" src="{{news.poster_img}}" alt="profile" width="200" height=200">
+            </a>
+
+            <div class="container media-body">
+                <div class="well well-lg">
+                    <div class="panel panel-default ">
+                        <strong><h1>{{news.poster_name}}</h1></strong> <span class="text-muted">commented {{news.date_posted}}</span>
+
+                    </div>
+                    <h3>{{news.title}}</h3>
+
+                    <span class="text-muted"> <h4>{{news.post}}</h4> </span>
+                    <!-- <li ng-repeat="news in newsfeed">{{news.poster_company}}</li>    -->
+
+                    <!-- <a href="#" class="btn btn-warning btn-circle text-uppercase"><span class="glyphicon glyphicon-heart"></span> Like </a> -->
+                    <!-- <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> Comment</a> -->
+
+                    <a class="pull-left" href="#">
+                        <img class="media-object img-circle" src="{{news.poster_img}}" alt="profile" width="65" height="65">
+                    </a>
+                    {{news.poster_name}}
+
+                    <div class="container media-body">
+                        <form class="form-inline" role="form">
+
+                            <div class="form-group">
+
+                                <input class="form-control" type={{news.poster_company}} />
+                            </div>
+                            <div class="form-group">
+                                <a href="#" class="btn btn-warning btn-circle text-uppercase"><span class="glyphicon glyphicon-heart"></span> Like </a>
+
+                            </div>
+                        </form>
+                        <br>
+
+
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-circle" src="{{news.poster_img}}" alt="profile" width="65" height="65">
+                        </a>
+                        {{news.poster_name}}
+                        <div class="col-sm-10 ">
+                            <form class="form-inline" role="form">
+
+
+                                <div class="form-group">
+
+                                    <input class="form-control" type="text" placeholder="Insert your comment" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-default">Comment</button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Repeat -->
+
+    </div>

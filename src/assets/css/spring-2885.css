@@ -11,9 +11,10 @@ body {
 
 #wrap {
     min-height: 100%;
-    height: auto !important;
     height: 100%;
-    padding: 0 0 60px;
+    height: auto !important;
+    position:relative;
+    padding: 0 0 20px; 
 }
 
 .page-content {
@@ -26,10 +27,25 @@ body {
 
 .login-box {
     background-color: #e8eded;
+    height: 100% !important;
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
     border-color: black;
+}
+
+.sign-up-explain-box {
+    background: url(src/assets/images/gradhats2.jpg) #e8eded;
+    height: 100% !important;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    border-color: black;
+}
+
+.sign-up-explain-box ul {
+    padding-left: 85px;
 }
 
 .form-padding {
@@ -37,14 +53,19 @@ body {
 }
 
 .footer-box {
+    clear: both;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0;
+    right: 0;
     border-radius: 10px !important;
     width: 100% !important;
     border-color: black; !important;
 }
 
 .logged-out-footer {
-    padding-top: 15px;
-    position: absolute;
+/*    padding-top: 15px;*/
+/*    position: absolute;*/
     bottom: 0;
     width: 100%;
     height: 80px;
@@ -56,4 +77,61 @@ body {
 
 .logged-out-footer-lower {
     background-color: #8f8f8c;
+}
+
+.logged-out-nav {
+    background-color: #313335;
+}
+
+.logged-out-nav a {
+    border-radius: 10px !important;
+}
+
+.nav-font {
+    font-size: 20px !important;
+    
+}
+
+
+.navbar-custom {
+	background-color: #192f42;
+    color:#ffffff;
+  	border-radius:0;
+    min-height:auto;
+}
+  
+.navbar-custom .navbar-nav > li > a {
+  	color:#fff;
+  	padding-left:25px;
+  	padding-right:25px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+	background-color:transparent;
+}
+      
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #2a3f53;
+}
+      
+.navbar-custom .navbar-brand {
+   color:#eeeeee;
+   padding:20px;
+}
+
+.navbar-custom .navbar-toggle,
+.navbar-custom .nav .open>a, .navbar-custom .nav .open>a:hover, .navbar-custom .nav .open>a:focus {
+   background-color:transparent;
+}
+
+.navbar-custom .icon-bar {
+   border: 1px solid #fff;                
+}
+
+/*-- change navbar dropdown color --*/
+.navbar-custom .navbar-nav .open .dropdown-menu>li>a,.navbar-custom .navbar-nav .open .dropdown-menu {
+    color:#428bca;
 }

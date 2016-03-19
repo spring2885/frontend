@@ -10,9 +10,9 @@
             //loging page
             $stateProvider
                 .state('login', {
-                    url: '/login',
+                    url: '/',
                     templateUrl: 'src/views/login/loginIndex.html',
-                    controller: 'loginCtrl'
+                    //controller: 'loginCtrl'
              });
      
             //sign up page
@@ -23,7 +23,7 @@
                 controller: 'signupCtrl'
             });
      
-            //view a profile
+            //list profiles
             $stateProvider
                 .state('profile-list', {
                 url: '/profiles',
@@ -31,7 +31,7 @@
                 controller: 'profileIndexCtrl'
             });
      
-            //list profiles
+            //view a profile
             $stateProvider
                 .state('profile-view', {
                 url: '/profiles/:id',
@@ -47,7 +47,7 @@
                 controller: 'profileEditCtrl'
             });
      
-            //newesfeed show
+            //newesfeed index
             $stateProvider
                 .state('newsfeed-index', {
                 url: '/newsfeed',
@@ -55,6 +55,7 @@
                 controller: 'newsfeedIndexCtrl'
             });
      
+       /****These Functions are all hadled on the Newsfeed Index Page
             //show a single news item in a newsfeed
             $stateProvider
                 .state('newsfeed-item', {
@@ -70,8 +71,9 @@
                 templateUrl: 'src/views/newsfeed/newsfeedEdit.html',
                 controller: 'newsfeedEditCtrl'
             });
+            *****/
      
-            //job listing show
+            //job view page
             $stateProvider
                 .state('jobs-show', {
                 url: '/jobs/:id',
@@ -79,7 +81,7 @@
                 controller: 'jobsShowCtrl'
             });
      
-            //view a job
+            //Jobs list page
             $stateProvider
                 .state('job-index', {
                 url: '/jobs',
@@ -97,7 +99,7 @@
      
             //show events
             $stateProvider
-                .state('events-show', {
+                .state('events-index', {
                 url: '/events',
                 templateUrl: 'src/views/events/eventsShow.html',
                 controller: 'eventsShowCtrl'
@@ -105,7 +107,7 @@
      
             //view an event
             $stateProvider
-                .state('events-index', {
+                .state('events-show', {
                 url: '/events/:id',
                 templateUrl: 'src/views/events/eventsIndex.html',
                 controller: 'eventsIndexCtrl'
@@ -117,6 +119,62 @@
                 url: '/events/:id/edit',
                 templateUrl: 'src/views/events/eventsEdit.html',
                 controller: 'eventsEditCtrl'
+            });
+       
+            //about us page
+            $stateProvider
+                .state('about', {
+                url: '/about',
+                templateUrl: 'src/views/about.html'
+            });
+       
+            //User Agreement
+            $stateProvider
+                .state('user-agreement', {
+                url: '/userAgreement',
+                templateUrl: 'src/views/userAgreement.html'
+            });
+       
+            //Privacy Policy
+            $stateProvider
+                .state('privacy', {
+                url: '/privacy',
+                templateUrl: 'src/views/privacyPolicy.html'
+            });
+       
+            //Community Guidlines
+            $stateProvider
+                .state('community-guidelines', {
+                url: '/communityGuidlines',
+                templateUrl: 'src/views/communityGuidlines.html'
+            });
+       
+            //Contact Us
+            $stateProvider
+                .state('contact-us', {
+                url: '/contact',
+                templateUrl: 'src/views/contactUs.html'
+            });
+       
+            //Logged Out Post a job
+            $stateProvider
+                .state('loggedOut-postAJob', {
+                url: '/postAJob',
+                templateUrl: 'src/views/loggedOutPostAJob.html'
+            });
+       
+            //forgot password
+            $stateProvider
+                .state('forgot-password', {
+                url: '/forgot',
+                templateUrl: 'src/views/forgotPassword.html'
+            });
+       
+            //Admin
+            $stateProvider
+                .state('admin', {
+                url: '/adminMessageCenter',
+                templateUrl: 'src/views/admin.html'
             });
             
         });
