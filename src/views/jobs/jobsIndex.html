@@ -70,14 +70,18 @@
 
 <br><div ng-controller="jobsIndexCtrl">
 	<div class="input-group col-md-12">
+        
+		<div class="input-group col-md-8"  ng-repeat="job in jobs">
+            
+			     <div class="panel panel-default">
 
-		<div class="input-group col-md-12" ng-repeat="job in jobs">
-			<div class="panel panel-default">
-
-		        <div ng-href="/jobs/{{job.id}}" class="panel-heading"><a ng-href="/jobs/{{job.id}}">{{job.title}}</a></div>
-			  	<div ng-href="/jobs/{{job.type}}" class="panel-body">Job Type: {{job.type}}</div>
-	    
-	    	</div>
+		          <div ng-href="/jobs/{{job.id}}" class="panel-heading"><a ng-href="/jobs/{{job.id}}"><b>{{job.title}}</b></a></div>
+			  	  <div ng-href="/jobs/{{job.type}}" class="panel-body"><b>Job Type:</b> {{job.type}}</div>
+                    <div ng-href="/jobs/{{job.type}}" class="panel-body"><b>Location:</b> {{job.location}}</div>
+	           
+	    	      </div>
+            
 	    </div>
+        
     </div>
 </div>
