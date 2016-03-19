@@ -1,20 +1,19 @@
-
 <div class="row">
+   
     <div class="col-md-12">
       
        <!-- What the app is -->
         <div class="col-md-6 sign-up-explain-box">
-           <h2>Connect with the NDNU Community!</h2> <br>
+           <h2>{{'CONNECT_W_NDNU_COMMUNITY' | translate}}</h2> 
             <div class="col-md-7">
                 
-                <p>This site brings together student, alumni and faculty in a friendly relaxed atmosphere that discourages spam.</p>
+                <p>{{'SITE_EXPLAINER' | translate}}</p>
                 <ul>
-                    <li>See relevant news from your fellow Argonaughts</li><br>
-                    <li>Find, network, and reconnect with fellow classmates</li><br>
-                    <li>A jobs board for Almumni to hire from within the community</li><br>
-                    <li><a href="">Read more about Spring-2885</a></li>
+                    <li>{{'SITE_EXPLAINER.ONE' | translate}}</li><br>
+                    <li>{{'SITE_EXPLAINER.TWO' | translate}}</li><br>
+                    <li>{{'SITE_EXPLAINER.THREE' | translate}}</li><br>
+                    <li><a href="/about">{{'READ_MORE_ABOUT_SPRING2885' | translate}}</a></li>
                 </ul>
-                <br>
             </div>
         </div>
         
@@ -25,65 +24,55 @@
         <div class="col-md-5 col-centered login-box" ng-controller="signUpCtrl">
         
          <!-- Title Lable -->
-          <div class="col-md-10">
-                <h2>Sign Up</h2>
-                <h4><small>And Connect Today!</small></h4>
-           </div>
+          <div class="col-md-12">
+                <h2 class="text-center">{{'NEW_TO_SPRING2885' | translate}}</h2>
+              <h1 class="text-center"><small>{{'SIGN_UP_NOW' | translate}}</small></h1>
+            </div>
+         
            
            <form>
                <div class="form-group col-centered">
-
-                    <div class="col-md-6 text-centered form-padding">
-                        <input class="form-control" type="text" id="inputFName" placeholder="First Name">
+                 
+                    <div class="col-md-12 text-centered form-padding"></div>
+                    
+                    <div class="col-md-12 text-centered form-padding">
+                        <input class="form-control input-lg" 
+                        type="email" 
+                        id="email"
+                        placeholder="{{'EMAIL_ADDRESS' | translate}}">
                     </div>
-                    <div class="col-md-6 text-centered form-padding">
-                        <input class="form-control" type="text" id="inputLName" placeholder="Last Name">
-                    </div>
+        
+                   <div class="col-md-12 text-centered form-padding"></div>
                    
-                    <div class="col-md-3 text-centered form-padding">
-                        <label style="vertical-align: middle !important;">I am a...</label>
+                    <div class="col-md-12 text-centered form-padding">
+                        <input class="form-control input-lg" 
+                        type="password" 
+                        id="password" 
+                        placeholder="{{'NEW_PASSWORD' | translate}}">
                     </div>
-                    <div class="col-md-9 text-centered form-padding">
-                       <select class="col-md-12 form-control"
-                            chosen
-                            ng-model="typeDropDown"
-                            allow-single-deselect="true" 
-                            placeholder="Choose One"
-                            ng-options="person for person in personType.person"
-                            >
-                              <option value=""></option>
-                      </select>
+                    
+                   <div class="col-md-12 text-centered form-padding"></div>
+                   
+                    <div class="col-md-12 radio text-center form-padding">
+                        <label>
+                            <input type="radio" 
+                            name="acceptTerms">
+                                {{'I_ACCEPT_ALL' | translate}}
+                                <a href="">{{'TERMS_AND_POLICIES' | translate}}</a>
+                        </label>
                     </div>
                     
                     <div class="col-md-12 text-centered form-padding">
-                        <input class="form-control" type="email" id="email" placeholder="Email Address">
+                        <button class="btn btn-primary btn-block btn-lg" ng-click="" type="submit">
+                            {{'SIGN_UP' | translate}}
+                        </button>
                     </div>
-                    <div class="col-md-12 text-centered form-padding">
-                        <input class="form-control" type="tel" id="phone" placeholder="Phone Number">
-                    </div>
-                    <!-- choosen person type -->
-                    <div class="col-md-6 text-centered form-padding">
-                        <input class="form-control" type="text" id="occupation" placeholder="Occupation">
-                    </div>
-                    <div class="col-md-6 text-centered form-padding">
-                        <input class="form-control" type="text" id="company" placeholder="Current Company">
-                    </div>
-                    <div class="col-md-12 text-centered form-padding">
-                        <input class="form-control" type="password" id="password" placeholder="New Password">
-                    </div>
-                   <div class="col-md-12 text-centered form-padding"></div>
-                    <div class="col-md-8 radio text-centered form-padding">
-                        <label>
-                            <input type="radio" name="optradio">I accept all <a href="">Terms and Policies</a>
-                        </label>
-                    </div>
-                    <div class="col-md-4 text-centered form-padding">
-                        <button class="btn btn-primary btn-block" ng-click="" type="submit">Sign Up</button>
-                    </div>
+                    
                     <div class="col-md-12 text-centered form-padding"></div>
+                    
                </div>
            </form>
             
-        </div>
+        </div> <!-- End Sign Up -->
     </div>
 </div>
