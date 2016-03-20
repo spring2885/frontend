@@ -166,6 +166,27 @@ module.exports = function(grunt) {
            },
 	    proxies: [
 	      {
+	        context : '/api',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/api-docs',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/swagger.json',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
 	        context : '/user',
 		host: 'localhost',
 		port: 8888,
