@@ -205,7 +205,9 @@ module.exports = function(grunt) {
                         }
                     },
 			middleware: function(connect, options, defaultMiddleware) {
-				return [ proxy.proxyRequest, defaultMiddleware ]
+				defaultMiddleware.unshift(history())
+				defaultMiddleware.unshift(proxy.proxyRequest);
+				return defaultMiddleware
 				},
 		},
             },
