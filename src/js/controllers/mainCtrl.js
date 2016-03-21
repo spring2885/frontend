@@ -1,11 +1,11 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('mainCtrl', ['$scope', '$state', function($scope, $state){
+        .controller('mainCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state){
             $scope.isLoggedIn = false;
             $scope.login = function(){
                 $scope.isLoggedIn = true;
-                $scope.user = userProfile;
+                $rootScope.user = userProfile;
                 $state.go('newsfeed-index');
             };
             $scope.logout = function() {
@@ -18,7 +18,10 @@
                 name: "The Dude",
                 myLang: "en_US",
                 personType: "Student",
-                id: "99999"
+                id: "1989",
+                last_login: "2-15-16"
             };
+            //for dev only
+            $rootScope.user = userProfile;
     }]);
 })();
