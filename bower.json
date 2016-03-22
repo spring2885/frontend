@@ -50,5 +50,8 @@
   },
   "resolutions": {
     "jquery": "~2.2.0"
+  },
+  "devDependencies": {
+    "ng-text-truncate": "*"
   }
 }
