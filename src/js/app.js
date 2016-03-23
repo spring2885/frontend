@@ -9,7 +9,8 @@
         'pascalprecht.translate',
         'ngAnimate',
         'message-center',
-        'localytics.directives'
+        'localytics.directives',
+        'ngTextTruncate'
        ]
     );
 })();
