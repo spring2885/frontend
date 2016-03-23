@@ -7,7 +7,8 @@ module.exports = function(grunt) {
     var rewrite = require('connect-modrewrite');
     var history = require('connect-history-api-fallback');
     var urlRewrite = require('grunt-connect-rewrite');
-    
+    var proxy = require('grunt-connect-proxy/lib/utils'); 
+
     grunt.initConfig({
         
         pkg: grunt.file.readJSON('package.json'),
@@ -137,8 +138,39 @@ module.exports = function(grunt) {
                port: 8000,
                hostname: 'localhost',
            },
+	    proxies: [
+	      {
+	        context : '/api',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/api-docs',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/swagger.json',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/user',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	    ],
             test: {
                 port: 8001,
+		hostname: 'localhost',
                 base: {
                         path: 'generated/',
                         options: {
@@ -159,19 +191,20 @@ module.exports = function(grunt) {
                 }
             },
             dev: {
-                 options: {
+                options: {
                     port: 8001,
-                    middleware: function(connect, options, middleware) {
-                        middleware.unshift(history())
-                        return middleware
-                    },
                     base: {
                         path: 'generated/',
                         options: {
                            index: 'index.html'
                         }
                     },
-                } 
+			middleware: function(connect, options, defaultMiddleware) {
+				defaultMiddleware.unshift(history())
+				defaultMiddleware.unshift(proxy.proxyRequest);
+				return defaultMiddleware
+				},
+		},
             },
             build: {
                 options: {
@@ -210,6 +243,7 @@ module.exports = function(grunt) {
   
     //grunt.loadTasks('tasks');
     
+    grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -220,7 +254,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-open');
     
-    grunt.registerTask('default', ['jshint', 'concat', 'copy', 'connect:dev', 'open:dev', 'watch']);
+  grunt.registerTask('default', ['jshint', 'concat', 'copy', 'configureProxies:dev', 'connect:dev', 'open:dev', 'watch']);
     grunt.registerTask('prodsim', ['build', 'connect:build', 'open:build']);
     grunt.registerTask('build', ['clean', 'cssmin:build', 'uglify:build', 'copy']);
     
