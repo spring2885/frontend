@@ -167,7 +167,21 @@
             $stateProvider
                 .state('forgot-password', {
                 url: '/forgot',
-                templateUrl: 'src/views/forgotPassword.html'
+                templateUrl: 'src/views/lostpassword/forgotPassword.html'
+            });
+       
+            //reset password
+            $stateProvider
+                .state('reset-password', {
+                url: '/reset',
+                templateUrl: 'src/views/lostpassword/resetPassword.html'
+            });
+            
+            //404
+            $stateProvider
+                .state('404', {
+                url: '/404',
+                templateUrl: 'src/views/status/404.html'
             });
        
             //Admin
