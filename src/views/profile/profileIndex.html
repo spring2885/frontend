@@ -49,13 +49,13 @@
 
     		<!-- Profiles -->
 		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles">
-		    	<img src={{profile.profile_img}} class="profile-img img-rounded">
+		    	<img src={{profile.image_url}} class="profile-img img-rounded">
 
 		    	<div class="row">
 		    		<div class="profile-details col-md-10">
 			        	<a class="name" ng-href="/profiles/{{profile.id}}"><h2>{{profile.name}}</h2></a>
-			        	<h4 class="info">{{profile.title}}</h4>
-			        	<h4 class="info">{{profile.company}} - {{profile.occupation}}</h4>
+			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
+			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
 			        </div>
 		        </div>
 		    </li>
