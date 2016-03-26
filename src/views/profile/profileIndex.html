@@ -1,8 +1,64 @@
 <div ng-controller="profileIndexCtrl">
-    <h4>Profiles</h4>
-    
-    <ul>
-        <li ng-repeat="profile in profiles"><a ng-href="/profiles/{{profile.id}}">{{profile.name}}</a></li>
-    </ul>
-    
+
+	<div class="container">
+		<div class="row">
+	        <div id="custom-search-input">
+	            <div class="input-group col-md-12">
+	                <input type="text" class="  search-query form-control" placeholder="Search" />
+	                <span class="input-group-btn">
+	                    <button class="btn btn-danger" type="button">
+	                        <span class=" glyphicon glyphicon-search"></span>
+	                    </button>
+	                </span>
+	            </div>
+	        </div>
+		</div>
+    </div>
+
+    <div class="container">
+		<div class="row">
+	        <div id="filter-panel" class="collapse filter-panel">
+	            <div class="panel panel-default">
+	                <div class="panel-body">
+	                    <form class="form-inline" role="form">
+	                        <div class="form-group">
+	                            <label class="filter-col" style="margin-right:0;" for="pref-search">Key Words:</label>
+	                            <input type="text" class="form-control input-sm" id="pref-search">
+	                        </div><!-- form group [search] -->
+	                        <div class="form-group">
+	                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">Order by:</label>
+	                            <select id="pref-orderby" class="form-control">
+	                                <option>Ascending</option>
+	                                <option>Descending</option>
+	                            </select>                                
+	                        </div> <!-- form group [order by] --> 
+	                    </form>
+	                </div>
+	            </div>
+	        </div>
+
+	    	<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+            	<span class="glyphicon glyphicon-cog"></span> Advanced Search
+        	</button>
+		</div>
+	</div>
+
+	<div class="row">
+    	<div class="col-md-10 col-md-offset-1">
+    	<br><h4>Search results...</h4>
+
+    		<!-- Profiles -->
+		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles">
+		    	<img src={{profile.image_url}} class="profile-img img-rounded">
+
+		    	<div class="row">
+		    		<div class="profile-details col-md-10">
+			        	<a class="name" ng-href="/profiles/{{profile.id}}"><h2>{{profile.name}}</h2></a>
+			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
+			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
+			        </div>
+		        </div>
+		    </li>
+	    </div>
+	</div>  
 </div>
