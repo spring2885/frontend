@@ -7,7 +7,8 @@ module.exports = function(grunt) {
     var rewrite = require('connect-modrewrite');
     var history = require('connect-history-api-fallback');
     var urlRewrite = require('grunt-connect-rewrite');
-    
+    var proxy = require('grunt-connect-proxy/lib/utils'); 
+
     grunt.initConfig({
         
         pkg: grunt.file.readJSON('package.json'),
@@ -34,7 +35,8 @@ module.exports = function(grunt) {
               'bower_components/api-check/api-check.min.js',
               'bower_components/angular-chosen-localytics/chosen.js',
               'bower_components/chosen/chosen.jquery.min.js',
-              'bower_components/chosen/chosen.proto.min.js'
+              'bower_components/chosen/chosen.proto.min.js',
+              'bower_components/ng-text-truncate/ng-text-truncate.js'
           ] ,
             vendor_css: [
                 'bower_components/bootstrap/dist/css/bootstrap.min.css',
@@ -50,7 +52,7 @@ module.exports = function(grunt) {
                 'bower_components/chosen/chosen.min.css'
             ],
             vendor_assets: [
-                'MegaNavbar/assets/plugins/simple-line-icons/**',
+//                'MegaNavbar/assets/plugins/simple-line-icons/**',
                 'bower_components/angular-chosen-localytics/spinner.gif',
                 'bower_components/bootstrap/dist/fonts/**',
                 'bower_components/chosen/**.png',
@@ -116,39 +118,12 @@ module.exports = function(grunt) {
                 files: {
                     'generated/index.html' : 'src/index.html',
                     'dist/index.html' : 'src/index.html',
-                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'src/assets/**', 'backend/**', 'src/assets/languages/**', 'src/assets/images/**'],
-                    'dist/' : ['src/views/**','src/templates/**', '!*.js'] 
-                }
+                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'src/assets/**', 'backend/**', 'src/assets/languages/**', 'fonts/**', 'src/assets/images/**'],
+                    'dist/' : ['src/views/**','src/templates/**', '!*.js']
+                    //'generated/fonts/' : ['<%= files.vendor_assets %>']
+                },
             },
             
-            dev_assets: {
-
-                fonts: [{
-                    
-//                    cwd:'bower_components/bootstrap/dist/fonts/',
-//                    src: '**/*',
-//                    dest: 'generated/fonts',
-////                    expand: true,
-//                    flatten: true,
-//                    filter: 'isFile'
-                    expand: true,
-                    cwd:'bower_components/bootstrap/dist/fonts',
-                    src:['**'],
-                    dest: 'generated/fonts/'
-                    
-                    
-//                    'generated/': 'bower_components/font-awesome/fonts/**',
-//                    'dist/': 'bower_components/font-awesome/fonts/**',
-//                    'generated/': 'bower_components/bootstrap/dist/fonts/**',
-//                    'dist/': 'bower_components/bootstrap/dist/fonts/**'
-//                    'generated/assets': 'MegaNavbar/assets/plugins/simple-line-icons/**',
-//                    'dist/assets': 'MegaNavbar/assets/plugins/simple-line-icons/**',
-//                    'generated/assets': 'bower_components/angular-chosen-localytics/spinner.gif',
-//                    'dist/': 'bower_components/angular-chosen-localytics/spinner.gif',
-//                    'generated/assets': 'bower_components/chosen/**.png',
-//                    'dist/': 'bower_components/chosen/**.png'
-                }]
-            }
             
         },
         
@@ -163,8 +138,39 @@ module.exports = function(grunt) {
                port: 8000,
                hostname: 'localhost',
            },
+	    proxies: [
+	      {
+	        context : '/api',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/api-docs',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/swagger.json',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/user',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	    ],
             test: {
                 port: 8001,
+		hostname: 'localhost',
                 base: {
                         path: 'generated/',
                         options: {
@@ -185,19 +191,20 @@ module.exports = function(grunt) {
                 }
             },
             dev: {
-                 options: {
+                options: {
                     port: 8001,
-                    middleware: function(connect, options, middleware) {
-                        middleware.unshift(history())
-                        return middleware
-                    },
                     base: {
                         path: 'generated/',
                         options: {
                            index: 'index.html'
                         }
                     },
-                } 
+			middleware: function(connect, options, defaultMiddleware) {
+				defaultMiddleware.unshift(history())
+				defaultMiddleware.unshift(proxy.proxyRequest);
+				return defaultMiddleware
+				},
+		},
             },
             build: {
                 options: {
@@ -236,6 +243,7 @@ module.exports = function(grunt) {
   
     //grunt.loadTasks('tasks');
     
+    grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -246,7 +254,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-open');
     
-    grunt.registerTask('default', ['jshint', 'concat', 'copy', 'connect:dev', 'open:dev', 'watch']);
+  grunt.registerTask('default', ['jshint', 'concat', 'copy', 'configureProxies:dev', 'connect:dev', 'open:dev', 'watch']);
     grunt.registerTask('prodsim', ['build', 'connect:build', 'open:build']);
     grunt.registerTask('build', ['clean', 'cssmin:build', 'uglify:build', 'copy']);
     
