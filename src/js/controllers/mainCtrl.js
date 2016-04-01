@@ -22,6 +22,8 @@
                     } else {
                         console.log("But received invalid data.");
                         $scope.isLoggedIn = false;
+                        /** Clear the Authorization header. */
+                        $http.defaults.headers.common.Authorization = 'Basic ';
                     }
                     if (callback) callback();
                     
@@ -30,14 +32,14 @@
             
              $scope.login = function() {
                  
-                 console.log("TEST: " + $scope.credentials.username + " " + $scope.credentials.password);
-                 var urlEncodedData = 'username=' +                                     encodeURIComponent($scope.credentials.username)+ 
-                 '&password=' +
-                 encodeURIComponent($scope.credentials.password);
-                 
-                 $http.post('user', urlEncodedData, {
-                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' } 
-                 }).then(function successCallback(response) {
+                 var stringToEncode = $scope.credentials.username + ":" + $scope.credentials.password;
+                 console.log("TEST: " + stringToEncode);
+                 /** TODO: sean - you want to save this enc block into the rootScope probably */
+                 var enc = window.btoa(stringToEncode);
+                 $http.defaults.headers.common.Authorization = 'Basic ' + enc;
+
+                 $http.get('user')
+                 .then(function successCallback(response) {
                      authenticate();
                      console.log("Login succeeded " + JSON.stringify(response));
                      $state.go('newsfeed-index');
