@@ -49,9 +49,15 @@
     "ng-text-truncate": "*"
   },
   "resolutions": {
-    "jquery": "~2.2.0"
+    "jquery": "~2.2.0",
+    "angular": "~1.4.9"
   },
   "devDependencies": {
-    "ng-text-truncate": "*"
+    "ng-text-truncate": "*",
+    "angular-timezone-selector": "^1.6.0",
+    "angular-basicauth": "^0.3.0",
+    "angular-ui-calendar": "^1.0.1",
+    "angular-sanitize": "^1.5.3",
+    "ngInfiniteScroll": "^1.2.2"
   }
 }
