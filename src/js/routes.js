@@ -5,30 +5,36 @@
         .config(function($stateProvider, $urlRouterProvider){
      
             //If not a page redirect to login
-            $urlRouterProvider.otherwise('/login');
+            $urlRouterProvider.otherwise('/newsfeed');
             
             //loging page
             $stateProvider
                 .state('login', {
-                    url: '/',
+                    url: '/login',
                     templateUrl: 'src/views/login/loginIndex.html',
                     //controller: 'loginCtrl'
+                    data: {
+                        requireLogin: false
+                    }
              });
      
-            //sign up page
-            $stateProvider
-                .state('sign-up', {
-                url: '/signup',
-                templateUrl: 'src/views/login/signupIndex.html',
-                controller: 'signupCtrl'
-            });
+//            //sign up page
+//            $stateProvider
+//                .state('sign-up', {
+//                url: '/signup',
+//                templateUrl: 'src/views/login/signupIndex.html',
+//                controller: 'signupCtrl'
+//            });
      
             //list profiles
             $stateProvider
                 .state('profile-list', {
                 url: '/profiles',
                 templateUrl: 'src/views/profile/profileIndex.html',
-                controller: 'profileIndexCtrl'
+                controller: 'profileIndexCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
             //view a profile
@@ -36,7 +42,10 @@
                 .state('profile-view', {
                 url: '/profiles/:id',
                 templateUrl: '/src/views/profile/profileShow.html',
-                controller: 'profileShowCtrl'
+                controller: 'profileShowCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
             //edit profile
@@ -44,7 +53,10 @@
                 .state('profile-edit', {
                 url: '/profiles/:id/edit',
                 templateUrl: '/src/views/profile/profileEdit.html',
-                controller: 'profileEditCtrl'
+                controller: 'profileEditCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
             //newesfeed index
@@ -52,7 +64,10 @@
                 .state('newsfeed-index', {
                 url: '/newsfeed',
                 templateUrl: 'src/views/newsfeed/newsFeedIndex.html',
-                controller: 'newsfeedIndexCtrl'
+                controller: 'newsfeedIndexCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
        /****These Functions are all hadled on the Newsfeed Index Page
@@ -78,7 +93,10 @@
                 .state('jobs-show', {
                 url: '/jobs/:id',
                 templateUrl: '/src/views/jobs/jobsShow.html',
-                controller: 'jobsShowCtrl'
+                controller: 'jobsShowCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
             //Jobs list page
@@ -86,7 +104,10 @@
                 .state('job-index', {
                 url: '/jobs',
                 templateUrl: 'src/views/jobs/jobsIndex.html',
-                controller: 'jobsIndexCtrl'
+                controller: 'jobsIndexCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
             //create-edit a job posting
@@ -94,7 +115,10 @@
                 .state('job-edit', {
                 url: '/jobs/:id/edit',
                 templateUrl: 'src/views/jobs/jobsEdit.html',
-                controller: 'jobsEditCtrl'
+                controller: 'jobsEditCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
             //show events
@@ -102,7 +126,10 @@
                 .state('events-index', {
                 url: '/events',
                 templateUrl: 'src/views/events/eventsShow.html',
-                controller: 'eventsShowCtrl'
+                controller: 'eventsShowCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
             //view an event
@@ -110,7 +137,10 @@
                 .state('events-show', {
                 url: '/events/:id',
                 templateUrl: 'src/views/events/eventsIndex.html',
-                controller: 'eventsIndexCtrl'
+                controller: 'eventsIndexCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
      
             //create-edit an event
@@ -118,77 +148,130 @@
                 .state('events-edit', {
                 url: '/events/:id/edit',
                 templateUrl: 'src/views/events/eventsEdit.html',
-                controller: 'eventsEditCtrl'
+                controller: 'eventsEditCtrl',
+                data: {
+                    requireLogin: true
+                }
             });
        
             //about us page
             $stateProvider
                 .state('about', {
                 url: '/about',
-                templateUrl: 'src/views/about.html'
+                templateUrl: 'src/views/info/about.html',
+                data: {
+                    requireLogin: false
+                }
             });
        
             //User Agreement
             $stateProvider
                 .state('user-agreement', {
                 url: '/userAgreement',
-                templateUrl: 'src/views/userAgreement.html'
+                templateUrl: 'src/views/info/userAgreement.html',
+                data: {
+                    requireLogin: false
+                }
             });
        
             //Privacy Policy
             $stateProvider
                 .state('privacy', {
                 url: '/privacy',
-                templateUrl: 'src/views/privacyPolicy.html'
+                templateUrl: 'src/views/info/privacyPolicy.html',
+                data: {
+                    requireLogin: false
+                }
             });
        
             //Community Guidlines
             $stateProvider
                 .state('community-guidelines', {
                 url: '/communityGuidlines',
-                templateUrl: 'src/views/communityGuidlines.html'
+                templateUrl: 'src/views/info/communityGuidlines.html',
+                data: {
+                    requireLogin: false
+                }
             });
        
             //Contact Us
             $stateProvider
                 .state('contact-us', {
                 url: '/contact',
-                templateUrl: 'src/views/contactUs.html'
+                templateUrl: 'src/views/info/contactUs.html',
+                data: {
+                    requireLogin: false
+                }
             });
        
             //Logged Out Post a job
             $stateProvider
                 .state('loggedOut-postAJob', {
                 url: '/postAJob',
-                templateUrl: 'src/views/loggedOutPostAJob.html'
+                templateUrl: 'src/views/loggedOutPostAJob.html',
+                data: {
+                    requireLogin: false
+                }
             });
        
             //forgot password
             $stateProvider
                 .state('forgot-password', {
                 url: '/forgot',
-                templateUrl: 'src/views/lostpassword/forgotPassword.html'
+                templateUrl: 'src/views/lostpassword/forgotPassword.html',
+                data: {
+                    requireLogin: false
+                }
             });
        
             //reset password
             $stateProvider
                 .state('reset-password', {
                 url: '/reset',
-                templateUrl: 'src/views/lostpassword/resetPassword.html'
+                templateUrl: 'src/views/lostpassword/resetPassword.html',
+                data: {
+                    requireLogin: false
+                }
             });
             
             //404
             $stateProvider
                 .state('404', {
                 url: '/404',
-                templateUrl: 'src/views/status/404.html'
+                templateUrl: 'src/views/status/404.html',
+                data: {
+                    requireLogin: false
+                }
             });
        
             //Admin
             $stateProvider
                 .state('admin', {
                 url: '/adminMessageCenter',
-                templateUrl: 'src/views/admin.html'
+                templateUrl: 'src/views/admin/admin.html',
+                data: {
+                    requireLogin: true
+                }
+            });
+       
+            //Preferences
+            $stateProvider
+                .state('user-settings', {
+                url: '/:id/preferences',
+                templateUrl: 'src/views/profile/userSettings.html',
+                data: {
+                    requireLogin: true
+                }
+            });
+       
+            //Help
+            $stateProvider
+                .state('help', {
+                url: '/help',
+                templateUrl: 'src/views/info/help.html',
+                data: {
+                    requireLogin: true
+                }
             });
             
         });
