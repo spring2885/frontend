@@ -15,37 +15,12 @@
 		</div>
     </div>
 
-	<div class="container">
+    <div class="container">
 		<div class="row">
 	        <div id="filter-panel" class="collapse filter-panel">
 	            <div class="panel panel-default">
 	                <div class="panel-body">
 	                    <form class="form-inline" role="form">
-	                        <div class="form-group">
-	                            <label class="filter-col" style="margin-right:0;" for="pref-perpage">Rows per page:</label>
-	                            <select id="pref-perpage" class="form-control">
-	                                <option value="2">2</option>
-	                                <option value="3">3</option>
-	                                <option value="4">4</option>
-	                                <option value="5">5</option>
-	                                <option value="6">6</option>
-	                                <option value="7">7</option>
-	                                <option value="8">8</option>
-	                                <option value="9">9</option>
-	                                <option selected="selected" value="10">10</option>
-	                                <option value="15">15</option>
-	                                <option value="20">20</option>
-	                                <option value="30">30</option>
-	                                <option value="40">40</option>
-	                                <option value="50">50</option>
-	                                <option value="100">100</option>
-	                                <option value="200">200</option>
-	                                <option value="300">300</option>
-	                                <option value="400">400</option>
-	                                <option value="500">500</option>
-	                                <option value="1000">1000</option>
-	                            </select>                                
-	                        </div> <!-- form group [rows] -->
 	                        <div class="form-group">
 	                            <label class="filter-col" style="margin-right:0;" for="pref-search">Key Words:</label>
 	                            <input type="text" class="form-control input-sm" id="pref-search">
@@ -61,28 +36,29 @@
 	                </div>
 	            </div>
 	        </div>
-	    </div>
+
+	    	<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
+            	<span class="glyphicon glyphicon-cog"></span> Advanced Search
+        	</button>
+		</div>
 	</div>
 
 	<div class="row">
-    	<div class="col-md-1"></div>
-
-    	<div class="col-md-10">
+    	<div class="col-md-10 col-md-offset-1">
     	<br><h4>Search results...</h4>
 
     		<!-- Profiles -->
 		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles">
-		    	<img src={{profile.profile_img}} class="profile-img img-rounded">
+		    	<img src={{profile.image_url}} class="profile-img img-rounded">
 
 		    	<div class="row">
-		    		<div class="profile-details col-lg-10">
+		    		<div class="profile-details col-md-10">
 			        	<a class="name" ng-href="/profiles/{{profile.id}}"><h2>{{profile.name}}</h2></a>
-			        	<h4 class="info">{{profile.title}}</h4>
-			        	<h4 class="info">{{profile.company}} - {{profile.occupation}}</h4>
+			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
+			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
 			        </div>
 		        </div>
 		    </li>
 	    </div>
-	</div>
-</div>   
+	</div>  
 </div>

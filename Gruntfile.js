@@ -7,7 +7,8 @@ module.exports = function(grunt) {
     var rewrite = require('connect-modrewrite');
     var history = require('connect-history-api-fallback');
     var urlRewrite = require('grunt-connect-rewrite');
-    
+    var proxy = require('grunt-connect-proxy/lib/utils'); 
+
     grunt.initConfig({
         
         pkg: grunt.file.readJSON('package.json'),
@@ -16,6 +17,7 @@ module.exports = function(grunt) {
           vendor_js: [
               'bower_components/jquery/dist/jquery.min.js',
               'bower_components/jquery-ui/jquery-ui.min.js',
+              'bower_components/moment/min/moment.min.js',
               'bower_components/bootstrap/dist/js/bootstrap.min.js',
               'bower_components/chosen/chosen.jquery.min.js',
               'bower_components/lodash/dist/lodash.min.js',
@@ -25,17 +27,28 @@ module.exports = function(grunt) {
               'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
               'bower_components/angular-cookies/angular-cookies.min.js',
               'bower_components/ngstorage/ngStorage.min.js',
+              'bower_components/base64-js/lib/b64.js',
+              'bower_components/angular-base64/angular-base64.min.js',
               'bower_components/angular-resource/angular-resource.min.js',
               'bower_components/angular-animate/angular-animate.min.js',
               'bower_components/angular-bootstrap/ui-bootstrap.min.js',
               'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
               'bower_components/bootstrap-material-design/dist/js/material.min.js',
+              'bower_components/message-center/message-center.js',
               'bower_components/angular-message-center/dist/js/message-center.min.js',
               'bower_components/api-check/api-check.min.js',
               'bower_components/angular-chosen-localytics/chosen.js',
               'bower_components/chosen/chosen.jquery.min.js',
               'bower_components/chosen/chosen.proto.min.js',
-              'bower_components/ng-text-truncate/ng-text-truncate.js'
+              'bower_components/angular-basicauth/angular-basicauth.min.js',
+              'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+              'bower_components/ng-text-truncate/ng-text-truncate.js',
+              'bower_components/angular-sanitize/angular-sanitize.min.js',
+              'bower_components/angular-timezone-selector/dist/angular-timezone-selector.min.js',
+              'bower_components/angular-ui-calendar/src/calendar.js',
+              'bower_components/fullcalendar/dist/fullcalendar.min.js',
+              'bower_components/fullcalendar/dist/gcal.js',
+              'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js'
           ] ,
             vendor_css: [
                 'bower_components/bootstrap/dist/css/bootstrap.min.css',
@@ -48,7 +61,9 @@ module.exports = function(grunt) {
                 'MegaNavbar/assets/css/MegaNavbar.min.css',
                 'MegaNavbar/assets/css/animation/*.css',
                 'MegaNavbar/assets/css/skins/*.css',
-                'bower_components/chosen/chosen.min.css'
+                'bower_components/chosen/chosen.min.css',
+                'bower_components/angular-timezone-selector/dist/angular-timezone-selector.min.css',
+                'bower_components/fullcalendar/dist/fullcalendar.min.css'
             ],
             vendor_assets: [
 //                'MegaNavbar/assets/plugins/simple-line-icons/**',
@@ -137,8 +152,39 @@ module.exports = function(grunt) {
                port: 8000,
                hostname: 'localhost',
            },
+	    proxies: [
+	      {
+	        context : '/api',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/api-docs',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/swagger.json',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	      {
+	        context : '/user',
+		host: 'localhost',
+		port: 8888,
+		https: false,
+ 	        changeOrigin: true,
+	      },
+	    ],
             test: {
                 port: 8001,
+		hostname: 'localhost',
                 base: {
                         path: 'generated/',
                         options: {
@@ -159,19 +205,20 @@ module.exports = function(grunt) {
                 }
             },
             dev: {
-                 options: {
+                options: {
                     port: 8001,
-                    middleware: function(connect, options, middleware) {
-                        middleware.unshift(history())
-                        return middleware
-                    },
                     base: {
                         path: 'generated/',
                         options: {
                            index: 'index.html'
                         }
                     },
-                } 
+			middleware: function(connect, options, defaultMiddleware) {
+				defaultMiddleware.unshift(history())
+				defaultMiddleware.unshift(proxy.proxyRequest);
+				return defaultMiddleware
+				},
+		},
             },
             build: {
                 options: {
@@ -210,6 +257,7 @@ module.exports = function(grunt) {
   
     //grunt.loadTasks('tasks');
     
+    grunt.loadNpmTasks('grunt-connect-proxy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -220,7 +268,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-open');
     
-    grunt.registerTask('default', ['jshint', 'concat', 'copy', 'connect:dev', 'open:dev', 'watch']);
+  grunt.registerTask('default', ['jshint', 'concat', 'copy', 'configureProxies:dev', 'connect:dev', 'open:dev', 'watch']);
     grunt.registerTask('prodsim', ['build', 'connect:build', 'open:build']);
     grunt.registerTask('build', ['clean', 'cssmin:build', 'uglify:build', 'copy']);
     

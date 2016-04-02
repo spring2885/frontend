@@ -1,7 +1,46 @@
-<div ng-controller="profileShowCtrl">
-    <h4>Look at my Profile</h4>
+
+<!--<div ng-controller="profileShowCtrl">-->
+    <div class="container">
+        
+<!-- USER PROFILE ROW STARTS-->
     <div class="row">
-        {{profile.name}}
+        <div class="col-md-3 col-sm-3">
+            
+             <div class="user-wrapper">
+            <img src={{profile.profile_img}} class="img-rounded img-responsive" />
+        <div class="description">
+                <h4>{{profile.name}}</h4>
+            <h5> <strong> {{profile.company}} </strong></h5>
+            <p>
+            {{profile.occupation}}
+            </p>
+            <hr />
+                 </div>
+            </div>
     </div>
-    
-</div>
+         <div class="col-md-9 col-sm-9  user-wrapper">
+                    <div class="description">
+                         <h3>{{profile.name}} About Me : </h3>
+                    <hr />
+                     <p>
+                         {{profile.about_me}}
+                    </p>
+                        
+        <h3> Social Links: </h3>
+                    <hr />                
+                   <a href="#" class="btn btn-social btn-facebook">
+                            <i class="fa fa-facebook"></i>&nbsp; Facebook </a>
+
+                        <a href="#" class="btn btn-social btn-google">
+                            <i class="fa fa-google-plus"></i>&nbsp; Google</a>
+                        <a href="#" class="btn btn-social btn-twitter">
+                            <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
+                        <a href="#" class="btn btn-social btn-linkedin">
+                            <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
+                    </div>
+                 
+                </div>
+            </div>
+           <!-- USER PROFILE ROW END-->
+    </div>
+    <!-- CONATINER END -->
