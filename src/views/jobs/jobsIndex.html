@@ -14,14 +14,14 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="row ">
         <div class="row">
             <div class="text-center">
                  <button type="button" class="btn btn-primary" ng-click="advancedSearch = !advancedSearch">
                     <span>{{'ADVANCED_SEARCH' | translate}} <i class="fa fa-search-plus"></i></span>
                 </button>
             </div>
-            <div id="filter-panel" ng-show="advancedSearch">
+            <div id="filter-panel" ng-show="advancedSearch" class="col-md-8 col-md-offset-2 text-center">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form class="form-inline" role="form">
@@ -66,7 +66,7 @@
     <div ng-controller="jobsIndexCtrl">
         <div class="input-group col-md-12">
 
-            <div class="input-group col-md-12" ng-repeat="job in jobs">
+            <div class=" col-md-12" ng-repeat="job in jobs">
                 <div class="row panel panel-default">
                    <div class="col-md-2 text-center" style="padding-top:35px;">
                        <i class=" fa fa-institution fa-lg fa-4x"></i><br><br>{{job.type | uppercase}}
@@ -75,7 +75,7 @@
                         <div ng-href="/jobs/{{job.id}}" class="row col-md-12">
                             <a ng-href="/jobs/{{job.id}}"><h4>{{job.title}}</h4></a>
                         </div>
-                        <div ng-href="/jobs/{{job.id}}" class="row col-md-12">
+                        <div class="row col-md-12">
                             <a ng-href="/jobs/{{job.id}}">{{'COMPANY' | translate}}: {{job.poster_company}}</a>
                         </div>
                         <div ng-href="/jobs/{{job.type}}" class="text-muted row col-md-12">
