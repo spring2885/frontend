@@ -10,7 +10,12 @@
         'ngAnimate',
         'message-center',
         'localytics.directives',
-        'ngTextTruncate'
+        'ngTextTruncate',
+        'angular-timezone-selector',
+        'ui.calendar',
+        //'angularBasicAuth',
+        'ngSanitize',
+        'infinite-scroll',
        ]
     );
 })();

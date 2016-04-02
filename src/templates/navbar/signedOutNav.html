@@ -15,24 +15,25 @@
                 </a>
             </div>
             <div class="col-md-6">
-                <form class="nav navbar-nav navbar-right" style="margin-top: 15px;">
+                <form ng-submit="login()" class="nav navbar-nav navbar-right" style="margin-top: 15px;">
                    
                     <div class="form-group col-centered">
                     
                     <div class="col-md-5">
                         <input class="form-control input-lg" 
                         type="email" 
-                        id="email" 
+                        id="email"
+                        ng-model="credentials.username" 
                         placeholder="{{'EMAIL_ADDRESS' | translate}}">                
                     </div>
                     <div class="col-md-5">
                         <input class="form-control input-lg"
                          type="password" 
-                         id="password" 
+                         id="password"
+                         ng-model="credentials.password" 
                          placeholder="{{'PASSWORD' | translate}}">
                     </div>
                     <button class="btn btn-primary btn-lg" 
-                            ng-click="login()" 
                             type="submit">
                             {{'SIGN_IN' | translate}}
                     </button>
