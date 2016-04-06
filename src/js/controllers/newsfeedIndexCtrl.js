@@ -5,7 +5,7 @@
                  $scope.newsfeed = [];
                  $scope.user = $rootScope.user;
                  $scope.edit = false;
-                 $http.get('/backend/newsfeed.json').success(
+                 $http.get('/api/v1/news').success(
                       function(response){
                           $scope.newsfeed = response;
                           return $scope.newsfeed;

@@ -53,7 +53,8 @@
 
 		    	<div class="row">
 		    		<div class="profile-details col-md-10">
-			        	<a class="name" ng-href="/profiles/{{profile.id}}"><h2>{{profile.name}}</h2></a>
+			        	<a class="name" ng-href="/profiles/{{profile.id}}">
+			        	  <h2>{{profile.name || profile.email}}</h2></a>
 			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
 			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
 			        </div>
