@@ -8,6 +8,7 @@
         $scope.formData = {};
 
         $scope.signup = function() {
+        	console.log("signup()");
         	$http({
 			method  : 'POST',
 			url     : 'newuser',
