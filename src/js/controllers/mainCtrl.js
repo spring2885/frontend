@@ -12,7 +12,6 @@
             MessageService.configure({disabled:false, max:3, timeout:3500});
 
             authDefaults.authenticateUrl = '/user';
-            authService.addEndpoint();
 
             // listen for login events
             $rootScope.$on('login', function() {
