@@ -18,24 +18,29 @@
             $rootScope.$on('login', function() {
                 console.log("login event handler.");
                 $scope.loggedInUsername = authService.username();
+
+                // Grab the current user profile.
+                $http.get('user').success(function(data) {
+                    console.log("Logged on as: {#" +
+                        data.person.id + " " + data.person.email + 
+                        "}");
+                    $scope.$storage.user = data.person;
+                    $scope.$storage.isLoggedIn = true;
+                    $scope.isLoggedIn = true;
+    
+                    $state.go('newsfeed-index');
+                });
             });
 
             // listen for logout events
             $rootScope.$on('logout', function() {
-                console.log("logout event handler.");
+                console.log("Logout event handler.");
                 delete $scope.$storage.user;
                 $scope.$storage.isLoggedIn = false;
                 $scope.isLoggedIn = false;
+                $state.go('login');
             });
                                     
-            var setLoggedInUser = function() {
-                $http.get('user').success(function(data) {
-                    console.log("setLoggedInUser: [/user] person: " +
-                        JSON.stringify(data.person));
-                    $scope.$storage.user = data.person;
-                });
-            };
-
             var checkLoggedIn = function() {
                 if (!$scope.$storage.user) {
                     return false;
@@ -45,7 +50,6 @@
                                     
             $scope.$storage.isLoggedIn = checkLoggedIn();
             $scope.isLoggedIn = $scope.$storage.isLoggedIn;
-            console.log("isLoggedIn = " + $scope.isLoggedIn);
             
             $scope.credentials = {
                 username : "",
@@ -55,26 +59,8 @@
             $scope.login = function() {
                 authService
                     .login($scope.credentials.username, $scope.credentials.password)
-                    .success(function() {
-                        console.log("/user success: " + authService.username());
-
-                        $scope.$storage.isLoggedIn = true;
-                        $scope.isLoggedIn = true;
-
-                        // Grab the current user profile.
-                        setLoggedInUser();
-                        //console.log("SUCCESS: user: " + $scope.$storage.user.email);
-                    
-                        $state.go('newsfeed-index');
-                    })
                     .error(function() {
                         console.log("FAILURE: login failed: " + $scope.credentials.username);
-                    
-                        /*
-                        for debugging:
-                        console.log('SHIT!');
-                        */
-                    
                         var msg = $translate.instant('login.FAILED');
                         MessageService.broadcast(msg, {color: 'danger'});
                     });
@@ -82,10 +68,7 @@
             
             $scope.logout = function() {
                 authService.logout();
-                $state.go('login');
             };
-            
-            
      }]);
 })();
 
