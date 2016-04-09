@@ -3,7 +3,7 @@
     angular.module('spring-2885')   
         .controller('jobsShowCtrl', ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http){
                  $scope.job = {};
-                 $http.get('/backend/job' + $stateParams.id + '.json').success(
+                 $http.get('/api/v1/jobs/' + $stateParams.id).success(
                       function(response){
                           $scope.job = response;
                           return $scope.job;
