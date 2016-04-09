@@ -22,14 +22,14 @@
 	                <div class="panel-body">
 	                    <form class="form-inline" role="form">
 	                        <div class="form-group">
-	                            <label class="filter-col" style="margin-right:0;" for="pref-search">Key Words:</label>
+	                            <label class="filter-col" style="margin-right:0;" for="pref-search">{{'SEARCH_KEY_WORDS' | translate}}:</label>
 	                            <input type="text" class="form-control input-sm" id="pref-search">
 	                        </div><!-- form group [search] -->
 	                        <div class="form-group">
-	                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">Order by:</label>
+	                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">{{'SEARCH_ORDER_BY' | translate}}:</label>
 	                            <select id="pref-orderby" class="form-control">
-	                                <option>Ascending</option>
-	                                <option>Descending</option>
+	                                <option>{{'SEARCH_ASCENDING' | translate}}</option>
+	                                <option>{{'SEARCH_DESCENDING' | translate}}</option>
 	                            </select>                                
 	                        </div> <!-- form group [order by] --> 
 	                    </form>
@@ -38,14 +38,14 @@
 	        </div>
 
 	    	<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
-            	<span class="glyphicon glyphicon-cog"></span> Advanced Search
+            	<span class="glyphicon glyphicon-cog"></span>
         	</button>
 		</div>
 	</div>
 
 	<div class="row">
     	<div class="col-md-10 col-md-offset-1">
-    	<br><h4>Search results...</h4>
+    	<br><h4>{{'SEARCH_RESULTS' | translate}}...</h4>
 
     		<!-- Profiles -->
 		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles">
@@ -53,7 +53,8 @@
 
 		    	<div class="row">
 		    		<div class="profile-details col-md-10">
-			        	<a class="name" ng-href="/profiles/{{profile.id}}"><h2>{{profile.name}}</h2></a>
+			        	<a class="name" ng-href="/profiles/{{profile.id}}">
+			        	  <h2>{{profile.name || profile.email}}</h2></a>
 			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
 			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
 			        </div>
