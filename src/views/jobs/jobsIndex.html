@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="row col-md-12">
+    <div class="row col-md-12" style="margin-top:-45px;">
         <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-suitcase fa-lg"></i> {{'JOBS' | translate}}</h2>
         <div id="custom-search-input">
             <div class="input-group col-md-6 col-md-offset-3" style="border-radius:10px;">
@@ -62,8 +62,21 @@
         </div>
     </div>
 
-
-    <div ng-controller="jobsIndexCtrl">
+<div>
+   <br>
+    <div ng-controller="jobsIndexCtrl" class="col-md-10 col-md-offset-1">
+    
+    <!--Filter Tabs are not really needed for Jobs -->
+<!--
+        <div class="row">
+            <ul class="nav nav-tabs filter-tabs">
+                <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'STUDENTS' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'ALUMNI' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a></li>
+            </ul>
+        </div>
+-->
         <div class="input-group col-md-12">
 
             <div class=" col-md-12" ng-repeat="job in jobs">
@@ -87,5 +100,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div></div>
 </div>

@@ -1,6 +1,17 @@
 
 <div ng-controller="newsfeedIndexCtrl">
     <div class="row">
+     <div class="row" style="margin-top:-45px;">
+        <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-newspaper-o"></i> {{'NEWSFEED' | translate}}</h2>
+      </div>
+       <div class="row col-md-10 col-md-offset-1">
+            <ul class="nav nav-tabs filter-tabs">
+                <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'STUDENTS' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'ALUMNI' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a></li>
+              </ul>
+          </div>
         <div class="row col-md-10 col-md-offset-1" ng-repeat="news in newsfeed" >
            <div class="row well well-lg">
                <div class="row" ng-show="isNew(news.posted, user.last_login) 

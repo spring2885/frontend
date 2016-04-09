@@ -1,51 +1,80 @@
 <div ng-controller="profileIndexCtrl">
 
-	<div class="container">
-		<div class="row">
-	        <div id="custom-search-input">
-	            <div class="input-group col-md-12">
-	                <input type="text" class="  search-query form-control" placeholder="Search" />
-	                <span class="input-group-btn">
-	                    <button class="btn btn-danger" type="button">
-	                        <span class=" glyphicon glyphicon-search"></span>
-	                    </button>
-	                </span>
-	            </div>
-	        </div>
-		</div>
+    <div class="row col-md-12" style="margin-top:-45px;">
+        <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-users"></i> {{'PROFILES' | translate}}</h2>
+        <div id="custom-search-input">
+            <div class="input-group col-md-6 col-md-offset-3" style="border-radius:10px;">
+                <input type="text" class=" search-query form-control" 
+                            placeholder="{{'SEARCH' | translate}}"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-sucess" type="button">
+                        <i class=" glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-		<div class="row">
-	        <div id="filter-panel" class="collapse filter-panel">
-	            <div class="panel panel-default">
-	                <div class="panel-body">
-	                    <form class="form-inline" role="form">
-	                        <div class="form-group">
-	                            <label class="filter-col" style="margin-right:0;" for="pref-search">{{'SEARCH_KEY_WORDS' | translate}}:</label>
-	                            <input type="text" class="form-control input-sm" id="pref-search">
-	                        </div><!-- form group [search] -->
-	                        <div class="form-group">
-	                            <label class="filter-col" style="margin-right:0;" for="pref-orderby">{{'SEARCH_ORDER_BY' | translate}}:</label>
-	                            <select id="pref-orderby" class="form-control">
-	                                <option>{{'SEARCH_ASCENDING' | translate}}</option>
-	                                <option>{{'SEARCH_DESCENDING' | translate}}</option>
-	                            </select>                                
-	                        </div> <!-- form group [order by] --> 
-	                    </form>
-	                </div>
-	            </div>
-	        </div>
-
-	    	<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filter-panel">
-            	<span class="glyphicon glyphicon-cog"></span>
-        	</button>
-		</div>
-	</div>
+<div class="row">
+        <div class="row">
+            <div class="text-center">
+                 <button type="button" class="btn btn-primary" ng-click="advancedSearch = !advancedSearch">
+                    <span>{{'ADVANCED_SEARCH' | translate}} <i class="fa fa-search-plus"></i></span>
+                </button>
+            </div>
+            <div id="filter-panel" ng-show="advancedSearch" class="col-md-8 col-md-offset-2 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-perpage">
+                                    {{'JOBS_PER_PAGE' | translate}}:
+                                </label>
+                                <select id="pref-perpage" class="form-control">
+                                    <option value="5">5</option>
+                                    <option selected="selected" value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="all">{{'SHOW_ALL' | translate}}</option>
+                                </select>                                
+                            </div>
+                            <!-- There should probably be a way to search only Profiles/jobs/news 
+                                or to not include one or more -->
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-search">Key Words:</label>
+                                <input type="text" class="form-control input-sm" id="pref-search">
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-orderby">
+                                    {{'ORDER_BY' | translate}}:
+                                </label>
+                                <select id="pref-orderby" class="form-control">
+                                    <option>{{'ASCENDING' | translate}}</option>
+                                    <option>{{'DESCENDING' | translate}}</option>
+                                </select>                                
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
 
 	<div class="row">
+       
     	<div class="col-md-10 col-md-offset-1">
     	<br><h4>{{'SEARCH_RESULTS' | translate}}...</h4>
+             <div class="row">
+                <ul class="nav nav-tabs filter-tabs">
+                    <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a></li>
+                    <li><a data-toggle="tab" href="">{{'STUDENTS' | translate}}</a></li>
+                    <li><a data-toggle="tab" href="">{{'ALUMNI' | translate}}</a></li>
+                    <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a></li>
+                </ul>
+              </div>
 
     		<!-- Profiles -->
 		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles">
