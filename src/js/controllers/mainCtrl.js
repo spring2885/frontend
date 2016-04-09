@@ -15,15 +15,17 @@
 
             // listen for login events
             $rootScope.$on('login', function() {
-                console.log("login event handler. Hmmmmmmmmmm");
+                console.log("login event handler.");
                 $scope.loggedInUsername = authService.username();
 
                 // Grab the current user profile.
                 $http.get('user').success(function(data) {
-                    console.log('TEST!!!');
                     console.log('DATA: ' + data);
-                    console.log('DATA.PERSON: ' + data.person);
+                    console.log('DATA.PERSON: ' + data.principal.name);
                     $scope.$storage.user = data.person;
+                    $scope.$storage.user.name = data.principal.name;
+                    console.log('USER: ' + $scope.$storage.user);
+                    console.log('USER NAME: ' + $scope.$storage.user.name);
                     $scope.$storage.isLoggedIn = true;
                     $scope.isLoggedIn = true;
     
