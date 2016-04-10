@@ -1,1 +1,33 @@
-<p>Settings</p>
+<div class="row">
+    <h2><i class="fa fa-gears"></i> {{'YOUR_SETTINGS' | translate}}</h2>
+
+    <div class="page-content">
+        <div class="row">
+           <div class="col-md-12">
+               <div class="row col-md-10 col-md-offset-1 form-group">
+                    <lable>{{'SET_LANGUAGE' | translate}}</lable>
+                    &nbsp &nbsp
+                    <select chosen ng-model="$storage.user.lang" class="col-md-4">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="zh">中文</option>
+                        <option value=""></option>
+                   </select>
+               </div>
+               <div class="row col-md-10 col-md-offset-1 form-group">
+                   Timezone/Local??
+               </div>
+               <div class="row col-md-10 col-md-offset-1 " style="display: inline">
+                   {{'PASSWORD' | translate}}:<a href="/forgot"><h5>{{'REQUEST_A_NEW_PASSWORD' | translate}}</h5></a>
+               </div>
+               <div class="row col-md-10 col-md-offset-1 " style="display: inline">
+                   {{'PROFILE' | translate}}:<a href="/profiles/{{$storage.user.id}}/edit"><h5>{{'EDIT_YOUR_PROFILE' | translate}}</h5></a>
+               </div>
+            </div>
+            
+        </div>
+        <div></div>
+    </div>
+    <div class="row"><br><br></div>
+</div>

@@ -21,7 +21,17 @@
                 // Grab the current user profile.
                 $http.get('user').success(function(data) {
                     $scope.$storage.user = data.person;
-                    $scope.$storage.user.name = data.principal.name;
+                    if (!data.person.name){
+                        $scope.$storage.user.name = data.principal.name;
+                    }
+                    else {
+                         $scope.$storage.user.name = data.person.name;
+                    }
+
+                        
+                        
+                        
+                        
                     $scope.$storage.isLoggedIn = true;
                     $scope.isLoggedIn = true;
     
