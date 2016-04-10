@@ -37,7 +37,7 @@
                     $scope.alumniFilter = false;
                     $scope.facultyFilter = true;
                 }
-            }
+            };
         
     }]);
 })();
