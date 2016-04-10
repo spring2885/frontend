@@ -169,11 +169,13 @@ body {
   padding-left: 10px;
 
 }
+/*
 .tab-content{
     background-color:#303136;
     color:#fff;
     padding:5px
 }
+*/
 .filter-tabs > li > a{
   border: medium none;
       color: darkgrey;

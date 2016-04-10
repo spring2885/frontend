@@ -69,15 +69,17 @@
     	<br><h4>{{'SEARCH_RESULTS' | translate}}...</h4>
              <div class="row">
                 <ul class="nav nav-tabs filter-tabs">
-                    <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a></li>
-                    <li><a data-toggle="tab" href="">{{'STUDENTS' | translate}}</a></li>
-                    <li><a data-toggle="tab" href="">{{'ALUMNI' | translate}}</a></li>
-                    <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a></li>
+                    <li class="active"><a data-toggle="tab" href="" ng-click="filterProfiles('all')">{{'ALL' | translate}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('student')" href="">{{'STUDENTS' | translate}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('alumni')" href="">{{'ALUMNI' | translate}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('faculty')" href="">{{'FACULTY' | translate}}</a></li>
                 </ul>
               </div>
 
     		<!-- Profiles -->
-		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles">
+    		
+    		<div ng-show="noFilter">
+		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles" id="all">
 		    	<img src={{profile.image_url}} class="profile-img img-rounded">
 
 		    	<div class="row">
@@ -89,6 +91,54 @@
 			        </div>
 		        </div>
 		    </li>
+		    </div>
+		    
+		  <div ng-show="studentFilter">
+		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | students">
+		    	<img src={{profile.image_url}} class="profile-img img-rounded">
+
+		    	<div class="row">
+		    	
+		    		<div class="profile-details col-md-10">
+			        	<a class="name" ng-href="/profiles/{{profile.id}}">
+			        	  <h2>{{profile.name || profile.email}}</h2></a>
+			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
+			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
+			        </div>
+		        </div>
+		    </li>
+		    </div>
+		    
+		  <div ng-show="alumniFilter">
+		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | alumni" id="all">
+		    	<img src={{profile.image_url}} class="profile-img img-rounded">
+
+		    	<div class="row">
+		    		<div class="profile-details col-md-10">
+			        	<a class="name" ng-href="/profiles/{{profile.id}}">
+			        	  <h2>{{profile.name || profile.email}}</h2></a>
+			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
+			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
+			        </div>
+		        </div>
+		    </li>
+		    </div>
+		    
+		  <div ng-show="facultyFilter">
+		    <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | faculty" id="all">
+		    	<img src={{profile.image_url}} class="profile-img img-rounded">
+
+		    	<div class="row">
+		    		<div class="profile-details col-md-10">
+			        	<a class="name" ng-href="/profiles/{{profile.id}}">
+			        	  <h2>{{profile.name || profile.email}}</h2></a>
+			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
+			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
+			        </div>
+		        </div>
+		    </li>
+		    </div>
+		    
 	    </div>
 	</div>  
 </div>
