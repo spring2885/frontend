@@ -9,7 +9,6 @@
                         students.push(person);
                     }
                 });
-                console.log('STUDENTS FILTER!');
                 return students;
             };
 

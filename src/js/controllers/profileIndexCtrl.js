@@ -1,13 +1,21 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('profileIndexCtrl', ['$scope', '$http', function($scope, $http){
+        .controller('profileIndexCtrl', ['$scope', '$http', '$state', function($scope, $http, $state){
             $scope.profiles = [];
-            $http.get('/api/v1/profiles').success(
+            $http.get('/api/v1/profiles')
+                .success(
                  function(response){
                      $scope.profiles = response;
                      return $scope.profiles;
-                 });
+                 })
+                .error(
+                 function(response){
+                    $state.go('404');
+                });
+            
+            
+            /*Show and Hide Filtered Lists */
             $scope.noFilter = true;
             $scope.studentFilter = false;
             $scope.alumniFilter = false;
