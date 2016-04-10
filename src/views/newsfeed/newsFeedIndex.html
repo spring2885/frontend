@@ -4,6 +4,17 @@
      <div class="row" style="margin-top:-45px;">
         <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-newspaper-o"></i> {{'NEWSFEED' | translate}}</h2>
       </div>
+      <div id="custom-search-input">
+            <div class="input-group col-md-6 col-md-offset-3" style="border-radius:10px;">
+                <input type="text" class=" search-query form-control" 
+                            ng-model="query" placeholder="{{'QUICK_SEARCH' | translate}}"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-sucess" type="button">
+                        <i class=" glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
        <div class="row col-md-10 col-md-offset-1">
             <ul class="nav nav-tabs filter-tabs">
                 <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a></li>
@@ -12,7 +23,7 @@
                 <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a></li>
               </ul>
           </div>
-        <div class="row col-md-10 col-md-offset-1" ng-repeat="news in newsfeed" >
+        <div class="row col-md-10 col-md-offset-1" ng-repeat="news in newsfeed | filter:query | orderBy:'-posted'" >
            <div class="row well well-lg">
                <div class="row" ng-show="isNew(news.posted, user.last_login) 
                                    || isNew(news.comments.posted, user.last_login)" >
