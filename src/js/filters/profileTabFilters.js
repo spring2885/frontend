@@ -6,12 +6,12 @@
                 var students = [];
                 angular.forEach(input, function(person) {
                     if (person.variety === 'student') {
-                        students.push(person)
+                        students.push(person);
                     }
-                })
+                });
                 console.log('STUDENTS FILTER!');
                 return students;
-            }
+            };
 
     })
     .filter('alumni', function() {
@@ -19,22 +19,22 @@
             var alumni = [];
             angular.forEach(input, function(person) {
                 if (person.variety === 'alumni') {
-                    alumni.push(person)
+                    alumni.push(person);
                 }
-            })
+            });
             return alumni;
-        }
+        };
     })
     .filter('faculty', function() {
         return function(input) {
             var faculty = [];
             angular.forEach(input, function(person) {
                 if (person.variety === 'faculty') {
-                    faculty.push(person)
+                    faculty.push(person);
                 }
-            })
+            });
             return faculty;
-        }
-    })
+        };
+    });
     
 })();
