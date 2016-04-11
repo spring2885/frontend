@@ -1,7 +1,29 @@
 
 <div ng-controller="newsfeedIndexCtrl">
     <div class="row">
-        <div class="row col-md-10 col-md-offset-1" ng-repeat="news in newsfeed" >
+     <div class="row" style="margin-top:-45px;">
+        <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-newspaper-o"></i> {{'NEWSFEED' | translate}}</h2>
+      </div>
+      <div id="custom-search-input">
+            <div class="input-group col-md-6 col-md-offset-3" style="border-radius:10px;">
+                <input type="text" class=" search-query form-control" 
+                            ng-model="query" placeholder="{{'QUICK_SEARCH' | translate}}"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-sucess" type="button">
+                        <i class=" glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+       <div class="row col-md-10 col-md-offset-1">
+            <ul class="nav nav-tabs filter-tabs">
+                <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'STUDENTS' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'ALUMNI' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a></li>
+              </ul>
+          </div>
+        <div class="row col-md-10 col-md-offset-1" ng-repeat="news in newsfeed | filter:query | orderBy:'-posted'" >
            <div class="row well well-lg">
                <div class="row" ng-show="isNew(news.posted, user.last_login) 
                                    || isNew(news.comments.posted, user.last_login)" >
@@ -11,9 +33,7 @@
                 </div>
                 <div class="row col-md-12 panel panel-default">
                   <div class="pull-right col-md-2" ng-show="user.id === news.posted_by.id">
-                      <button class="btn btn-info btn-circle" ng-model="item.SELECTED"  ng-true-value="Y"
-                                    ng-click="editPost(news)">
-                         <!-- Doesn't work -->
+                      <button class="btn btn-info btn-circle" ng-model="item.SELECTED"  ng-true-value="Y" ng-click="editPost(news)">
                           <i class="glyphicon glyphicon-pencil"></i> {{'EDIT' | translate}}
                       </button>
                     </div>
@@ -66,73 +86,3 @@
         </div>
     </div>
 </div>
-<!--
-           
-                               <div>
-                        <h4>{{'POSTED_BY' | translate}}<strong>{{news.poster_name}}</strong></h4> 
-                            <span class="text-muted"> {{'ON' | translate}} {{news.date_posted}}</span>
-                                                                                                                                                  </div>
-           
-           
-           
-            <a class="pull-left" href="#">
-            	<img class="media-object img-circle" src="{{news.poster_img}}" alt="profile" width="150" height=150">
-            </a>
-
-            <div class="">
-               
-                <div class="well well-lg">
-                   
-                    <div class="panel panel-default">
-                       <h2 class="row">{{news.title}}</h2>
-                       <div class="row">
-                        <h4>{{'POSTED_BY' | translate}}<strong>{{news.poster_name}}</strong></h4> <span class="text-muted"> {{'ON' | translate}} {{news.date_posted}}</span>
-                                                                                                                          </div>
-                    </div>
-                    
-                    <span class="text-muted"> <h4>{{news.post}} </h4> </span>
-                    <div>
-                     <a href="#" class="btn btn-warning btn-circle text-uppercase"><span class="glyphicon glyphicon-pencil"></span> </a>
-                     </div>
-                    <div class="row" ng-repeat="comments in news.comments">
-                        <a class="pull-left" href="#">
-                            <img class="media-object img-circle" ng-src="{{comments.commentor_img}}" alt="profile" width="65" height="65">
-                        </a>
-                        <div class="col-sm-10 ">
-                            <form class="form-inline" role="form">
-                                <div class="form-group">
-                                    <span> {{comments.commentor_name}} commented on: {{comments.date_posted}} </span>
-                                    <br>
-                                    <div class="form-control">
-                                        {{comments.comment}}
-                                    </div>
-                                    <div class="form-group">
-                                        <a href="#" class="btn btn-warning btn-circle text-uppercase"><span class="glyphicon glyphicon-heart"></span> Like </a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div>
-                        <a class="pull-left" href="#">
-                            <img class="media-object img-circle" src="{{news.poster_img}}" alt="profile" width="65" height="65">
-                        </a>
-                        {{news.poster_name}}
-
-                        <div class="container media-body">
-                            <form class="form-inline" role="form">
-
-                                <div class="form-group">
-
-                                    <input class="form-control" type="text" placeholder="Insert your comment" />
-                                    <button class="btn btn-default">Comment</button>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->

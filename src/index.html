@@ -13,7 +13,11 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
         <!-- Include Vendor and custom CSS -->
-        <link rel="stylesheet" type="text/css" href="styles.min.css">    
+        <link rel="stylesheet" type="text/css" href="styles.min.css"> 
+        
+        <!-- Flavicon -->
+        <link rel="icon" type="image/png" href="/src/assets/images/Profilepic.png">
+    
     </head>
     
     <body ng-controller="mainCtrl">
@@ -34,7 +38,7 @@
         <!-- Footer -->
         <div ng-switch on="isLoggedIn">
            <div ng-switch-when="true"><logged-in-footer></logged-in-footer></div>
-            <div ng-switch-when="false"><logged-out-footer></logged-out-footer></div>
+           <div ng-switch-when="false"><logged-out-footer></logged-out-footer></div>
        </div>
         
 
