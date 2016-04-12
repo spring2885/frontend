@@ -167,7 +167,7 @@
             //User Agreement
             $stateProvider
                 .state('user-agreement', {
-                url: '/userAgreement',
+                url: '/ua',
                 templateUrl: 'src/views/info/userAgreement.html',
                 data: {
                     requireLogin: false
@@ -187,7 +187,7 @@
             //Community Guidlines
             $stateProvider
                 .state('community-guidelines', {
-                url: '/communityGuidlines',
+                url: '/community-guidlines',
                 templateUrl: 'src/views/info/communityGuidlines.html',
                 data: {
                     requireLogin: false
@@ -247,7 +247,7 @@
             //Admin
             $stateProvider
                 .state('admin', {
-                url: '/adminMessageCenter',
+                url: '/admin',
                 templateUrl: 'src/views/admin/admin.html',
                 data: {
                     requireLogin: true

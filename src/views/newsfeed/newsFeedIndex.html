@@ -1,19 +1,39 @@
 
 <div ng-controller="newsfeedIndexCtrl">
     <div class="row">
-        <div class="row col-md-10 col-md-offset-1" ng-repeat="news in newsfeed" >
+     <div class="row" style="margin-top:-45px;">
+        <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-newspaper-o"></i> {{'NEWSFEED' | translate}}</h2>
+      </div>
+      <div id="custom-search-input">
+            <div class="input-group col-md-6 col-md-offset-3" style="border-radius:10px;">
+                <input type="text" class=" search-query form-control" 
+                            ng-model="query" placeholder="{{'QUICK_SEARCH' | translate}}"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-sucess" type="button">
+                        <i class=" glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+       <div class="row col-md-10 col-md-offset-1">
+            <ul class="nav nav-tabs filter-tabs">
+                <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'STUDENTS' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'ALUMNI' | translate}}</a></li>
+                <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a></li>
+              </ul>
+          </div>
+        <div class="row col-md-10 col-md-offset-1" ng-repeat="news in newsfeed | filter:query | orderBy:'-posted'" >
            <div class="row well well-lg">
-               <div class="row" ng-show="isNew(news.date_posted, user.last_login) 
-                                   || isNew(news.comments.date_posted, user.last_login)" >
+               <div class="row" ng-show="isNew(news.posted, user.last_login) 
+                                   || isNew(news.comments.posted, user.last_login)" >
                                 <h6 class="label label-success">
                                    {{'NEW_SINCE_YOUR_LAST_VISIT' | translate}}
                                 </h6>
                 </div>
                 <div class="row col-md-12 panel panel-default">
-                  <div class="pull-right col-md-2" ng-show="user.id === news.poster_id">
-                      <button class="btn btn-info btn-circle" ng-model="item.SELECTED"  ng-true-value="Y"
-                                    ng-click="editPost(news)">
-                         <!-- Doesn't work -->
+                  <div class="pull-right col-md-2" ng-show="user.id === news.posted_by.id">
+                      <button class="btn btn-info btn-circle" ng-model="item.SELECTED"  ng-true-value="Y" ng-click="editPost(news)">
                           <i class="glyphicon glyphicon-pencil"></i> {{'EDIT' | translate}}
                       </button>
                     </div>
@@ -30,17 +50,19 @@
                         </form>
                     </div>
                    <div class="col-md-2 text-center">
-                    <a ng-href="/profiles/{{news.poster_id}}">
-            	        <img class="pull-left media-object img-circle" ng-src="{{news.poster_img}}" 
+                    <a ng-href="/profiles/{{news.posted_by.id}}">
+            	        <img class="pull-left media-object img-circle" ng-src="{{news.posted_by.image_url}}" 
             	        alt="profile" style="width=130" height="130">
-                        <h4 style="color: black;"><strong>{{news.poster_name}}</strong></h4> 
+                        <h4 style="color: black;"><strong>{{news.posted_by.name || news.posted_by.email}}</strong></h4> 
                     </a>
                     </div>
                     <div class="col-md-10 pull-left text-left">                                                                
-                        <h2>{{news.title}} </h2> <h5><small>{{'POSTED_ON' | translate}} {{news.date_posted}}</small></h5>
+                        <h2>{{news.description}} </h2>
+                        <h5><small>{{'POSTED_ON' | translate}} {{news.posted}}</small></h5>
                         <div class="divider"></div>
-                        <div class="text-muted"> <h4 ng-text-truncate="news.post"
-                                            ng-tt-chars-threshold="170"></h4>
+                        <div class="text-muted">
+                          <h4 ng-text-truncate="news.description"
+                              ng-tt-chars-threshold="170"></h4>
                         </div>
                     </div>
                </div>
@@ -48,15 +70,15 @@
                    <h5><u>{{'COMMENTS' | translate | uppercase}}</u></h5>
                    <div class="row col-md-8 col-md-offset-1" ng-repeat="comments in news.comments" style="background-color: #E5E5E5; border-radius: 10px;">
                       <div class="col-md-1 text-center">
-                           <a class="pull-left" ng-href="/profiles/{{comments.commentor_id}}">
-                                <img class="media-object img-circle" ng-src="{{comments.commentor_img}}" 
+                           <a class="pull-left" ng-href="/profiles/{{comments.posted_by.id}}">
+                                <img class="media-object img-circle" ng-src="{{comments.posted_by.image_url}}" 
                                 alt="profile" width="65" height="65">
-                                <div style="color: black;"><strong>{{comments.commentor_name}}</strong></div>
+                                <div style="color: black;"><strong>{{comments.posted_by.name}}</strong></div>
                             </a>
                         </div>
                         <div class="col-md-8 text-center" >
-                            <h6><small>{{'POSTED_ON' | translate}} {{comments.date_posted}}</small></h6>
-                            <p><strong>{{comments.comment}}</strong></p>
+                            <h6><small>{{'POSTED_ON' | translate}} {{comments.posted}}</small></h6>
+                            <p><strong>{{comments.text}}</strong></p>
                         </div>
                    </div>
                </div>
@@ -64,73 +86,3 @@
         </div>
     </div>
 </div>
-<!--
-           
-                               <div>
-                        <h4>{{'POSTED_BY' | translate}}<strong>{{news.poster_name}}</strong></h4> 
-                            <span class="text-muted"> {{'ON' | translate}} {{news.date_posted}}</span>
-                                                                                                                                                  </div>
-           
-           
-           
-            <a class="pull-left" href="#">
-            	<img class="media-object img-circle" src="{{news.poster_img}}" alt="profile" width="150" height=150">
-            </a>
-
-            <div class="">
-               
-                <div class="well well-lg">
-                   
-                    <div class="panel panel-default">
-                       <h2 class="row">{{news.title}}</h2>
-                       <div class="row">
-                        <h4>{{'POSTED_BY' | translate}}<strong>{{news.poster_name}}</strong></h4> <span class="text-muted"> {{'ON' | translate}} {{news.date_posted}}</span>
-                                                                                                                          </div>
-                    </div>
-                    
-                    <span class="text-muted"> <h4>{{news.post}} </h4> </span>
-                    <div>
-                     <a href="#" class="btn btn-warning btn-circle text-uppercase"><span class="glyphicon glyphicon-pencil"></span> </a>
-                     </div>
-                    <div class="row" ng-repeat="comments in news.comments">
-                        <a class="pull-left" href="#">
-                            <img class="media-object img-circle" ng-src="{{comments.commentor_img}}" alt="profile" width="65" height="65">
-                        </a>
-                        <div class="col-sm-10 ">
-                            <form class="form-inline" role="form">
-                                <div class="form-group">
-                                    <span> {{comments.commentor_name}} commented on: {{comments.date_posted}} </span>
-                                    <br>
-                                    <div class="form-control">
-                                        {{comments.comment}}
-                                    </div>
-                                    <div class="form-group">
-                                        <a href="#" class="btn btn-warning btn-circle text-uppercase"><span class="glyphicon glyphicon-heart"></span> Like </a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div>
-                        <a class="pull-left" href="#">
-                            <img class="media-object img-circle" src="{{news.poster_img}}" alt="profile" width="65" height="65">
-                        </a>
-                        {{news.poster_name}}
-
-                        <div class="container media-body">
-                            <form class="form-inline" role="form">
-
-                                <div class="form-group">
-
-                                    <input class="form-control" type="text" placeholder="Insert your comment" />
-                                    <button class="btn btn-default">Comment</button>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->

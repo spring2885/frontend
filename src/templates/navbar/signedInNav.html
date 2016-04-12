@@ -28,10 +28,10 @@
                     <li role="presentation"><a href="/profiles" role="menuitem">
                         <i class="fa fa-list-alt"></i> {{'BROWSE_PROFILES' | translate}}</a>
                     </li>
-                    <li role="presentation"><a ng-href="/profiles/{{user.id}}" role="menuitem">
+                    <li role="presentation"><a ng-href="/profiles/{{$storage.user.id}}" role="menuitem">
                         <i class="glyphicon glyphicon-eye-open"></i> {{'VIEW_MY_PROFILE' | translate}}</a>
                     </li>
-                    <li role="presentation"><a ng-href="/profiles/{{user.id}}/edit" role="menuitem">
+                    <li role="presentation"><a ng-href="/profiles/{{$storage.user.id}}/edit" role="menuitem">
                         <i class="fa fa-pencil-square-o"></i> {{'EDIT_MY_PROFILE' | translate}}</a>
                     </li>
                 </ul>
@@ -55,18 +55,21 @@
             <li class="nav-font text-center"><a ng-href="/events">
                 <i class="fa fa-calendar-check-o"></i> {{'CALENDER' | translate}}</a>
             </li>
+            <li class="nav-font text-center"><a ng-href="/admin">
+                <i class="fa fa-optin-monster"></i> {{'ADMIN' | translate}}</a>
+            </li>
           </ul>
           
         <ul class="nav navbar-nav navbar-right">
            <li class="dropdown nav-font text-center">
                <a href="#" id="profilesDrop" data-toggle="dropdown" class="dropdown-toggle" role="button">
-                   <i class="fa fa-user"></i><span>{{user.name}}</span>
+                   <i class="fa fa-user"></i><span>{{$storage.user.name}}</span>
                 </a>
                 <ul role="menu" class="dropdown-menu" aria-labelledby="userDropDown">
-                    <li role="presentation"><a ng-href="/{{user.id}}/preferences" role="menuitem">
+                    <li role="presentation"><a ng-href="/{{$storage.user.id}}/preferences" role="menuitem">
                         <i class="fa fa-cog"></i> {{'MY_SETTINGS' | translate}}</a>
                     </li>
-                    <li role="presentation"><a ng-href="/profiles/{{user.id}}/edit" role="menuitem">
+                    <li role="presentation"><a ng-href="/profiles/{{$storage.user.id}}/edit" role="menuitem">
                         <i class="fa fa-pencil-square-o"></i> {{'EDIT_MY_PROFILE' | translate}}</a>
                     </li>
                     <li role="presentation"><a href="/help" role="menuitem">

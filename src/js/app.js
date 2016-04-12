@@ -13,7 +13,7 @@
         'ngTextTruncate',
         'angular-timezone-selector',
         'ui.calendar',
-        //'angularBasicAuth',
+        'angularBasicAuth',
         'ngSanitize',
         'infinite-scroll',
        ]

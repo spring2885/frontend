@@ -1,0 +1,15 @@
+Search By:
+Name: <input box>
+Graduation Year: <drop down or input box>
+Major: <drop down>
+?? Posted on: <date picker>
+?? Posted Before: <date picker>
+?? Posted After: <date picker>
+email: <input box>
+Occupation: <input box>
+Company: <input box>
+Person Type: <drop down>
+Student Id: <input box>
+
+****IN NO ORDER***
+**> ?? Means maybe **

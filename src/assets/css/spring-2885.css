@@ -9,12 +9,6 @@ body {
     margin-bottom: 60px;
 }
 
-/* forgotPassword Start */
-.indent {
-    text-indent: 50px;
-}
-/* forgotPassword End */
-
 /* profileIndex Start */
 .profile-img {
     float: left;
@@ -161,4 +155,34 @@ body {
 /*-- change navbar dropdown color --*/
 .navbar-custom .navbar-nav .open .dropdown-menu>li>a,.navbar-custom .navbar-nav .open .dropdown-menu {
     color:#428bca;
+}
+
+.tab-filters .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+.filter-tabs{
+  background-color:#707070;
+  border-radius: 10px;
+  padding-left: 10px;
+
+}
+/*
+.tab-content{
+    background-color:#303136;
+    color:#fff;
+    padding:5px
+}
+*/
+.filter-tabs > li > a{
+  border: medium none;
+      color: darkgrey;
+}
+.filter-tabs > li > a:hover{
+  background-color: #303136 !important;
+    border: medium none;
+    border-radius: 10px;
+    color:#fff;
 }

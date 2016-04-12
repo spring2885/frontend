@@ -50,7 +50,9 @@
   },
   "resolutions": {
     "jquery": "~2.2.0",
-    "angular": "~1.4.9"
+    "angular": "~1.4.9",
+    "lodash": "~4.1.0",
+    "chosen": "~1.4.2"
   },
   "devDependencies": {
     "ng-text-truncate": "*",

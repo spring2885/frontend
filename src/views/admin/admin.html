@@ -1,1 +1,33 @@
-<p>admin</p>
+<div ng-controller="adminCtrl">
+	<div class="row">
+	    <div class="well col-md-12">
+	    
+			<h1>Admin Requests</h1>
+			<div class="table-responsive well list-unstyled form-padding">  
+				<table class="table col-md-12">
+					<thead>
+						<tr>
+							<td>ID</td>
+							<td>Item Type</td>
+							<td>Notes</td>
+							<td>Actions</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="r in requests">
+							<td>{{ r.id }}</td>
+							<td>{{ r.item_type }}</td>
+							<td>{{ r.flagged_notes }} </td>
+							<td>
+								<input type="button" value="Approve" ng-click="approveItem($index)" />
+								<input type="button" value="Reject" ng-click="rejectItem($index)" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+
