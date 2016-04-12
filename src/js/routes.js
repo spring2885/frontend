@@ -247,7 +247,7 @@
             //Admin
             $stateProvider
                 .state('admin', {
-                url: '/adminMessageCenter',
+                url: '/admin',
                 templateUrl: 'src/views/admin/admin.html',
                 data: {
                     requireLogin: true
