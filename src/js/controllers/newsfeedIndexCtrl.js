@@ -8,7 +8,7 @@
                  //$scope.user = $rootScope.user;
                  //$scope.edit = false;
                  
-                $scope.newPost;
+                 $scope.newPost = '';
 //                $scope.newPost.title ='';
 //                $scope.newPost.description ='';
 //                $scope.visible_to = [];
@@ -93,11 +93,11 @@
                 
 //                 console.log('Stringif JSON Object posted to /api/v1/news_comment: ' + JSON.stringify($scope.newPost));
 //                
-            }
+            };
             
             $scope.editNewsPost = function(){
                 //TODO
-            }
+            };
             
             
             

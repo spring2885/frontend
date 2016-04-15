@@ -1,1 +1,67 @@
-<p>admin</p>
+<div ng-controller="adminCtrl">
+	<div class="row">
+	    <div class="well col-md-12">
+	    
+			<h1>Faculty Requests</h1>
+			<div class="table-responsive well list-unstyled form-padding">  
+				<table class="table col-md-12">
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Email Address</td>
+							<td>Notes</td>
+							<td>Actions</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="r in faculty_requests">
+							<td>{{ r.flagged_by.name }}</td>
+							<td><a href="mailto:{{r.flagged_by.email}}">{{r.flagged_by.email}}</a></td>
+							<td>{{ r.flagged_notes }} </td>
+							<td>
+								<input type="button" value="Approve" ng-click="approveItem($index)" />
+								<input type="button" value="Reject" ng-click="rejectItem($index)" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="row">
+	    <div class="well col-md-12">
+	    
+			<h1>Abuse Requests</h1>
+			<div class="table-responsive well list-unstyled form-padding">  
+				<table class="table col-md-12">
+					<thead>
+						<tr>
+							<td>From</td>
+							<td>type</td>
+							<td>Notes</td>
+							<td>Actions</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="r in abuse_requests">
+							<td>{{r.flagged_by.name}} 
+							  (<a href="mailto:{{r.flagged_by.email}}">{{r.flagged_by.email}}</a>)</td>
+							<td>{{r.item_type}}/{{r.item_id}}</td>
+							<td>{{ r.flagged_notes }} </td>
+							<td>
+								<input type="button" value="Approve" ng-click="approveItem($index)" />
+								<input type="button" value="Reject" ng-click="rejectItem($index)" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
