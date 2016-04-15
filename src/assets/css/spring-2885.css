@@ -16,6 +16,12 @@ body {
     height: 110px;
 }
 
+.comment-img {
+    float: left;
+    width: 65px;
+    height: 65px;
+}
+
 .profile-details {
     margin-top: -10px;
 }
@@ -186,6 +192,30 @@ body {
     border-radius: 10px;
     color:#fff;
 }
+
+.even {
+    background-color: #E5E5E5;
+    border-radius: 10px;
+}
+
+.odd {
+    background-color: #d8d8d8;
+    border-radius: 10px;
+}
+
+.newPost {
+    background-color: #cbcbcb;
+    border-radius: 10px;
+}
+
+.clear-btn {
+    float: right;
+    margin-right: 6px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+}
+
 .input-group-addon.primary {
     color: rgb(255, 255, 255);
     background-color: rgb(50, 118, 177);
