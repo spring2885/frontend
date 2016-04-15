@@ -186,3 +186,12 @@ body {
     border-radius: 10px;
     color:#fff;
 }
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.btn-space {
+    margin-right: 10px;
+    margin-left: 10px;
+}
