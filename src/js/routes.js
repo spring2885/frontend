@@ -110,12 +110,23 @@
                 }
             });
      
-            //create-edit a job posting
+            //edit a job posting
             $stateProvider
                 .state('job-edit', {
-                url: '/jobs/:id/edit',
+                url: '/jobs/edit',
                 templateUrl: 'src/views/jobs/jobsEdit.html',
                 controller: 'jobsEditCtrl',
+                data: {
+                    requireLogin: true
+                }
+            });
+
+            //create a job posting
+            $stateProvider
+                .state('job-create', {
+                url: '/jobs/new',
+                templateUrl: 'src/views/jobs/jobsCreate.html',
+                controller: 'jobsCreatePostCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -167,7 +178,7 @@
             //User Agreement
             $stateProvider
                 .state('user-agreement', {
-                url: '/userAgreement',
+                url: '/ua',
                 templateUrl: 'src/views/info/userAgreement.html',
                 data: {
                     requireLogin: false
@@ -187,7 +198,7 @@
             //Community Guidlines
             $stateProvider
                 .state('community-guidelines', {
-                url: '/communityGuidlines',
+                url: '/community-guidlines',
                 templateUrl: 'src/views/info/communityGuidlines.html',
                 data: {
                     requireLogin: false
@@ -247,7 +258,7 @@
             //Admin
             $stateProvider
                 .state('admin', {
-                url: '/adminMessageCenter',
+                url: '/admin',
                 templateUrl: 'src/views/admin/admin.html',
                 data: {
                     requireLogin: true

@@ -9,17 +9,17 @@ body {
     margin-bottom: 60px;
 }
 
-/* forgotPassword Start */
-.indent {
-    text-indent: 50px;
-}
-/* forgotPassword End */
-
 /* profileIndex Start */
 .profile-img {
     float: left;
     width: 110px;
     height: 110px;
+}
+
+.comment-img {
+    float: left;
+    width: 65px;
+    height: 65px;
 }
 
 .profile-details {
@@ -161,4 +161,67 @@ body {
 /*-- change navbar dropdown color --*/
 .navbar-custom .navbar-nav .open .dropdown-menu>li>a,.navbar-custom .navbar-nav .open .dropdown-menu {
     color:#428bca;
+}
+
+.tab-filters .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+.filter-tabs{
+  background-color:#707070;
+  border-radius: 10px;
+  padding-left: 10px;
+
+}
+/*
+.tab-content{
+    background-color:#303136;
+    color:#fff;
+    padding:5px
+}
+*/
+.filter-tabs > li > a{
+  border: medium none;
+      color: darkgrey;
+}
+.filter-tabs > li > a:hover{
+  background-color: #303136 !important;
+    border: medium none;
+    border-radius: 10px;
+    color:#fff;
+}
+
+.even {
+    background-color: #E5E5E5;
+    border-radius: 10px;
+}
+
+.odd {
+    background-color: #d8d8d8;
+    border-radius: 10px;
+}
+
+.newPost {
+    background-color: #cbcbcb;
+    border-radius: 10px;
+}
+
+.clear-btn {
+    float: right;
+    margin-right: 6px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+}
+
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.btn-space {
+    margin-right: 10px;
+    margin-left: 10px;
 }

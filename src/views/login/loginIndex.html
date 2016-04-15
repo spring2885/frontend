@@ -30,15 +30,16 @@
             </div>
          
            
-           <form>
+           <form ng-submit="signup()" >
                <div class="form-group col-centered">
-                 
+                 <form>
                     <div class="col-md-12 text-centered form-padding"></div>
                     
                     <div class="col-md-12 text-centered form-padding">
                         <input class="form-control input-lg" 
                         type="email" 
                         id="email"
+                        ng-model="formData.email"
                         placeholder="{{'EMAIL_ADDRESS' | translate}}">
                     </div>
         
@@ -48,6 +49,7 @@
                         <input class="form-control input-lg" 
                         type="password" 
                         id="password" 
+                        ng-model="formData.password"
                         placeholder="{{'NEW_PASSWORD' | translate}}">
                     </div>
                     
@@ -56,20 +58,27 @@
                     <div class="col-md-12 radio text-center form-padding">
                         <label>
                             <input type="radio" 
-                            name="acceptTerms">
+                            name="acceptTerms" >
                                 {{'I_ACCEPT_ALL' | translate}}
-                                <a href="">{{'TERMS_AND_POLICIES' | translate}}</a>
+                                <a href="" >{{'TERMS_AND_POLICIES' | translate}}</a>
                         </label>
                     </div>
                     
                     <div class="col-md-12 text-centered form-padding">
-                        <button class="btn btn-primary btn-block btn-lg" ng-click="" type="submit">
-                            {{'SIGN_UP' | translate}}
-                        </button>
+                       <div ng-show="!accept">
+                           <button class="btn btn-primary btn-block btn-lg" ng-click="acceptAlert()" type="submit">
+                                {{'SIGN_UP' | translate}}
+                            </button>
+                       </div>
+                       <div ng-show="accept">
+                            <button class="btn btn-primary btn-block btn-lg" ng-click="createUser()" type="submit">
+                                {{'SIGN_UP' | translate}}
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="col-md-12 text-centered form-padding"></div>
-                    
+                   </form>
                </div>
            </form>
             
