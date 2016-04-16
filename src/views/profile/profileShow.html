@@ -7,57 +7,16 @@
         <div class="col-md-3 col-sm-3">
             
              <div class="user-wrapper">
-    <div ng-controller="ClickToEditCtrl">
-    <div ng-hide="editorEnabled">
-            <img src={{profile.image_url}} class="img-rounded img-responsive" />
-        <div class="description">
+            <div ng-src="{{profile.image_url ? img_url : 'src/assets/images/Profilepic.svg'}}" class="img-rounded img-responsive"></div>
+        <div contenteditable ng-model="profile.name" class="description">
             <h4>{{profile.name}}</h4>
-    <a href="#" ng-click="enableEditor()">Edit title</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="#" ng-click="save()">Save</a>
-      or
-      <a href="#" ng-click="disableEditor()">cancel</a>.
-    </div>
-  </div>
-    <div ng-controller="ClickToEditCtrl">
-    <div ng-hide="editorEnabled">
+        
             <h4>{{profile.email}}</h4>
-    <a href="#" ng-click="enableEditor()">Edit title</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="#" ng-click="save()">Save</a>
-      or
-      <a href="#" ng-click="disableEditor()">cancel</a>.
-    </div>
-  </div>
-    <div ng-controller="ClickToEditCtrl">
-    <div ng-hide="editorEnabled">
+   
             <h5> <strong> {{profile.company}} </strong></h5>
-    <a href="#" ng-click="enableEditor()">Edit title</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="#" ng-click="save()">Save</a>
-      or
-      <a href="#" ng-click="disableEditor()">cancel</a>.
-    </div>
-  </div>
-            <p>
-    <div ng-controller="ClickToEditCtrl">
-    <div ng-hide="editorEnabled">
+
             {{profile.occupation}}
-    <a href="#" ng-click="enableEditor()">Edit title</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="#" ng-click="save()">Save</a>
-      or
-      <a href="#" ng-click="disableEditor()">cancel</a>.
-    </div>
-  </div>
+   
             </p>
             <hr />
                  </div>
@@ -65,31 +24,14 @@
     </div>
          <div class="col-md-9 col-sm-9  user-wrapper">
                 <div class="description">
-            <div ng-controller="ClickToEditCtrl">
-            <div ng-hide="editorEnabled">
-                         <h3>{{profile.name}} About Me : </h3>
-    <a href="#" ng-click="enableEditor()">Edit title</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="#" ng-click="save()">Save</a>
-      or
-      <a href="#" ng-click="disableEditor()">cancel</a>.
-    </div>
+            
+                         <h3>{{profile.name}} About Me: </h3>
+    
   </div>
-                    <hr />
                      <p>
-    <div ng-controller="ClickToEditCtrl">
-    <div ng-hide="editorEnabled">
-                         {{profile.about_me}}
-    <a href="#" ng-click="enableEditor()">Edit title</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="#" ng-click="save()">Save</a>
-      or
-      <a href="#" ng-click="disableEditor()">cancel</a>.
-    </div>
+    
+                        <textarea name='About Me' ng-model='item.aboutMe' required>{{profile.about_me}}</textarea>
+    
   </div>
                     </p>                 
         <h3> Social Links: </h3>
