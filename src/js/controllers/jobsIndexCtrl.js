@@ -6,7 +6,6 @@
                  console.log("jobsIndexCtrl constructed.");
                  $scope.jobs = [];
                  $scope.flag = function(id) {
-                    console.log("Flagging id: " + id);
                     abuseService.abuse(id, "JOB", "");
                  };
 
