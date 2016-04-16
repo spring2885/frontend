@@ -29,13 +29,24 @@
 				});
 			};
 
-    		$scope.approveItem = function(index) {
+    		$scope.approveFacultyItem = function(index) {
     			var id = $scope.faculty_requests[index].id;
     			console.log("Approve: " + id);
     			verdict(id, true, "");
     		};
-    		$scope.rejectItem = function(index) {
+    		$scope.rejectFacultyItem = function(index) {
     			var id = $scope.faculty_requests[index].id;
+    			console.log("Reject: " + id);
+    			verdict(id, false, "");
+    		};
+
+    		$scope.approveAbuseItem = function(index) {
+    			var id = $scope.abuse_requests[index].id;
+    			console.log("Approve: " + id);
+    			verdict(id, true, "");
+    		};
+    		$scope.rejectAbuseItem = function(index) {
+    			var id = $scope.abuse_requests[index].id;
     			console.log("Reject: " + id);
     			verdict(id, false, "");
     		};
@@ -44,6 +55,6 @@
 				function(response) { $scope.faculty_requests = response; } );
 			getApprovals('ABUSE', 
 				function(response) { $scope.abuse_requests = response; } );
-    		
+
     }]);
 })();

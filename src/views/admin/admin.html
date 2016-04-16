@@ -19,8 +19,8 @@
 							<td><a href="mailto:{{r.flagged_by.email}}">{{r.flagged_by.email}}</a></td>
 							<td>{{ r.flagged_notes }} </td>
 							<td>
-								<input type="button" value="Approve" ng-click="approveItem($index)" />
-								<input type="button" value="Reject" ng-click="rejectItem($index)" />
+								<input type="button" value="Approve" ng-click="approveFacultyItem($index)" />
+								<input type="button" value="Reject" ng-click="rejectFacultyItem($index)" />
 							</td>
 						</tr>
 					</tbody>
@@ -52,8 +52,8 @@
 							<td>{{r.item_type}}/{{r.item_id}}</td>
 							<td>{{ r.flagged_notes }} </td>
 							<td>
-								<input type="button" value="Approve" ng-click="approveItem($index)" />
-								<input type="button" value="Reject" ng-click="rejectItem($index)" />
+								<input type="button" value="Approve" ng-click="approveAbuseItem($index)" />
+								<input type="button" value="Reject" ng-click="rejectAbuseItem($index)" />
 							</td>
 						</tr>
 					</tbody>
