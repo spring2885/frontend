@@ -7,9 +7,7 @@
                  $scope.jobs = [];
                  $scope.flag = function(id) {
                     console.log("Flagging id: " + id);
-                    var item_url = "http://localhost:8001/jobs/ " + id;
-                    var notes = "";
-                    abuseService.abuse(id, item_url, notes);
+                    abuseService.abuse(id, "JOB", "");
                  };
 
                  $http.get('/api/v1/jobs')
