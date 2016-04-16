@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: '-3d'
+    });
+  });
+  </script>
+
+<div ng-controller="jobsCreatePostCtrl" id="jobInputForm">
+	
+    <h2><b>Create A New Job Post</b></h2>
+
+    <div class="row form-group">
+        <div class="input-group">
+            <span class="input-group-addon primary"><span class="glyphicon glyphicon-star"></span></span>
+            <input type="text" class="form-control" placeholder="Job Posting Title">
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="input-group">
+            <span class="input-group-addon primary"><span class="glyphicon glyphicon-star"></span></span>
+            <input type="text" class="form-control" placeholder="Job Type">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="input-group">
+            <span class="input-group-addon primary"><span class="glyphicon glyphicon-star"></span></span>
+            <input type="text" class="form-control" placeholder="Location">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="input-group">
+            <span class="input-group-addon primary"><span class="glyphicon glyphicon-calendar"></span></span>
+            <input type="text" class = "form-control" id="datepicker" placeholder = "Start Date" for="start_date">
+        </div>
+    </div>
+
+    
+    <div class="row form-group">
+        <div class="input-group">
+            <span class="input-group-addon primary">
+                <span class="glyphicon glyphicon-star"></span></span>
+            <textarea type="text" class="form-control" placeholder="Please Enter Job Details and Requirements" rows="5" for="description"></textarea>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" value="Send" class="btn btn-success" id="submit"><i class="glyphicon glyphicon-arrow-up"></i> Submit</button>
+    </div><br><br>
+ 
+
+    
+           
+
+</div>
+
