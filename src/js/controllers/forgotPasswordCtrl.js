@@ -1,10 +1,10 @@
 (function() {
     "use strict";
     angular.module('spring-2885')
-        .controller('forgotPasswordCtrl', ['$http', '$scope', '$state' function($http, $scope, $state){
-                  $scope.resetPassEmail = {};
+        .controller('forgotPasswordCtrl', ['$http', '$scope', '$state', function($http, $scope, $state){
+                  $scope.resetPassEmail = "";
                   var forgotData = {
-                        email : $scope.resetPassEmail;
+                        email : $scope.resetPassEmail
                   };
                   $scope.SendEmail = function (){
                       $http.post('/auth/forgot', forgotData)
@@ -17,6 +17,6 @@
                   };
                   $scope.CancelReset = function(){
                       window.history.back();
-                  }
+                  };
     }]);
 })();
