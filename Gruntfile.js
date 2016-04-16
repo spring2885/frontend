@@ -92,6 +92,7 @@ module.exports = function(grunt) {
                      'src/js/routes.js',
                      'src/js/controllers/**/*.js',
                      'src/js/directives/**/*.js',
+                     'src/js/services/**/*.js',
                      'src/**/*.js'],
                 dest: 'generated/app.min.js',
             },
