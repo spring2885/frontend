@@ -30,7 +30,11 @@
                   $scope.editPost = function(){
                       $scope.edit = true;
                   };
-            
+            	  
+            	  $scope.remove = function(){
+            	  //remove function
+            	  };
+            	
                   $scope.addComment = function(postId, comment){
                       /*Make JSON */
                       var newComment = {};
