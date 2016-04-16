@@ -15,5 +15,8 @@
                              console.log("Error: " + JSON.stringify(response));
                          });
                   };
+                  $scope.CancelReset = function(){
+                      window.history.back();
+                  }
     }]);
 })();
