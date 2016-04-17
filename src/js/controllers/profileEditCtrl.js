@@ -49,7 +49,7 @@
                                             
                                             
                 /*Get Data */                            
-                 $http.get('/api/v1/profiles/' + $stateParams.id)
+                 $http.get('/api/v1/profiles/' + $scope.$storage.user.id)
                      .success(
                       function(response){
                           $scope.profile = response;
