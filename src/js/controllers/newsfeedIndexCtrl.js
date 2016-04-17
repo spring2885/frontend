@@ -6,10 +6,10 @@
                  $scope.$storage = $localStorage;
                  $scope.newsfeed = [];
                  
-                 $scope.newPost = '';
-//                $scope.newPost.title ='';
-//                $scope.newPost.description ='';
-//                $scope.visible_to = [];
+                 $scope.newPost = {};
+                 $scope.newPost.title ='';
+                 $scope.newPost.description ='';
+                 $scope.visible_to = [];
             
                 $http.get('/api/v1/news')
                      .success(
@@ -50,11 +50,11 @@
                       
                       /*Set the Comment in the Model */
                       /* To be moved to .success */
-                      for( var i = 0; i < $scope.newsfeed.length; i++){
-                          if($scope.newsfeed[i].id === postId){
-                              $scope.newsfeed[i].comments.push(newComment);
-                          }
-                      }
+//                      for( var i = 0; i < $scope.newsfeed.length; i++){
+//                          if($scope.newsfeed[i].id === postId){
+//                              $scope.newsfeed[i].comments.push(newComment);
+//                          }
+//                      }
                       
                       $http.post('/api/v1/news_comment', newComment)
 				        .success(
@@ -66,36 +66,38 @@
                                 }
 					           console.log("Comment succeeded " + JSON.stringify(response));
 				        });
-
-//                      $http({
-//                        method  : 'POST',
-//                        url     : '/api/v1/news_comment',
-//                        data    : $.param(newComment),
-//                        headers : { 'Content-Type': 'application/json' }  
-//                        }).then(function successCallback(response) {
-//                            console.log("Comment succeeded " + JSON.stringify(response));
-//                            
-//                        }, function errorCallback(response) {
-//                            
-//                            console.log("Comment failed " + JSON.stringify(response));
-//                            
-//                        });
                   };
             
             
             $scope.addNewPost = function(){
                 
+                $scope.newPost.posted = new Date();
+                $scope.newPost.posted_by = {
+                    id: $scope.$storage.user.id,
+                    name: $scope.$storage.user.name,
+                    image_url: $scope.$storage.user.image_url
+                };
                 
+                 console.log('Stringif JSON Object posted to /api/v1/news_comment: ' + JSON.stringify($scope.newPost));
                 
-//                $scope.newPost.posted = new Date().toJSON().slice(0,10);
-//                $scope.newPost.posted_by = {
-//                    id: $scope.$storage.user.name,
-//                    name: $scope.$storage.user.name,
-//                    image_url: $scope.$storage.user.image_url
-//                }
+                $http.post('/api/v1/news', $scope.newPost)
+                    .success(
+                        function(response) {
+                            $scope.newsfeed.unshift($scope.newPost);
+                            //Reset Form Object
+                            $scope.newPost.title = '';
+                            $scope.newPost.description = '';
+                            $scope.visible_to = [];
+                        
+                        console.log('POST Succeded ' + JSON.stringify(response));
+                    });
                 
-//                 console.log('Stringif JSON Object posted to /api/v1/news_comment: ' + JSON.stringify($scope.newPost));
-//                
+            };
+            
+            $scope.resetNewPost = function(){
+                $scope.newPost.title = '';
+                $scope.newPost.description = '';
+                $scope.visible_to = [];
             };
             
             $scope.editNewsPost = function(){

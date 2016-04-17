@@ -43,23 +43,24 @@
                             <div class="profile-details col-md-10">
                                   <form class="form-group">
                                     <div class="input-group">
-                                        <label>{{'WHATS_ON_YOUR_MIND' | translate}}</label>  
-                                         <input type="text" class="form-control" ng-model="newPost.title"/> 
+                                       <div class="text-center">
+                                        <label>{{'WHATS_ON_YOUR_MIND' | translate}}</label>
+                                        </div>  
+                                         <input type="text" class="form-control" placeholder="{{'POST_TITLE' | translate}}" ng-model="newPost.title" required/> 
                                              
-                                          <input type="text" class="form-control" ng-model="newPost.description"/>
+                                          <textarea class="form-control" placeholder="{{'POST_BODY' | translate}}" ng-model="newPost.description"/>
                                     </div>
-                                    <div class="row">
-                                    <p>{{'VISABLE_TO' | translate}}: </p>
-                                    <select chosen multiple id="states"  ng-model="newPost.visable_to" style="width:350px">
-                                        <option value="public">{{'EVERYONE' | translate}}</option>
-                                        <option value="students">{{'STUDENTS' | translate}}</option>
+                                    <div class="col-md-12 form-horizontal form-group">
+                                    <label>{{'POST_TO' | translate}}: </label>
+                                    <select chosen multiple id="states"  ng-model="newPost.visible_to" style="width:350px" required>
+                                        <option value="student">{{'STUDENTS' | translate}}</option>
                                         <option value="alumni">{{'ALUMNI' | translate}}</option>
                                         <option value="faculty">{{'FACULTY' | translate}}</option>
                                       </select>
                                     </div>
                                          
                                           <span class="input-group-btn">
-                                            <button class="btn btn-danger" type="reset">
+                                            <button class="btn btn-danger" type="reset" ng-click="resetNewPost()">
                                                 {{'CLEAR' | translate}}
                                             </button>
                                           </span>
@@ -121,23 +122,18 @@
                                         ng-model="news.description">
                             </div>
                             <div class="form-group">
-                               <lable>{{'VISABILITY' | translate}}:</lable>
-                                <select chosen
-                                        multiple
-                                        ng-model="news.visable_to" 
-                                        no-results-text="'NOT_A_USER_GROUP'"
-                                        style="width:350px">
-                                    <option value="all">{{'EVERYONE' | translate}}</option>
-                                    <option value="students">{{'STUDENTS' | translate}}</option>
-                                    <option value="alumni">{{'ALUMNI' | translate}}</option>
-                                    <option value="faculty">{{'FACULTY' | translate}}</option>
-                                   
+                               <lable for="visible">{{'VISABILITY' | translate}}:</lable>
+                                <select chosen multiple id="visible" ng-model="news.visible_to">
+                                        <option value="student">{{'STUDENTS' | translate}}</option>
+                                        <option value="alumni">{{'ALUMNI' | translate}}</option>
+                                        <option value="faculty">{{'FACULTY' | translate}}</option>
                                 </select>
                             </div>
                             <div>
-                                <button class="btn btn-primary" type="submit" ng-click="">{{'SUBMIT_EDITED_POST' | translate}} </button>
-                                <button class="btn btn-danger" type="reset" ng-click="edit = !edit">{{'CANCEL' | translate}} </button>
+                                <button class="btn btn-primary" type="reset" ng-click="editNewsPost(news.id)">{{'SUBMIT_EDITED_POST' | translate}} </button>
+                                <button class="btn btn-danger" ng-click="edit = !edit">{{'CANCEL' | translate}} </button>
                             </div>
+                            {{news}}
                         </form>
             </div>   
                 
@@ -182,7 +178,7 @@
                                             </button>
                                           </span>
                                           <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="submit" ng-click="">
+                                            <button class="btn btn-primary" type="submit" ng-click="editNewsComment(comments.id)">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </span>
