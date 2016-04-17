@@ -26,6 +26,7 @@
                          url: $scope.socialUrl
                      });
                      
+                     //Reset Scope Vars
                      $scope.socialName = '';
                      $scope.socialUrl = '';
                  };
@@ -41,7 +42,7 @@
                      $http.put(apiURL , $scope.profile)
 				        .success(
 				            function(response) {
-					           console.log("UPDATE succeeded " + JSON.stringify(response));
+					           console.log("UPDATE succeeded");
 				        });
                  };                       
                 /******************/                            
