@@ -5,8 +5,6 @@
                  
                  $scope.$storage = $localStorage;
                  $scope.newsfeed = [];
-                 //$scope.user = $rootScope.user;
-                 //$scope.edit = false;
                  
                  $scope.newPost = '';
 //                $scope.newPost.title ='';
@@ -59,10 +57,15 @@
                       }
                       
                       $http.post('/api/v1/news_comment', newComment)
-				.success(
-				function(response) {
-					console.log("Comment succeeded " + JSON.stringify(response));
-				});
+				        .success(
+				            function(response) {
+                                for( var i = 0; i < $scope.newsfeed.length; i++){
+                                  if($scope.newsfeed[i].id === postId){
+                                      $scope.newsfeed[i].comments.push(newComment);
+                                   }
+                                }
+					           console.log("Comment succeeded " + JSON.stringify(response));
+				        });
 
 //                      $http({
 //                        method  : 'POST',

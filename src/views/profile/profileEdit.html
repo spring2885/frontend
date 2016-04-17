@@ -1,46 +1,241 @@
 
-<!--<div ng-controller="profileShowCtrl">-->
-    <div class="container">
-        
-<!-- USER PROFILE ROW STARTS-->
-    <div class="row">
-        <div class="col-md-3 col-sm-3">
-            
-             <div class="user-wrapper">
-            <img src={{profile.profile_img}} class="img-rounded img-responsive" />
-        <div class="description">
-                <h4>{{profile.name}}</h4>
-            <h5> <strong> {{profile.company}} </strong></h5>
-            <p>
-            {{profile.occupation}}
-            </p>
-            <hr />
-                 </div>
-            </div>
-    </div>
-         <div class="col-md-9 col-sm-9  user-wrapper">
-                    <div class="description">
-                         <h3>{{profile.name}} About Me : </h3>
-                    <hr />
-                     <p>
-                         {{profile.about_me}}
-                    </p>
-                        
-        <h3> Social Links: </h3>
-                    <hr />                
-                   <a href="#" class="btn btn-social btn-facebook">
-                            <i class="fa fa-facebook"></i>&nbsp; Facebook </a>
-
-                        <a href="#" class="btn btn-social btn-google">
-                            <i class="fa fa-google-plus"></i>&nbsp; Google</a>
-                        <a href="#" class="btn btn-social btn-twitter">
-                            <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
-                        <a href="#" class="btn btn-social btn-linkedin">
-                            <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
+<div ng-controller="profileEditCtrl" style="margin-top:-45px; margin-bottom:15px;">
+   <h2><i class="fa fa-edit fa-2x"></i> {{ 'EDIT_YOUR_PROFILE' | translate }}</h2>
+   <div class="row page-content" style="padding-bottom:15px;">
+      <form class="form-horizontal" role="form">
+           <div class="col-md-12">
+               <div class="col-md-4 text-center">
+                   <img ng-src="{{$storage.user.image_url}}" class="profile-img img-rounded" style="margin-top:45px;" name="profileImg">
+                   <div class="form-group form-inline">
+                       <label class="control-label" for="profileImg">
+                          {{'PROFILE_IMAGE_URL' | translate}}:
+                           <input type="text" class="form-control" id="profileImg" placeholder="{{'URL_FOR_IMAGE' | translate}}" ng-model="profile.image_url">
+                       </label>
+                       <p class="help-block">{{'IMAGE_HOW_TO_BLURB' | translate}}</p>
+                   </div>
+                   <div class="form-group form-inline col-md-12">
+                       <label class="control-label" for="resumeUrl">
+                          {{'RESUME_URL' | translate}}:
+                           <input type="text" class="form-control" id="resumeUrl" placeholder="{{'LINK_TO_RESUME' | translate}}" ng-model="profile.resume_url">
+                       </label>
+                       <p class="help-block">{{'RESUME_HOW_TO_BLURB' | translate}}</p>
+                   </div>
+                   <div class="form-group form-inline col-md-12">
+                       <label class="control-label" for="about">
+                          {{'ABOUT_ME' | translate}}:
+                           <textarea class="form-control" id="about" placeholder="{{'TELL_US_ABOUT_YOURSELF' | translate}}" ng-model="profile.about_me"/>
+                       </label>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-12">
+                           <strong><u>{{'ADD_SOME_SOCIAL_NETWORKS' | translate}}</u></strong>
+                       </div>
+                       <div class="form-group">
+                            <label class="control-label col-xs-2" for="Socialname">{{'NAME' | translate}}:</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control" id="Socialname" placeholder="{{'NAME_OF_SITE_TO_ADD' | translate}}" ng-model="socialName">
+                            </div>
+                            <label class="control-label col-xs-2" for="SocialUrl">{{'URL' | translate}}:</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control" id="SocialUrl" placeholder="{{'WEB_ADDRESS_OF_SITE' | translate}}" ng-model="socialUrl">
+                            </div>
+                            <button class="btn btn-primary" ng-click="addToSocial()">
+                                {{'ADD_WEBSITE' | translate}}
+                            </button>
+                        </div>
+                        <div class="row" ng-show="profile.social_connections.length > 0">
+                            <div class="col-md-12">
+                                <u>{{'EDIT_CURRENT_SITES' | translate}}</u>
+                            </div>
+                            <div class="col-md-12" ng-repeat="site in profile.social_connections track by $index">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-2" for="Socialname">{{'NAME' | translate}}:</label>
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" id="Socialname" ng-model="site.name">
+                                    </div>
+                                    <label class="control-label col-xs-2" for="SocialUrl">{{'URL' | translate}}:</label>
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" id="SocialUrl" ng-model="site.url">
+                                    </div>
+                                    <button class="btn btn-danger" ng-click="removeSocial($index)">
+                                        {{'REMOVE_WEBSITE' | translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+               <div class="col-md-8">
+                   <div class="form-group">
+                        <label class="control-label col-xs-2" for="name">{{'NAME' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="name" placeholder="{{'FULL_NAME' | translate}}" ng-model="profile.name" required>
+                        </div>
                     </div>
-                 
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="title">{{'TITLE' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="title" placeholder="{{'TILTE' | translate}}" ng-model="profile.title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="email">{{'EMAIL' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" name="email" placeholder="{{'EMAIL' | translate}}" ng-model="profile.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="phone">{{'PHONE' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" name="phone" placeholder="{{'PHONE_NUMBER' | translate}}" ng-model="profile.phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="company">{{'COMPANY' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="company" placeholder="{{'WHERE_DO_YOU_WORK' | translate}}" ng-model="person.company">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="occupation">{{'OCCUPATION' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="occupation" placeholder="{{'JOB_TITLE' | translate}}" ng-model="profile.occupation">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="birthday">{{'BIRTHDAY' | translate}}:</label>
+                        <div class="col-xs-10">
+                           <!--TODO MAKE A DATEPICKER -->
+                            <input type="text" class="form-control" name="birthday" placeholder="{{'BIRTHDAY_FORM' | translate}}" ng-model="profile.birthday">
+                            <p class="help-block">{{'WE_PROMISE_NEVER_TO_SAY_HOW_OLD_YOU_ARE' | translate}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="gradYear">{{'GRADUATION_YEAR' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'CHOOSE_A_GRADUATION_YEAR' | translate}}"
+                            ng-model="profile.graduation_year"
+                            id="gradYear" 
+                            ng-options="y for y in graduationYears"
+                            class="col-md-8">
+                                <option value=""></option>
+                            </select>
+                            <p class="help-block" ng-show="profile.graduation_year <= thisYear">{{'YOU_ARE_REGISTERED_AS_ALUMNI' | translate}}</p>
+                            <p class="help-block" ng-show="profile.graduation_year > thisYear">{{'YOU_ARE_REGISTERED_AS_A_STUDENT' | translate}}</p>
+                        </div>
+                    </div>
+                   <div class="form-group">
+                       <label class="control-label col-xs-2 col-md-2" for="variety">{{'YOU_ARE_A' | translate}}:</label>
+                         <div class="col-md-9">
+                              <label>{{'STUDENT'}}</label>
+                              <input type="radio" name="student" 
+                                   ng-model="profile.variety" 
+                                   value="student" 
+                                   ng-disabled="profile.graduation_year <= thisYear"
+                                   />
+                              <label>{{'ALUMNI'}}</label>
+                              <input type="radio" name="alumni" 
+                                   ng-model="profile.variety" 
+                                   value="amlumni" 
+                                   ng-disabled="profile.graduation_year > thisYear || !profile.graduation_year"
+                                   />
+                              <label>{{'FACULTY'}}</label>
+                              <input type="radio" name="faculty" 
+                                   ng-model="profile.variety" 
+                                   value="amlumni" 
+                                   ng-disabled="profile.variety !== 'faculty'"
+                                   />
+                        </div>
+                   </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" >
+                        {{'REQUEST_FACULTY_ACCESS' | translate}}:</label>
+                        <div class="col-md-10">
+                          <!-- TODO MAKE IT WORK -->
+                           <button class="btn btn-info btn-sm">{{'IM_FACULTY' | translate}}</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="major">{{'MAJOR' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'MAJOR' | translate}}"
+                            ng-model="profile.degree_major"
+                            id="major" 
+                            ng-options="m for m in majors"
+                            class="col-md-8">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="minor">{{'MINOR' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'MINOR' | translate}}"
+                            ng-model="profile.degree_minor"
+                            id="minor" 
+                            ng-options="m for m in minors"
+                            class="col-md-8">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="degreeType">{{'DEGREE_TYPE' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'DEGREE_TYPE' | translate}}"
+                            ng-model="profile.degree_type"
+                            id="minor" 
+                            ng-options="t for t in degreeTypes"
+                            class="col-md-8">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="lang">{{'LANGUAGE' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'LANGUAGE' | translate}}"
+                            ng-model="profile.lang"
+                            id="lang" 
+                            class="col-md-8">
+                                <option value="en_US">English</option>
+                                <option value="es_ES">Español</option>
+                                <option value="fr_FR">Français</option>
+                                <option value="zh_CN">中文</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="facultyDepartment">{{'FACULTY_DEPARTMENT' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="facultyDepartment" placeholder="{{'WHAT_DEPARTMENT_ARE_YOU_A_PART_OF' | translate}}" ng-model="profile.faculty_department">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="studentID">{{'STUDENT_ID' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="studentId" placeholder="{{'STUDENT_ID_NUMBER' | translate}}" ng-model="profile.student_id">
+                        </div>
+                    </div>
                 </div>
-            </div>
-           <!-- USER PROFILE ROW END-->
-    </div>
-    <!-- CONATINER END -->
+
+           </div>
+       </form>
+       <div class="col-md-4 col-md-offset-6">
+            <button class="btn btn-lg btn-primary pull-left" ng-click="updateProfile()">{{'UPDATE_PROFILE' | translate}}</button>
+        </div>
+   </div>
+   
+
+ 
+ 
+ 
+</div>                              		
+   
+    
