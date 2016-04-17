@@ -15,8 +15,8 @@
                         console.log("FAILURE: login failed: " + $scope.credentials.username);
                         var msg = $translate.instant('login.FAILED');
                         MessageService.broadcast(msg, {color: 'danger'});
-                })
-        };
+                });
+        }
 
         $scope.signup = function() {
 
