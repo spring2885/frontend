@@ -84,12 +84,7 @@
                             <input type="text" class="form-control" name="email" placeholder="{{'EMAIL' | translate}}" ng-model="profile.email">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-2" for="phone">{{'PHONE' | translate}}:</label>
-                        <div class="col-xs-10">
-                            <input type="text" class="form-control" name="phone" placeholder="{{'PHONE_NUMBER' | translate}}" ng-model="profile.phone">
-                        </div>
-                    </div>
+
                     <div class="form-group">
                         <label class="control-label col-xs-2" for="company">{{'COMPANY' | translate}}:</label>
                         <div class="col-xs-10">
@@ -102,20 +97,14 @@
                             <input type="text" class="form-control" id="occupation" placeholder="{{'JOB_TITLE' | translate}}" ng-model="profile.occupation">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-2" for="birthday">{{'BIRTHDAY' | translate}}:</label>
-                        <div class="col-xs-10">
-                           <!--TODO MAKE A DATEPICKER -->
-                            <input type="text" class="form-control" name="birthday" placeholder="{{'BIRTHDAY_FORM' | translate}}" ng-model="profile.birthday">
-                            <p class="help-block">{{'WE_PROMISE_NEVER_TO_SAY_HOW_OLD_YOU_ARE' | translate}}</p>
-                        </div>
-                    </div>
+                   
                     <div class="form-group">
                         <label class="control-label col-xs-2 col-md-2" for="gradYear">{{'GRADUATION_YEAR' | translate}}:</label>
                         <div class="col-md-10">
                             <select chosen
                             placeholder="{{'CHOOSE_A_GRADUATION_YEAR' | translate}}"
                             ng-model="profile.graduation_year"
+                            allow-single-deselect= "true" 
                             id="gradYear" 
                             ng-options="y for y in graduationYears"
                             class="col-md-8">
@@ -163,6 +152,7 @@
                             <select chosen
                             placeholder="{{'MAJOR' | translate}}"
                             ng-model="profile.degree_major"
+                            allow-single-deselect= "true" 
                             id="major" 
                             ng-options="m for m in majors"
                             class="col-md-8">
@@ -176,6 +166,7 @@
                             <select chosen
                             placeholder="{{'MINOR' | translate}}"
                             ng-model="profile.degree_minor"
+                            allow-single-deselect= "true" 
                             id="minor" 
                             ng-options="m for m in minors"
                             class="col-md-8">
@@ -189,6 +180,7 @@
                             <select chosen
                             placeholder="{{'DEGREE_TYPE' | translate}}"
                             ng-model="profile.degree_type"
+                            allow-single-deselect= "true" 
                             id="minor" 
                             ng-options="t for t in degreeTypes"
                             class="col-md-8">
