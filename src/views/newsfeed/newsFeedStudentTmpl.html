@@ -1,0 +1,5 @@
+<div class="row col-md-10 col-md-offset-1">
+    <div class="well" ng-repeat="news in newsfeed | newsStudent | filter:query | orderBy:'-posted' track by news.id">
+        <div ng-include="'/src/views/newsfeed/newsFeedTmpl.html'"></div>
+    </div>
+</div>
