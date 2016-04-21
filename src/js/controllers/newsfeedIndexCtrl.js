@@ -158,7 +158,40 @@
                 
             };
             
+            /*** News Feed Filter Show/hide ***/
+            $scope.allNews = true;
+            $scope.studentNews = false;
+            $scope.alumniNews = false;
+            $scope.facultyNews = false;
             
+            $scope.show = function(newsType) {
+                switch(newsType) {
+                    case 'all':
+                        $scope.allNews = true;
+                        $scope.studentNews = false;
+                        $scope.alumniNews = false;
+                        $scope.facultyNews = false;
+                        break;
+                    case 'students':
+                        $scope.allNews = false;
+                        $scope.studentNews = true;
+                        $scope.alumniNews = false;
+                        $scope.facultyNews = false;
+                        break;
+                    case 'alumni':
+                        $scope.allNews = false;
+                        $scope.studentNews = false;
+                        $scope.alumniNews = true;
+                        $scope.facultyNews = false;
+                        break;
+                    case 'faculty':
+                        $scope.allNews = false;
+                        $scope.studentNews = false;
+                        $scope.alumniNews = false;
+                        $scope.facultyNews = true;
+                        break;
+                }
+            };
             
             
             
