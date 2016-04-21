@@ -56,11 +56,12 @@
                                         <option value="student">{{'STUDENTS' | translate}}</option>
                                         <option value="alumni">{{'ALUMNI' | translate}}</option>
                                         <option value="faculty">{{'FACULTY' | translate}}</option>
+                                        <option value=""""></option>
                                       </select>
                                     </div>
                                          
-                                          <span class="input-group-btn">
-                                            <button class="btn btn-danger" type="reset" ng-click="resetNewPost()">
+                                          <span class="input-group-btn" aline="right">
+                                            <button class="btn btn-default" type="reset" ng-click="resetNewPost()">
                                                 {{'CLEAR' | translate}}
                                             </button>
                                           </span>
@@ -72,8 +73,6 @@
                                         </span>
                                   </form>
                             </div>
-                            {{newPost}}
-                            {{$storage.user.id}}
                         </div>
             </div>
          
@@ -100,11 +99,21 @@
                               <h4 ng-text-truncate="news.description"
                                   ng-tt-chars-threshold="170"></h4>
                             </div>
+                            <div class="" align="right">
+                                <div class="row" ng-show="$storage.user.id === news.posted_by.id" style="width:60%;">
+                                    <button class="btn btn-primary" ng-model="item.SELECTED" ng-click="edit = !edit">
+                                        <i class="glyphicon glyphicon-pencil"></i> {{'EDIT' | translate}}
+                                    </button>
+                                    <button class="btn btn-default" ng-model="item.SELECTED" ng-click="remove(news.id)">
+                                        <i class="glyphicon glyphicon-remove"></i> {{'REMOVE_POST' | translate}}
+                                    </button>
+                                </div>
+                            </div>
 			        </div>
 		        </div>
                 <div class="divider"></div>
              </div>
-            <div ng-show="edit">
+            <div ng-show="edit" style="width:100% !important; height:100% !important;">
                  <form>
                            <div class="row text-center"><h5>{{'EDIT_YOUR_POST' | translate}}</h5></div>
                             <div class="form-group col-centered">
@@ -121,28 +130,22 @@
                                         id="title"
                                         ng-model="news.description">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" >
                                <lable for="visible">{{'VISABILITY' | translate}}:</lable>
-                                <select chosen multiple id="visible" ng-model="news.visible_to">
+                                <select chosen multiple id="visible" ng-model="news.visible_to" 
+                                       >
                                         <option value="student">{{'STUDENTS' | translate}}</option>
                                         <option value="alumni">{{'ALUMNI' | translate}}</option>
                                         <option value="faculty">{{'FACULTY' | translate}}</option>
                                 </select>
                             </div>
                             <div>
-                                <button class="btn btn-primary" type="reset" ng-click="editNewsPost(news.id)">{{'SUBMIT_EDITED_POST' | translate}} </button>
-                                <button class="btn btn-danger" ng-click="edit = !edit">{{'CANCEL' | translate}} </button>
+                                <button class="btn btn-primary" type="submit" ng-click="editNewsPost(news); edit = !edit">{{'SUBMIT_EDITED_POSTT' | translate}} </button>
+                                <button class="btn btn-default" ng-click="edit = !edit">{{'CANCEL' | translate}} </button>
                             </div>
-                            {{news}}
+                           FOR DEBUGGING: {{news}}
                         </form>
             </div>   
-                
-                <div class="row" ng-show="$storage.user.id === news.posted_by.id" style="width:100%;">
-                    <button class="btn btn-info btn-block btn-lg btn-circle" ng-model="item.SELECTED" ng-click="edit = !edit"> 
-                          <i class="glyphicon glyphicon-pencil"></i> {{'EDIT' | translate}}
-                      </button>
-                    
-                </div>
                 <div class="row"><br> <br></div>
                 <div class="row"><strong><u>{{'COMMENTS' | translate}}</u></strong></div>
                
@@ -157,7 +160,6 @@
                                 <div class="profile-details col-md-10">
                                       <h6><a ng-href="/profiles/{{comments.posted_by.id}}">{{comments.posted_by.name}} </a><small>{{'REPLIED_ON' | translate}} {{comments.posted | date:medium}}</small></h6>
                                     <p><strong>{{comments.text}}</strong></p>
-                                    USER: {{$storage.user.id}} Poster: {{comments.posted_by.id}}
                                 </div>
                             </div>
                         </div>
@@ -173,12 +175,12 @@
                                     <div class="input-group" style="width:100%;">     
                                           <input type="text" class="form-control " ng-model="comments.text" />
                                           <span class="input-group-btn">
-                                            <button class="btn btn-danger" type="reset">
+                                            <button class="btn btn-default" type="reset">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                           </span>
                                           <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="submit" ng-click="editNewsComment(comments.id)">
+                                            <button class="btn btn-primary" type="submit" ng-click="editNewsComment(comments)">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </span>
@@ -190,13 +192,14 @@
                         </div>
                         
                         
-                      <div class="row" ng-show="$storage.user.id === comments.posted_by.id" style="width:100%;">
-                        <button class="btn btn-info btn-block btn-sm btn-circle" ng-model="item.SELECTED" ng-click="editComment = !editComment"> 
+                      <div class="row" ng-show="$storage.user.id === comments.posted_by.id" style="width:100%;" align="right">
+                        <button class="btn btn-primary btn-sm" ng-model="item.SELECTED" ng-click="editComment = !editComment"> 
                               <i class="glyphicon glyphicon-pencil"></i> {{'EDIT' | translate}}
                           </button>
-                    
+                          <button class="btn btn-default btn-sm" ng-model="item.SELECTED" ng-click="removeComment(comments.id, news.id)">
+                              <i class="glyphicon glyphicon-remove"></i> {{'REMOVE_COMMENT' | translate}}
+                          </button>
                         </div>
-                        
                     </div>
                 </div>
                 
@@ -213,7 +216,7 @@
                                     <div class="input-group" style="width:100%;">     
                                           <input type="text" class="form-control " ng-model="newComment" />
                                           <span class="input-group-btn">
-                                            <button class="btn btn-danger" type="reset">
+                                            <button class="btn btn-default" type="reset">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                           </span>
@@ -223,8 +226,6 @@
                                             </button>
                                         </span>
                                       </div>
-                                        
-
                                      </div>
                                   </form>
                             </div>
