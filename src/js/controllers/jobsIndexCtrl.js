@@ -1,8 +1,14 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('jobsIndexCtrl', ['$scope', '$http', '$state', function($scope, $http, $state){
+        .controller('jobsIndexCtrl', ['$scope', '$http', '$state', 'abuseService', 
+        function($scope, $http, $state, abuseService) {
+                 console.log("jobsIndexCtrl constructed.");
                  $scope.jobs = [];
+                 $scope.flag = function(id) {
+                    abuseService.abuse(id, "JOB", "");
+                 };
+
                  $http.get('/api/v1/jobs')
                      .success(
                       function(response){

@@ -27,15 +27,17 @@
                     else {
                          $scope.$storage.user.name = data.person.name;
                     }
-
-                        
-                        
-                        
-                        
+   
                     $scope.$storage.isLoggedIn = true;
                     $scope.isLoggedIn = true;
-    
-                    $state.go('newsfeed-index');
+                    
+                    if($scope.$storage.user.name === $scope.$storage.user.email){
+                        $state.go('profile-edit');
+                    }
+                    else {
+                        $state.go('newsfeed-index');
+                    }
+                    
                 });
             });
 

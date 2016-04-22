@@ -8,15 +8,11 @@
                     <lable>{{'SET_LANGUAGE' | translate}}</lable>
                     &nbsp &nbsp
                     <select chosen ng-model="$storage.user.lang" class="col-md-4">
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="zh">中文</option>
-                        <option value=""></option>
+                        <option value="en_US">English</option>
+                        <option value="es_ES">Español</option>
+                        <option value="fr_FR">Français</option>
+                        <option value="zh_CN">中文</option>
                    </select>
-               </div>
-               <div class="row col-md-10 col-md-offset-1 form-group">
-                   Timezone/Local??
                </div>
                <div class="row col-md-10 col-md-offset-1 " style="display: inline">
                    {{'PASSWORD' | translate}}:<a href="/forgot"><h5>{{'REQUEST_A_NEW_PASSWORD' | translate}}</h5></a>
