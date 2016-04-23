@@ -92,6 +92,7 @@ module.exports = function(grunt) {
                      'src/js/routes.js',
                      'src/js/controllers/**/*.js',
                      'src/js/directives/**/*.js',
+                     'src/js/services/**/*.js',
                      'src/**/*.js'],
                 dest: 'generated/app.min.js',
             },
@@ -129,10 +130,10 @@ module.exports = function(grunt) {
             html: {
                 files: {
                     'generated/index.html' : 'src/index.html',
-                    'dist/index.html' : 'src/index.html',
-                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'src/assets/**', 'backend/**', 'src/assets/languages/**', 'fonts/**', 'src/assets/images/**'],
-                    'dist/' : ['src/views/**','src/templates/**', '!*.js']
-                    //'generated/fonts/' : ['<%= files.vendor_assets %>']
+                    'generated/chosen-sprite.png' : 'src/assets/images/chosen-sprite.png',
+                    'generated/chosen-sprite@2x.png' : 'src/assets/images/chosen-sprite@2x.png',
+                    'generated/chosen-sprite.png' : 'src/assets/images/chosen-sprite.png',
+                    'generated/' : ['src/views/**','src/templates/**', '!*.js', 'src/assets/**', 'backend/**', 'src/assets/languages/**', 'fonts/**', 'src/assets/images/**']
                 },
             },
             
