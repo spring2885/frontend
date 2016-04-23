@@ -73,12 +73,14 @@
             $scope.addNewPost = function(){
                 
                 $scope.newPost.posted = new Date();
+                console.log('DATE: '+ $scope.newPost.posted);
                 $scope.newPost.posted_by = {
                     id: $scope.$storage.user.id,
                     name: $scope.$storage.user.name,
                     image_url: $scope.$storage.user.image_url
                 };
                 
+                console.log('POST: ' + JSON.stringify($scope.newPost));
                 $http.post('/api/v1/news', $scope.newPost)
                     .success(
                         function(response) {
