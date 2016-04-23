@@ -1,54 +1,80 @@
-
-<!--<div ng-controller="profileShowCtrl">-->
-    <div class="container">
-        
-<!-- USER PROFILE ROW STARTS-->
+<div class="row" ng-controller="profileShowCtrl" style="margin-top:-45px; margin-bottom:15px;">
     <div class="row">
-        <div class="col-md-3 col-sm-3">
-            
-             <div class="user-wrapper">
-            <div ng-src="{{profile.image_url ? img_url : 'src/assets/images/Profilepic.svg'}}" class="img-rounded img-responsive"></div>
-        <div contenteditable ng-model="profile.name" class="description">
-            <h4>{{profile.name}}</h4>
-        
-            <h4>{{profile.email}}</h4>
-   
-            <h5> <strong> {{profile.company}} </strong></h5>
-
-            {{profile.occupation}}
-   
-            </p>
-            <hr />
-                 </div>
-            </div>
-    </div>
-         <div class="col-md-9 col-sm-9  user-wrapper">
-                <div class="description">
-            
-                         <h3>{{profile.name}} About Me: </h3>
-    
-  </div>
-                     <p>
-    
-                        <textarea name='About Me' ng-model='item.aboutMe' required>{{profile.about_me}}</textarea>
-    
-  </div>
-                    </p>                 
-        <h3> Social Links: </h3>
-                    <hr />                
-                   <a href="#" class="btn btn-social btn-facebook">
-                            <i class="fa fa-facebook"></i>&nbsp; Facebook </a>
-
-                        <a href="#" class="btn btn-social btn-google">
-                            <i class="fa fa-google-plus"></i>&nbsp; Google</a>
-                        <a href="#" class="btn btn-social btn-twitter">
-                            <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
-                        <a href="#" class="btn btn-social btn-linkedin">
-                            <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
+        <h2><i class="fa fa-user fa-2x"></i> {{profile.name}}</h2>
+        <span ng-show="$storage.user.id === profile.id">
+           <a ng-href="/profiles/{{$storage.user.id}}/edit"><button class="btn btn-info">{{'EDIT_PROFILE' | translate}}</button></a>
+       </span>
+   </div>
+    <div class="row page-content">
+        <div class="col-md-12">
+           
+           <!-- Left Column -->
+            <div class="col-md-4">
+                <img ng-src="{{profile.image_url}}" class="profile-img img-rounded" style="margin-top:0x;display: block;" name="profileImg">
+                <div class="col-md-12">
+                    <h4>{{profile.variety | uppercase}}</h4>
+                </div>
+                 <div class="col-md-12 text-center" ng-show="profile.variety === 'faculty'">
+                   <div class="row sp-underline"><h5>{{'DEPARTMENT' | translate}}</h5></div>
+                    <h4>{{profile.faculty_department}}</h4>
+                </div>
+                <div class="col-md-12 text-center">
+                   <div class="row sp-underline"><h5>{{'EMAIL' | translate}}</h5></div>
+                    <h4>{{profile.email}}</h4>
+                </div>
+                <div class="col-md-12 text-center" ng-show="profile.resume_url">
+                   <div class="row sp-underline"><h5>{{'RESUME' | translate}}</h5></div>
+                    <h4><a ng-href="{{profile.resume_url}}">{{'MY_RESUME' | translate}}</a></h4>
+                </div>
+                <div class="col-md-12 text-center" ng-show="profile.social_connections.length > 0">
+                   <div class="row sp-underline"><h5>{{'SOCIAL_NETWORKS' | translate}}</h5></div>
+                    <div class="col-md-12 text-center" ng-repeat="social in profile.social_connections">
+                        <h4><a ng-href="{{social.url}}">{{social.name}}</a></h4>
                     </div>
-                 
+                </div>
+                
+            </div>
+            
+            <!-- Right Column -->
+            <div class="col-md-8">
+                <div class="col-md-12">
+                    <div class="row sp-underline"><h5>{{'NAME' | translate}}</h5></div>
+                    <h4>{{profile.name}}</h4>
+                </div>
+                <div class="col-md-12" ng-show="profile.title">
+                    <div class="row sp-underline"><h5>{{'TITLE' | translate}}</h5></div>
+                    <h4>{{profile.title}}</h4>
+                </div>
+                <div class="col-md-12" ng-show="profile.about_me">
+                    <div class="row sp-underline"><h5>{{'ABOUT_ME' | translate}}</h5></div>
+                    <h4>{{profile.about_me}}</h4>
+                </div>
+                <div class="col-md-12" ng-show="profile.occupation">
+                    <div class="row sp-underline"><h5>{{'OCCUPATION' | translate}}</h5></div>
+                    <h4>{{profile.occupation}}</h4>
+                </div>
+                <div class="col-md-12" ng-show="profile.company_name">
+                    <div class="row sp-underline"><h5>{{'COMPANY' | translate}}</h5></div>
+                    <h4>{{profile.company_name}}</h4>
+                </div>
+                <div class="col-md-12" ng-show="profile.degree_major">
+                    <div class="row sp-underline"><h5>{{'MAJOR' | translate}}</h5></div>
+                    <h4>{{profile.degree_major}}</h4>
+                </div>
+                <div class="col-md-12" ng-show="profile.degree_minor">
+                    <div class="row sp-underline"><h5>{{'MINOR' | translate}}</h5></div>
+                    <h4>{{profile.degree_minor}}</h4>
+                </div>
+                <div class="col-md-12"  ng-show="profile.graduation_year">
+                    <div class="row sp-underline"><h5>{{'GRADUATION_YEAR' | translate}}</h5></div>
+                    <h4>{{profile.graduation_year}}</h4>
                 </div>
             </div>
-           <!-- USER PROFILE ROW END-->
+            
+        </div>
+        
     </div>
-    <!-- CONATINER END -->
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+    
+</div>
