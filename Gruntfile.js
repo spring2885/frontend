@@ -1,7 +1,7 @@
 
 module.exports = function(grunt) {
   'use strict';
-    //require('load-grunt-tasks')(grunt);  //read package.json for grunt task plugins
+    //require('load-grunt-tasks')(grunt);  //read package.json for grunt task plugins 
 
     //Grunt looks here for an Object with the same name of the task
     var rewrite = require('connect-modrewrite');
@@ -25,7 +25,6 @@ module.exports = function(grunt) {
               'bower_components/angular-ui-router/release/angular-ui-router.min.js',
               'bower_components/angular-translate/angular-translate.min.js',
               'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
-              'bower_components/angular-cookies/angular-cookies.min.js',
               'bower_components/ngstorage/ngStorage.min.js',
               'bower_components/base64-js/lib/b64.js',
               'bower_components/angular-base64/angular-base64.min.js',
@@ -40,31 +39,18 @@ module.exports = function(grunt) {
               'bower_components/angular-chosen-localytics/dist/angular-chosen.js',
               'bower_components/angular-basicauth/angular-basicauth.min.js',
               'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
-              'bower_components/ng-text-truncate/ng-text-truncate.js',
-              'bower_components/angular-sanitize/angular-sanitize.min.js',
-              'bower_components/angular-timezone-selector/dist/angular-timezone-selector.min.js',
-              'bower_components/angular-ui-calendar/src/calendar.js',
-              'bower_components/fullcalendar/dist/fullcalendar.min.js',
-              'bower_components/fullcalendar/dist/gcal.js',
-              'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js'
+              'bower_components/ng-text-truncate/ng-text-truncate.js'
           ] ,
             vendor_css: [
                 'bower_components/bootstrap/dist/css/bootstrap.min.css',
                 'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
                 'bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min',
-                'bower_components/bootstrap-material-design/dist/css/ripples.min.css',
                 'bower_components/font-awesome/css/font-awesome.min.css',
                 'bower_components/angular-message-center/dist/css/message-center.min.css',
                 'bower_components/angular-chosen-localytics/chosen-spinner.css',
-                'MegaNavbar/assets/css/MegaNavbar.min.css',
-                'MegaNavbar/assets/css/animation/*.css',
-                'MegaNavbar/assets/css/skins/*.css',
-                'bower_components/chosen/chosen.css',
-                'bower_components/angular-timezone-selector/dist/angular-timezone-selector.min.css',
-                'bower_components/fullcalendar/dist/fullcalendar.min.css'
+                'bower_components/chosen/chosen.css'
             ],
             vendor_assets: [
-//                'MegaNavbar/assets/plugins/simple-line-icons/**',
                 'bower_components/angular-chosen-localytics/spinner.gif',
                 'bower_components/bootstrap/dist/fonts/**',
                 'bower_components/chosen/**.png',
