@@ -12,7 +12,7 @@
         $scope.acceptAlert = function() {
             var msg = $translate.instant('signup.ACCEPT_TERMS_ERROR');
             MessageService.broadcast(msg, {color: 'danger'});
-        }
+        };
         
         function getAuth(credentials) {
             authService
