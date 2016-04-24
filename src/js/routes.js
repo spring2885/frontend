@@ -73,9 +73,9 @@
      
             //job view page
             $stateProvider
-                .state('jobs-show', {
+                .state('job-show', {
                 url: '/jobs/:id',
-                templateUrl: '/src/views/jobs/jobsShow.html',
+                templateUrl: 'src/views/jobs/jobsShow.html',
                 controller: 'jobsShowCtrl',
                 data: {
                     requireLogin: true
@@ -98,7 +98,7 @@
                 .state('job-edit', {
                 url: '/jobs/:id/edit',
                 templateUrl: 'src/views/jobs/jobsEdit.html',
-                controller: 'jobsEditCtrl',
+                //controller: 'jobsEditCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -107,46 +107,26 @@
             //create a job posting
             $stateProvider
                 .state('job-create', {
-                url: '/jobs/new',
+                url: '/jobs/create/new',
                 templateUrl: 'src/views/jobs/jobsCreate.html',
-                controller: 'jobsCreatePostCtrl',
+                //controller: 'jobsCreatePostCtrl',
                 data: {
                     requireLogin: true
                 }
             });
      
-            //show events
+            //see your job postings
+            //create a job posting
             $stateProvider
-                .state('events-index', {
-                url: '/events',
-                templateUrl: 'src/views/events/eventsShow.html',
-                controller: 'eventsShowCtrl',
+                .state('job-my-jobs', {
+                url: '/myjobs',
+                templateUrl: 'src/views/jobs/jobsMyJobs.html',
+                //controller: 'jobsCreatePostCtrl',
                 data: {
                     requireLogin: true
                 }
             });
-     
-            //view an event
-            $stateProvider
-                .state('events-show', {
-                url: '/events/:id',
-                templateUrl: 'src/views/events/eventsIndex.html',
-                controller: 'eventsIndexCtrl',
-                data: {
-                    requireLogin: true
-                }
-            });
-     
-            //create-edit an event
-            $stateProvider
-                .state('events-edit', {
-                url: '/events/:id/edit',
-                templateUrl: 'src/views/events/eventsEdit.html',
-                controller: 'eventsEditCtrl',
-                data: {
-                    requireLogin: true
-                }
-            });
+            
        
             //about us page
             $stateProvider
