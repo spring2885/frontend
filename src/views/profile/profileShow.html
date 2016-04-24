@@ -1,54 +1,110 @@
+<div ng-controller="profileShowCtrl">
 
-<!--<div ng-controller="profileShowCtrl">-->
-    <div class="container">
-        
-<!-- USER PROFILE ROW STARTS-->
-    <div class="row">
-        <div class="col-md-3 col-sm-3">
-            
-             <div class="user-wrapper">
-            <div ng-src="{{profile.image_url ? img_url : 'src/assets/images/Profilepic.svg'}}" class="img-rounded img-responsive"></div>
-        <div contenteditable ng-model="profile.name" class="description">
-            <h4>{{profile.name}}</h4>
-        
-            <h4>{{profile.email}}</h4>
-   
-            <h5> <strong> {{profile.company}} </strong></h5>
+	<!-- USER PROFILE STARTS-->
+	<div class="row page-content" style="padding-bottom: 15px;">
+		<form class="form-horizontal" role="form">
+			<div class="col-md-4 col-sm-8">
+				<!--       
+            <div ng-src="{{profile.image_url}} ? img_url : 'src/assets/images/Profilepic.svg'" class="img-rounded img-responsive"></div>
+-->
+				<br>
+				<h2>{{profile.name}}</h2>
 
-            {{profile.occupation}}
-   
-            </p>
-            <hr />
-                 </div>
+				<h4>{{profile.email}}</h4>
+
+				<h5>{{profile.company_name}}</h5>
+s
+				<h5>{{profile.occupation}}</h5>
+                
+                <h5>{{profile.degree_major}}</h5>
+
+				<!-- Social Group Buttons -->
+				<div class="btn-group">
+					<button type="button" class="btn btn-secondary dropdown-item"
+						data-toggle="dropdown">
+						<h5>Social Links</h5>
+					</button>
+					<div class="dropdown-menu" ng-scrollbar>
+						<a class="btn btn-block btn-social btn-dropbox"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-dropbox']);">
+							<span class="fa fa-dropbox"></span> Sign in with Dropbox
+						</a> <a class="btn btn-block btn-social btn-facebook dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-facebook']);">
+							<span class="fa fa-facebook"></span> Sign in with Facebook
+						</a> <a class="btn btn-block btn-social btn-flickr dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-flickr']);">
+							<span class="fa fa-flickr"></span> Sign in with Flickr
+						</a> <a class="btn btn-block btn-social btn-foursquare dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-foursquare']);">
+							<span class="fa fa-foursquare"></span> Sign in with Foursquare
+						</a> <a class="btn btn-block btn-social btn-github dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-github']);">
+							<span class="fa fa-github"></span> Sign in with GitHub
+						</a> <a class="btn btn-block btn-social btn-google dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-google']);">
+							<span class="fa fa-google"></span> Sign in with Google
+						</a> <a class="btn btn-block btn-social btn-instagram dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-instagram']);">
+							<span class="fa fa-instagram"></span> Sign in with Instagram
+						</a> <a class="btn btn-block btn-social btn-linkedin dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-linkedin']);">
+							<span class="fa fa-linkedin"></span> Sign in with LinkedIn
+						</a> <a class="btn btn-block btn-social btn-microsoft dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-microsoft']);">
+							<span class="fa fa-windows"></span> Sign in with Microsoft
+						</a> <a
+							class="btn btn-block btn-social btn-odnoklassniki dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-odnoklassniki']);">
+							<span class="fa fa-odnoklassniki"></span> Sign in with
+							Odnoklassniki
+						</a> <a class="btn btn-block btn-social btn-openid dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-openid']);">
+							<span class="fa fa-openid"></span> Sign in with OpenID
+						</a> <a class="btn btn-block btn-social btn-pinterest dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-pinterest']);">
+							<span class="fa fa-pinterest"></span> Sign in with Pinterest
+						</a> <a class="btn btn-block btn-social btn-reddit dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-reddit']);">
+							<span class="fa fa-reddit"></span> Sign in with Reddit
+						</a> <a class="btn btn-block btn-social btn-soundcloud dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-soundcloud']);">
+							<span class="fa fa-soundcloud"></span> Sign in with SoundCloud
+						</a> <a class="btn btn-block btn-social btn-tumblr dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-tumblr']);">
+							<span class="fa fa-tumblr"></span> Sign in with Tumblr
+						</a> <a class="btn btn-block btn-social btn-twitter dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-twitter']);">
+							<span class="fa fa-twitter"></span> Sign in with Twitter
+						</a> <a class="btn btn-block btn-social btn-vimeo dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-vimeo']);">
+							<span class="fa fa-vimeo-square"></span> Sign in with Vimeo
+						</a> <a class="btn btn-block btn-social btn-vk dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-vk']);">
+							<span class="fa fa-vk"></span> Sign in with VK
+						</a> <a class="btn btn-block btn-social btn-yahoo dropdown-item"
+							onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-yahoo']);">
+							<span class="fa fa-yahoo"></span> Sign in with Yahoo!
+						</a>
+						<hr>
+					</div>
+				</div>
+				<!-- end of social group-dropdown div -->
+			</div>
+
+			<!-- About Me-->
+			<div class="col-md-8 col-sm-8">
+				<div class="description">
+					<h3>{{profile.name}}'s About Me:</h3>
+				</div>
+				<br>
+				<textbox name='About Me' ng-model='item.aboutMe'>{{profile.about_me}}</textbox>
+			</div>
+            <br>
+            <br>
+            <br>
+             <div class="row panel col-md-8 col-sm-8 panel-default">
+                <textbox name='Resume' ng-model='item.resumeUrl'>{{profile.resume_url}}</textbox>
             </div>
-    </div>
-         <div class="col-md-9 col-sm-9  user-wrapper">
-                <div class="description">
-            
-                         <h3>{{profile.name}} About Me: </h3>
-    
-  </div>
-                     <p>
-    
-                        <textarea name='About Me' ng-model='item.aboutMe' required>{{profile.about_me}}</textarea>
-    
-  </div>
-                    </p>                 
-        <h3> Social Links: </h3>
-                    <hr />                
-                   <a href="#" class="btn btn-social btn-facebook">
-                            <i class="fa fa-facebook"></i>&nbsp; Facebook </a>
-
-                        <a href="#" class="btn btn-social btn-google">
-                            <i class="fa fa-google-plus"></i>&nbsp; Google</a>
-                        <a href="#" class="btn btn-social btn-twitter">
-                            <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
-                        <a href="#" class="btn btn-social btn-linkedin">
-                            <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
-                    </div>
-                 
-                </div>
-            </div>
-           <!-- USER PROFILE ROW END-->
-    </div>
-    <!-- CONATINER END -->
+	</div>
+	<!-- starts about me in the column next to the user information -->
+</div>

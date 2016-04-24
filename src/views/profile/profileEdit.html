@@ -1,107 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>UserEdit</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="jquery.date-dropdowns.min.js"></script>
-<script> $(function() { $('.datepicker').datepicker({ format: 'mm-dd-yyyy', endDate: '+0d', autoclose: true }); }); </script>
-</head>
-    
-    
-<body>
-<div class="profileSignUp">
+<div ng-controller="profileEditCtrl" style="margin-top:-45px; margin-bottom:15px;">
+   <h2><i class="fa fa-edit fa-2x"></i> {{ 'EDIT_YOUR_PROFILE' | translate }}</h2>
+   <div class="row page-content" style="padding-bottom:15px;">
+      <form class="form-horizontal" role="form">
+           <div class="col-md-12">
+               <div class="col-md-4 text-center">
+                   <img ng-src="{{$storage.user.image_url}}" class="profile-img img-rounded" style="margin-top:45px;" name="profileImg">
+                   <div class="form-group form-inline">
+                       <label class="control-label" for="profileImg">
+                          {{'PROFILE_IMAGE_URL' | translate}}:
+                           <input type="text" class="form-control" id="profileImg" placeholder="{{'URL_FOR_IMAGE' | translate}}" ng-model="profile.image_url">
+                       </label>
+                       <p class="help-block">{{'IMAGE_HOW_TO_BLURB' | translate}}</p>
+                   </div>
+                   <div class="form-group form-inline col-md-12">
+                       <label class="control-label" for="resumeUrl">
+                          {{'RESUME_URL' | translate}}:
+                           <input type="text" class="form-control" id="resumeUrl" placeholder="{{'LINK_TO_RESUME' | translate}}" ng-model="profile.resume_url">
+                       </label>
+                       <p class="help-block">{{'RESUME_HOW_TO_BLURB' | translate}}</p>
+                   </div>
+                   <div class="form-group form-inline col-md-12">
+                       <label class="control-label" for="about">
+                          {{'ABOUT_ME' | translate}}:
+                           <textarea class="form-control" id="about" placeholder="{{'TELL_US_ABOUT_YOURSELF' | translate}}" ng-model="profile.about_me"/>
+                       </label>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-12">
+                           <strong><u>{{'ADD_SOME_SOCIAL_NETWORKS' | translate}}</u></strong>
+                       </div>
+                       <div class="form-group">
+                            <label class="control-label col-xs-2" for="Socialname">{{'Name:' | translate}}:</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control" id="Socialname" placeholder="{{'NAME_OF_SITE_TO_ADD' | translate}}" ng-model="socialName">
+                            </div>
+                            <label class="control-label col-xs-2" for="SocialUrl">{{'URL:' | translate}}:</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control" id="SocialUrl" placeholder="{{'WEB_ADDRESS_OF_SITE' | translate}}" ng-model="socialUrl">
+                            </div>
+                            <button class="btn btn-primary" ng-click="addToSocial()">
+                                {{'ADD_WEBSITE' | translate}}
+                            </button>
+                        </div>
+                        <div class="row" ng-show="profile.social_connections.length > 0">
+                            <div class="col-md-12">
+                                <u>{{'EDIT_CURRENT_SITES' | translate}}</u>
+                            </div>
+                            <div class="col-md-12" ng-repeat="site in profile.social_connections track by $index">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-2" for="Socialname">{{'NAME' | translate}}:</label>
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" id="Socialname" ng-model="site.name">
+                                    </div>
+                                    <label class="control-label col-xs-2" for="SocialUrl">{{'URL' | translate}}:</label>
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" id="SocialUrl" ng-model="site.url">
+                                    </div>
+                                    <button class="btn btn-danger" ng-click="removeSocial($index)">
+                                        {{'REMOVE_WEBSITE' | translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+               <div class="col-md-8">
+                   <div class="form-group">
+                        <label class="control-label col-xs-2" for="name">{{'NAME' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="name" placeholder="{{'FULL_NAME' | translate}}" ng-model="profile.name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="title">{{'TITLE' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="title" placeholder="{{'TITLE' | translate}}" ng-model="profile.title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="email">{{'EMAIL' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" name="email" placeholder="{{'EMAIL' | translate}}" ng-model="profile.email">
+                        </div>
+                    </div>
 
-    <form data-toggle="validator" role="form" method="post" class="form-horizontal col-md-4 col-md-offset-4">
-        <h1>Edit Page</h1>
-        <br>
-        <div class="form-group">
-            <label class="control-label col-xs-2" for="name" ng-model="$storage.user.name">Name:</label>
-            <div class="col-xs-10">
-                <input type="text" class="form-control" id="name" placeholder="Full Name" maxlength="20" required>
-            </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="company">{{'COMPANY' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="company" placeholder="{{'WHERE_DO_YOU_WORK' | translate}}" ng-model="profile.company_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="occupation">{{'OCCUPATION' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="occupation" placeholder="{{'JOB_TITLE' | translate}}" ng-model="profile.occupation">
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="gradYear">{{'GRADUATION_YEAR' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'CHOOSE_A_GRADUATION_YEAR' | translate}}"
+                            ng-model="profile.graduation_year"
+                            allow-single-deselect= "true" 
+                            id="gradYear" 
+                            ng-options="y for y in graduationYears"
+                            class="col-md-8">
+                                <option value=""></option>
+                            </select>
+                            <p class="help-block" ng-show="profile.graduation_year <= thisYear">{{'YOU_ARE_REGISTERED_AS_ALUMNI' | translate}}</p>
+                            <p class="help-block" ng-show="profile.graduation_year > thisYear">{{'YOU_ARE_REGISTERED_AS_A_STUDENT' | translate}}</p>
+                        </div>
+                    </div>
+                   <div class="form-group">
+                       <label class="control-label col-xs-2 col-md-2" for="variety">{{'YOU_ARE_A' | translate}}:</label>
+                         <div class="col-md-9">
+                              <label>{{'STUDENT'}}</label>
+                              <input type="radio" name="student" 
+                                   ng-model="profile.variety" 
+                                   value="student" 
+                                   ng-disabled="profile.graduation_year <= thisYear"
+                                   />
+                              <label>{{'ALUMNI'}}</label>
+                              <input type="radio" name="alumni" 
+                                   ng-model="profile.variety" 
+                                   value="amlumni" 
+                                   ng-disabled="profile.graduation_year > thisYear || !profile.graduation_year"
+                                   />
+                              <label>{{'FACULTY'}}</label>
+                              <input type="radio" name="faculty" 
+                                   ng-model="profile.variety" 
+                                   value="amlumni" 
+                                   ng-disabled="profile.variety !== 'faculty'"
+                                   />
+                        </div>
+                   </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" >
+                        {{'REQUEST_FACULTY_ACCESS' | translate}}:</label>
+                        <div class="col-md-10">
+                          <!-- TODO MAKE IT WORK -->
+                           <button class="btn btn-info btn-sm">{{'IM_FACULTY' | translate}}</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="major">{{'MAJOR' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'MAJOR' | translate}}"
+                            ng-model="profile.degree_major"
+                            allow-single-deselect= "true" 
+                            id="major" 
+                            ng-options="m for m in majors"
+                            class="col-md-8">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="minor">{{'MINOR' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'MINOR' | translate}}"
+                            ng-model="profile.degree_minor"
+                            allow-single-deselect= "true" 
+                            id="minor" 
+                            ng-options="m for m in minors"
+                            class="col-md-8">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="degreeType">{{'DEGREE_TYPE' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'DEGREE_TYPE' | translate}}"
+                            ng-model="profile.degree_type"
+                            allow-single-deselect= "true" 
+                            id="minor" 
+                            ng-options="t for t in degreeTypes"
+                            class="col-md-8">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2 col-md-2" for="lang">{{'LANGUAGE' | translate}}:</label>
+                        <div class="col-md-10">
+                            <select chosen
+                            placeholder="{{'LANGUAGE' | translate}}"
+                            ng-model="profile.lang"
+                            id="lang" 
+                            class="col-md-8">
+                                <option value="en_US">English</option>
+                                <option value="es_ES">Español</option>
+                                <option value="fr_FR">Français</option>
+                                <option value="zh_CN">中文</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="facultyDepartment">{{'FACULTY_DEPARTMENT' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="facultyDepartment" placeholder="{{'WHAT_DEPARTMENT_ARE_YOU_A_PART_OF' | translate}}" ng-model="profile.faculty_department">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2" for="studentID">{{'STUDENT_ID' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="studentId" placeholder="{{'STUDENT_ID_NUMBER' | translate}}" ng-model="profile.student_id">
+                        </div>
+                    </div>
+                </div>
+
+           </div>
+       </form>
+       <div class="col-md-4 col-md-offset-6">
+            <button class="btn btn-lg btn-primary pull-left" ng-click="updateProfile() $state.go/newsFeedShow.html">{{'UPDATE_PROFILE' | translate}}</button>
         </div>
-                <div class="form-group">
-            <label class="control-label col-xs-2" for="title">Title:</label>
-            <div class="col-xs-10">
-                <input type="text" class="form-control" id="title" placeholder="Job Title" maxlength="20" required>
-            </div>
-        </div>
-            <div class="form-group">
-            <label class="control-label col-xs-2" for="email">Email:</label>
-            <div class="col-xs-10">
-                <input type="text" class="form-control" id="email" ng-model="$storage.user.email" placeholder="Email" maxlength="20" required>
-            </div>
-        </div>
-                <div class="form-group">
-            <label class="control-label col-xs-2" for="companyName">Company:</label>
-            <div class="col-xs-10">
-                <input type="text" class="form-control" id="companyName" placeholder="Company Name" maxlength="20" required>
-            </div>
-        </div>
-             <div class="form-group">
-            <label class="control-label col-xs-2" for="lastName">Graduation Year:</label>
-            <div class="col-xs-10">
-                <input type="text" class="form-control" id="gradYear" format="dddd" placeholder="Graduation Year" maxlength="120">
-            </div>
-        </div>
-                <div class="form-group">
-            <label class="control-label col-xs-2" for="studentID">Student ID:</label>
-            <div class="col-xs-10">
-                <input type="text" class="form-control" id="studentID" placeholder="Student ID" maxlength="20" required>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label class="control-label col-xs-2" for="phoneNumber">Phone:</label>
-            <div class="col-xs-10">
-                <input type="text" class="form control input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd" id="phoneNumber" placeholder="Phone Number" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-xs-2">Date of Birth:</label>
-            
-            <div class="col-xs-10 date">
-                <div class="input-append date" id="dpMonths" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
-				<input class="span2" size="16" type="text" value="02/2012" readonly>
-				<span class="add-on"><i class="icon-calendar"></i></span>
-			  </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-xs-2" for="postalAddress">Address:</label>
-            <div class="col-xs-10">
-                <textarea rows="1" class="form-control" id="postalAddress" placeholder="Postal Address"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-xs-2" for="ZipCode">Zip Code:</label>
-            <div class="col-xs-10">
-                <input type="text" class="form-control" id="ZipCode" placeholder="Zip Code" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-xs-offset-2">
-                <label class="checkbox-inline">
-                    <input type="checkbox" value="agree" required>  Request To Become Faculty.
-                </label>
-            </div>
-        </div>
-        <br>
-                <!-- Submit/Reset button -->
-    <div class="form-group">
-        <div class="col-xs-5 col-xs-offset-3">
-            <!-- Initially, the submit button is disabled -->
-            <input type="submit" class="btn btn-default" value="Submit">
-            <input type="reset" class="btn btn-default" value="Reset">
-        </div>
-    </div>
- </form>
-</div>
-</body>
-</html>                                		
+   </div>
+   
+
+ 
+ 
+ 
+</div>             
