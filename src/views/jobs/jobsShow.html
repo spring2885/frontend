@@ -1,15 +1,40 @@
 <div ng-controller="jobsShowCtrl">
-	
-    <h2><b>Jobs Listing Details</b></h2>
-
-    <div class="row"><b>{{job.title}}</b></div> 
-    <div class="row"><b>Company: </b>{{job.poster_company}}</div> 
-    <div class="row"><b>Contact: </b>{{job.poster_email}}</div> 
-    <div class="row"><b>Type: </b>{{job.type}}</div>    
-    <div class="row"><b>Location: </b>{{job.location}}</div>    
-    <div class="row"><b>Start Date: </b>{{job.start_date}}</div>    
-    <br><div class="row"><b>Description:</b></div>
-    <div class="row">	 {{job.description}}</div>
+	<div class="row" style="margin-top: -45px;">
+        <h2><b>{{'JOB_DETAILS' | translate}}</b></h2>
+	    <div class="col-md-12 page-content">
+	        <div class="col-md-12"><h3>{{job.title}}</h3></div>
+	        <div class="col-md-12">{{'POSTED_BY' | translate}} <a ng-href="/profiles/{{job.posted_by.id}}">{{job.posted_by.name}}</a></div>
+	        
+	        <div class="col-md-10 col-md-offset-1" ng-show="job.company">
+                    <div class="row sp-underline"><h5>{{'COMPANY' | translate}}</h5></div>
+                    <h4>{{job.company}}</h4>
+            </div>
+            
+             <div class="col-md-10 col-md-offset-1" ng-show="job.location">
+                    <div class="row sp-underline"><h5>{{'LOCATION' | translate}}</h5></div>
+                    <h4>{{job.location}}</h4>
+            </div>
+            
+            <div class="col-md-10 col-md-offset-1" ng-show="job.job_type">
+                    <div class="row sp-underline"><h5>{{'JOB_TYPE' | translate}}</h5></div>
+                    <h4>{{job.job_type}}</h4>
+            </div>
+            
+            <div class="col-md-10 col-md-offset-1" ng-show="job.start_date">
+                    <div class="row sp-underline"><h5>{{'START_DATE' | translate}}</h5></div>
+                    <h4>{{job.start_date}}</h4>
+            </div>
+            
+            <div class="col-md-10 col-md-offset-1" ng-show="job.description">
+                    <div class="row sp-underline"><h5>{{'JOB_DESCRIPTION' | translate}}</h5></div>
+                    <h4>{{job.description}}</h4>
+            </div>
+	        
+	    </div>
+	</div>
+   
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
            
 
 </div>

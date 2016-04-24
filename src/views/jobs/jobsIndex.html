@@ -1,13 +1,3 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
-
 <div class="row">
     <div class="row" style="margin-top:-45px;">
         <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-suitcase fa-lg"></i> {{'JOBS' | translate}}</h2>
@@ -93,7 +83,7 @@
 -->
         <div class="input-group col-md-12">
 
-            <div class=" col-md-12" ng-repeat="job in jobs | filter:query | orderBy:'start_date'">
+            <div class=" col-md-12" ng-repeat="job in jobs | filter:query | orderBy:'-start_date'">
                 <div class="row panel panel-default">
                    <div class="col-md-2 text-center" style="padding-top:35px;">
                        <i class=" fa fa-institution fa-lg fa-4x"></i><br><br>{{job.type | uppercase}}
@@ -103,7 +93,7 @@
                             <a ng-href="/jobs/{{job.id}}"><h4>{{job.title}}</h4></a>
                         </div>
                         <div class="row col-md-12">
-                            <a ng-href="/jobs/{{job.id}}">{{'COMPANY' | translate}}: {{job.poster_company}}</a>
+                            <a ng-href="/jobs/{{job.id}}">{{'COMPANY' | translate}}: {{job.company}}</a>
                         </div>
                         <div ng-href="/jobs/{{job.type}}" class="text-muted row col-md-12">
                                 <h5 ng-text-truncate="job.description"
@@ -112,7 +102,6 @@
                         </div>
                     <a ng-click="flag(job.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>flag</a>
                      </div>
-
                 </div>
             </div>
         </div>

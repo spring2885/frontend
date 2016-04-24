@@ -5,6 +5,8 @@
                  
                  $scope.$storage = $localStorage;
                  $scope.newsfeed = [];
+            var now = new Date();
+            console.log(now);
                  
                  var newsPost = {
                      title : '',
