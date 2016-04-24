@@ -1,9 +1,11 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('profileEditCtrl', ['$scope', '$stateParams', '$http', '$localStorage', 
-                                        function($scope, $stateParams, $http, $localStorage){
+        .controller('profileEditCtrl', ['$scope', '$state', '$stateParams', '$http', '$localStorage', 'MessageService', '$translate', 
+                    function($scope, $state, $stateParams, $http, $localStorage, MessageService, $translate){
                  
+                 MessageService.configure({disabled:false, max:3, timeout:3500});
+                                            
                  /** Put everything in Scope **/
                  $scope.profile = {};
                  $scope.$storage = $localStorage;
@@ -42,6 +44,10 @@
                      $http.put(apiURL , $scope.profile)
 				        .success(
 				            function(response) {
+                                
+                                $state.go('profile-view', { id: $scope.profile.id }, { reload: true });
+                                var msg =  $translate.instant('profile.UPDATED');
+                                MessageService.broadcast(msg, {color: 'success'});
 					           console.log("UPDATE succeeded");
 				        });
                  };                       
