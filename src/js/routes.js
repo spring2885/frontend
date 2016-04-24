@@ -70,23 +70,6 @@
                 }
             });
      
-       /****These Functions are all hadled on the Newsfeed Index Page
-            //show a single news item in a newsfeed
-            $stateProvider
-                .state('newsfeed-item', {
-                url: '/newsfeed/:id',
-                templateUrl: 'src/views/newsfeed/newsfeedShow.html',
-                controller: 'newsfeedShowCtrl'
-            });
-     
-            //create-edit a newsfeed post
-            $stateProvider
-                .state('newsfeed-edit', {
-                url: '/newsfeed/:id/edit',
-                templateUrl: 'src/views/newsfeed/newsfeedEdit.html',
-                controller: 'newsfeedEditCtrl'
-            });
-            *****/
      
             //job view page
             $stateProvider
@@ -113,7 +96,7 @@
             //edit a job posting
             $stateProvider
                 .state('job-edit', {
-                url: '/jobs/edit',
+                url: '/jobs/:id/edit',
                 templateUrl: 'src/views/jobs/jobsEdit.html',
                 controller: 'jobsEditCtrl',
                 data: {
@@ -281,7 +264,7 @@
                 url: '/help',
                 templateUrl: 'src/views/info/help.html',
                 data: {
-                    requireLogin: true
+                    requireLogin: false
                 }
             });
             
