@@ -1,7 +1,7 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('newsfeedIndexCtrl', ['$scope', '$rootScope', '$http', '$state', '$localStorage', function($scope, $rootScope, $http, $state, $localStorage){
+        .controller('newsfeedIndexCtrl', ['$scope', '$rootScope', '$http', '$state', '$localStorage', 'abuseService', function($scope, $rootScope, $http, $state, $localStorage, abuseService){
                  
                  $scope.$storage = $localStorage;
                  $scope.newsfeed = [];
@@ -11,6 +11,13 @@
                      description : '',
                      visible_to : []
                      
+                 };
+            
+                 $scope.flagPost = function(id) {
+                     abuseService.abuse(id, "NEWSPOST", "");
+                 };
+                 $scope.flagComment = function(id) {
+                     abuseService.abuse(id, "NEWSCOMMENT", "");
                  };
                  
                  $scope.newPost = angular.copy(newsPost);
