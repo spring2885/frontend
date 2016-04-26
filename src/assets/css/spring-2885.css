@@ -225,3 +225,8 @@ body {
     margin-right: 10px;
     margin-left: 10px;
 }
+
+.sp-underline {
+    border-width: 2px;
+   border-bottom: 2px grey solid;
+}

@@ -6,6 +6,7 @@
                 $http.get('/api/v1/profiles/' + $stateParams.id)
                     .success(
                      function(response){
+<<<<<<< HEAD
                          $scope.profile = response;
                          console.log(JSON.stringify($scope.profile));
                          return $scope.profile;
@@ -16,3 +17,9 @@
                     });
    }]);
 })();
+=======
+                         $state.go('404');
+                     });
+    }]);
+})();
+>>>>>>> fdaedad38569938eadaee2c4ce0bb3ede01fb725
