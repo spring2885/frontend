@@ -1,7 +1,7 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('profileIndexCtrl', ['$scope', '$http', '$state', function($scope, $http, $state){
+        .controller('profileIndexCtrl', ['$scope', '$http', '$state', 'abuseService', function($scope, $http, $state, abuseService){
             $scope.profiles = [];
             $http.get('/api/v1/profiles')
                 .success(
@@ -13,6 +13,10 @@
                  function(response){
                     $state.go('404');
                 });
+            
+//            $scope.flag = function(id) {
+//                abuseService.abuse(id, 'PROFILE', '');
+//            };
             
             
             /*Show and Hide Filtered Lists */

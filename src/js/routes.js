@@ -70,29 +70,12 @@
                 }
             });
      
-       /****These Functions are all hadled on the Newsfeed Index Page
-            //show a single news item in a newsfeed
-            $stateProvider
-                .state('newsfeed-item', {
-                url: '/newsfeed/:id',
-                templateUrl: 'src/views/newsfeed/newsfeedShow.html',
-                controller: 'newsfeedShowCtrl'
-            });
-     
-            //create-edit a newsfeed post
-            $stateProvider
-                .state('newsfeed-edit', {
-                url: '/newsfeed/:id/edit',
-                templateUrl: 'src/views/newsfeed/newsfeedEdit.html',
-                controller: 'newsfeedEditCtrl'
-            });
-            *****/
      
             //job view page
             $stateProvider
-                .state('jobs-show', {
+                .state('job-show', {
                 url: '/jobs/:id',
-                templateUrl: '/src/views/jobs/jobsShow.html',
+                templateUrl: 'src/views/jobs/jobsShow.html',
                 controller: 'jobsShowCtrl',
                 data: {
                     requireLogin: true
@@ -113,9 +96,9 @@
             //edit a job posting
             $stateProvider
                 .state('job-edit', {
-                url: '/jobs/edit',
+                url: '/jobs/:id/edit',
                 templateUrl: 'src/views/jobs/jobsEdit.html',
-                controller: 'jobsEditCtrl',
+                //controller: 'jobsEditCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -124,46 +107,26 @@
             //create a job posting
             $stateProvider
                 .state('job-create', {
-                url: '/jobs/new',
+                url: '/jobs/create/new',
                 templateUrl: 'src/views/jobs/jobsCreate.html',
-                controller: 'jobsCreatePostCtrl',
+                //controller: 'jobsCreatePostCtrl',
                 data: {
                     requireLogin: true
                 }
             });
      
-            //show events
+            //see your job postings
+            //create a job posting
             $stateProvider
-                .state('events-index', {
-                url: '/events',
-                templateUrl: 'src/views/events/eventsShow.html',
-                controller: 'eventsShowCtrl',
+                .state('job-my-jobs', {
+                url: '/myjobs',
+                templateUrl: 'src/views/jobs/jobsMyJobs.html',
+                //controller: 'jobsCreatePostCtrl',
                 data: {
                     requireLogin: true
                 }
             });
-     
-            //view an event
-            $stateProvider
-                .state('events-show', {
-                url: '/events/:id',
-                templateUrl: 'src/views/events/eventsIndex.html',
-                controller: 'eventsIndexCtrl',
-                data: {
-                    requireLogin: true
-                }
-            });
-     
-            //create-edit an event
-            $stateProvider
-                .state('events-edit', {
-                url: '/events/:id/edit',
-                templateUrl: 'src/views/events/eventsEdit.html',
-                controller: 'eventsEditCtrl',
-                data: {
-                    requireLogin: true
-                }
-            });
+            
        
             //about us page
             $stateProvider
@@ -281,7 +244,7 @@
                 url: '/help',
                 templateUrl: 'src/views/info/help.html',
                 data: {
-                    requireLogin: true
+                    requireLogin: false
                 }
             });
             

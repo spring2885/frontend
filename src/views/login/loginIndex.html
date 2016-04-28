@@ -30,7 +30,7 @@
             </div>
          
            
-           <form ng-submit="signup()" >
+           <form>
                <div class="form-group col-centered">
                  <form>
                     <div class="col-md-12 text-centered form-padding"></div>
@@ -58,19 +58,21 @@
                     <div class="col-md-12 radio text-center form-padding">
                         <label>
                             <input type="radio" 
-                            name="acceptTerms" >
+                            ng-model="acceptTerms"
+                            value=true 
+                            name="accept">
                                 {{'I_ACCEPT_ALL' | translate}}
-                                <a href="" >{{'TERMS_AND_POLICIES' | translate}}</a>
+                                <a ng-href="/ua" >{{'TERMS_AND_POLICIES' | translate}}</a>
                         </label>
                     </div>
                     
                     <div class="col-md-12 text-centered form-padding">
-                       <div ng-show="!accept">
-                           <button class="btn btn-primary btn-block btn-lg" ng-click="acceptAlert()" type="submit">
+                       <div ng-show="!acceptTerms">
+                           <button class="btn btn-primary btn-block btn-lg" ng-click="acceptAlert()" >
                                 {{'SIGN_UP' | translate}}
                             </button>
                        </div>
-                       <div ng-show="accept">
+                       <div ng-show="acceptTerms">
                             <button class="btn btn-primary btn-block btn-lg" ng-click="createUser()" type="submit">
                                 {{'SIGN_UP' | translate}}
                             </button>

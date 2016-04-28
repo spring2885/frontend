@@ -1,16 +1,25 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('newsfeedIndexCtrl', ['$scope', '$rootScope', '$http', '$state', '$localStorage', function($scope, $rootScope, $http, $state, $localStorage){
+        .controller('newsfeedIndexCtrl', ['$scope', '$rootScope', '$http', '$state', '$localStorage', 'abuseService', function($scope, $rootScope, $http, $state, $localStorage, abuseService){
                  
                  $scope.$storage = $localStorage;
                  $scope.newsfeed = [];
+            var now = new Date();
+            console.log(now);
                  
                  var newsPost = {
                      title : '',
                      description : '',
                      visible_to : []
                      
+                 };
+            
+                 $scope.flagPost = function(id) {
+                     abuseService.abuse(id, "NEWSPOST", "");
+                 };
+                 $scope.flagComment = function(id) {
+                     abuseService.abuse(id, "NEWSCOMMENT", "");
                  };
                  
                  $scope.newPost = angular.copy(newsPost);
@@ -73,12 +82,14 @@
             $scope.addNewPost = function(){
                 
                 $scope.newPost.posted = new Date();
+                console.log('DATE: '+ $scope.newPost.posted);
                 $scope.newPost.posted_by = {
                     id: $scope.$storage.user.id,
                     name: $scope.$storage.user.name,
                     image_url: $scope.$storage.user.image_url
                 };
                 
+                console.log('POST: ' + JSON.stringify($scope.newPost));
                 $http.post('/api/v1/news', $scope.newPost)
                     .success(
                         function(response) {
