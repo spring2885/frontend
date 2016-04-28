@@ -10,7 +10,6 @@
                      .success(
                       function(response){
                           $scope.job = response;
-                          console.log('JOB GET: ' + JSON.stringify($scope.job));
                           if ($scope.$storage.user.id !== $scope.job.posted_by.id) {
                               console.log('Illegal Action');
                               $state.go('job-show', { id: $scope.job.id }, { reload: true });
@@ -36,6 +35,17 @@
                                 MessageService.broadcast(msg, {color: 'success'});
 					           console.log("UPDATE succeeded");
 				        });
+            };
+            
+            $scope.deleteJob = function(id) {
+                    var apiURL = '/api/v1/jobs/' + id;
+                    //Delete the Post in the Backend
+                    $http.delete(apiURL, '')
+                        .success(
+                            function(response) {
+                                console.log('Job Deleted');
+                                $state.go('job-index');
+                            });
             };
     }]);
 })();

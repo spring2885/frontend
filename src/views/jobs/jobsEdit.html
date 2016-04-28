@@ -1,4 +1,20 @@
 <div ng-controller="jobsEditCtrl" style="margin-top: -45px;">
     <h2><b>{{'EDIT_JOB'}}</b></h2>
+<!--
+    <div class="col-md-12">
+        <div ng-show="$storage.user.id === job.posted_by.id">
+            <button ng-click="deleteJob(job.id)" class="btn btn-danger">{{'DELETE_JOB' | translate}}</button>
+        </div>
+        
+            <a ng-href="/jobs" class="btn btn-default">{{'BACK_TO_JOBS' | translate}}</a>
+       
+    </div>
+-->
+    <div ng-show="$storage.user.id === job.posted_by.id">
+        <button ng-click="deleteJob(job.id)" class="btn btn-danger">{{'DELETE_JOB' | translate}}</button>
+    </div>
+    <div>
+        <a ng-href="/jobs" class="btn btn-default">{{'BACK_TO_JOBS' | translate}}</a>
+    </div>
     <div ng-include="'/src/views/jobs/_form.html'"></div>
 </div>
