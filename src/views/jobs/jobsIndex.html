@@ -10,7 +10,7 @@
                         <i class=" glyphicon glyphicon-search"></i>
                     </button>
                 </span>
-                <span class="input-group-btn">
+                <span class="input-group-btn" ng-hide=true>
                     <button type="button" class="btn btn-primary" class = "btn-space" ng-click="advancedSearch = !advancedSearch">
                     <span>{{'ADVANCED_SEARCH' | translate}} <i class="fa fa-search-plus"></i></span>
                 </button>
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="row col-md-12">
+    <div class="row col-md-12" ng-hide=true>
         <div class="row">
             <br>
             <div id="filter-panel" ng-show="advancedSearch" class="col-md-8 col-md-offset-2 text-center">
@@ -70,23 +70,12 @@
    <br>
     <div ng-controller="jobsIndexCtrl" class="col-md-10 col-md-offset-1">
     
-    <!--Filter Tabs are not really needed for Jobs -->
-<!--
-        <div class="row">
-            <ul class="nav nav-tabs filter-tabs">
-                <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a></li>
-                <li><a data-toggle="tab" href="">{{'STUDENTS' | translate}}</a></li>
-                <li><a data-toggle="tab" href="">{{'ALUMNI' | translate}}</a></li>
-                <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a></li>
-            </ul>
-        </div>
--->
         <div class="input-group col-md-12">
 
             <div class=" col-md-12" ng-repeat="job in jobs | filter:query | orderBy:'-start_date'">
                 <div class="row panel panel-default">
                    <div class="col-md-2 text-center" style="padding-top:35px;">
-                       <i class=" fa fa-institution fa-lg fa-4x"></i><br><br>{{job.type | uppercase}}
+                       <i class=" fa fa-institution fa-lg fa-4x"></i><br><br><job-type type={{job.job_type}}></job-type>
                     </div>
                     <div class="col-md-10 page-content" style="margin-bottom: 10px;">
                         <div ng-href="/jobs/{{job.id}}" class="row col-md-12">
@@ -102,10 +91,17 @@
                         </div>
                     <a ng-click="flag(job.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>flag</a>
                      </div>
+                    <div ng-show="$storage.user.id === job.posted_by.id" class="col-md-12 pull-right">
+                        <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-sm btn-info">{{'EDIT' | translate}}</a>
+                        <button ng-click="deleteJob(job.id)" class="btn btn-sm btn-danger">{{'DELETE' | translate}}</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+    </div>
 </div>
 
 

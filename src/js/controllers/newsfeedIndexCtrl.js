@@ -7,7 +7,6 @@
                  $scope.newsfeed = [];
                  $scope.newsComment = '';
             var now = new Date();
-            console.log(now);
                  
                  var newsPost = {
                      title : '',
@@ -52,6 +51,8 @@
             
                   /*** Add Comment ***/
                   $scope.addComment = function(postId, comment){
+                      
+                      $scope.newsComment = '';
                       /*Make JSON */
                       var newComment = {};
                       var today = new Date();
@@ -77,7 +78,6 @@
                                       $scope.newsfeed[i].comments.push(newComment);
                                    }
                                 }
-                                $scope.newsComment = 'POSTED';
 					           console.log("Comment succeeded");
                                 
 				        });

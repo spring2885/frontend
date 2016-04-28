@@ -1,6 +1,10 @@
 <div ng-controller="jobsShowCtrl">
 	<div class="row" style="margin-top: -45px;">
         <h2><b>{{'JOB_DETAILS' | translate}}</b></h2>
+        <div ng-show="$storage.user.id === job.posted_by.id">
+            <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-info">{{'EDIT_JOB_POST' | translate}}</a>
+            <button ng-click="deleteJob(job.id)" class="btn btn-danger">{{'DELETE_JOB_POST' | translate}}</button>
+        </div>
 	    <div class="col-md-12 page-content">
 	        <div class="col-md-12"><h3>{{job.title}}</h3></div>
 	        <div class="col-md-12">{{'POSTED_BY' | translate}} <a ng-href="/profiles/{{job.posted_by.id}}">{{job.posted_by.name}}</a></div>
@@ -17,7 +21,7 @@
             
             <div class="col-md-10 col-md-offset-1" ng-show="job.job_type">
                     <div class="row sp-underline"><h5>{{'JOB_TYPE' | translate}}</h5></div>
-                    <h4>{{job.job_type}}</h4>
+                    <h4><job-type type={{job.job_type}}></job-type></h4>
             </div>
             
             <div class="col-md-10 col-md-offset-1" ng-show="job.start_date">

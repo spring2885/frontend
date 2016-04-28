@@ -3,7 +3,7 @@
     <div class=" col-md-12" ng-repeat="job in jobs | filter:query | orderBy:'-start_date'">
         <div class="row panel panel-default" ng-show="job.posted_by.id === $storage.user.id">
             <div class="col-md-2 text-center" style="padding-top:35px;">
-                <i class=" fa fa-institution fa-lg fa-4x"></i><br><br>{{job.type | uppercase}}
+                <i class=" fa fa-institution fa-lg fa-4x"></i><br><br><job-type type={{job.job_type}}></job-type>
             </div>
             <div class="col-md-10 page-content" style="margin-bottom: 10px;">
                 <div ng-href="/jobs/{{job.id}}" class="row col-md-12">
@@ -18,6 +18,10 @@
                 </div>
                 <a ng-click="flag(job.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>flag</a>
             </div>
+            <div ng-show="$storage.user.id === job.posted_by.id" class="col-md-12 pull-right">
+                <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-sm btn-info">{{'EDIT' | translate}}</a>
+                <button ng-click="deleteJob(job.id)" class="btn btn-sm btn-danger">{{'DELETE' | translate}}</button>
+             </div>
         </div>
     </div>
 </div>

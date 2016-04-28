@@ -1,7 +1,7 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('jobsMyPostsCtrl', ['$scope', '$stateParams', '$http', '$state', '$localStorage', function($scope, $stateParams, $http, $state, $localStorage){
+        .controller('jobsMyPostsCtrl', ['$scope', '$stateParams', '$http', '$state', '$window', '$localStorage', function($scope, $stateParams, $http, $state, $window, $localStorage){
             
                  $scope.jobs = [];
                  $scope.$storage = $localStorage;
@@ -19,5 +19,15 @@
                      function(response){
                          $state.go('404');
                      });
+            
+                $scope.deleteJob = function(id) {
+                    var apiURL = '/api/v1/jobs/' + id;
+                    //Delete the Post in the Backend
+                    $http.delete(apiURL, '')
+                        .success(
+                            function(response) {
+                                $window.location.reload();
+                            });
+                };
     }]);
 })();
