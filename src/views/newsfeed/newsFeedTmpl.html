@@ -51,15 +51,6 @@
                                         id="title"
                                         ng-model="news.description">
                             </div>
-                            <div class="form-group" >
-                               <lable for="visible">{{'VISABILITY' | translate}}:</lable>
-                                <select chosen multiple id="visible" ng-model="news.visible_to" 
-                                       >
-                                        <option value="student">{{'STUDENTS' | translate}}</option>
-                                        <option value="alumni">{{'ALUMNI' | translate}}</option>
-                                        <option value="faculty">{{'FACULTY' | translate}}</option>
-                                </select>
-                            </div>
                             <div>
                                 <button class="btn btn-primary" type="submit" ng-click="editNewsPost(news); edit = !edit">{{'SUBMIT_EDITED_POSTT' | translate}} </button>
                                 <button class="btn btn-default" ng-click="edit = !edit">{{'CANCEL' | translate}} </button>
@@ -82,6 +73,7 @@
                                 <div class="profile-details col-md-10">
                                       <h6><a ng-href="/profiles/{{comments.posted_by.id}}">{{comments.posted_by.name}} </a><small>{{'REPLIED_ON' | translate}} {{comments.posted | date:medium}}</small></h6>
                                     <p><strong>{{comments.text}}</strong></p>
+                                    {{comments.id}}
                                 </div>
                             </div>
                         </div>
@@ -136,14 +128,14 @@
                                   <form class="form-group">
                                      <div class="input-group">
                                     <div class="input-group" style="width:100%;">     
-                                          <input type="text" class="form-control " ng-model="newComment" />
+                                          <input type="text" class="form-control " ng-model="newsComment" />
                                           <span class="input-group-btn">
                                             <button class="btn btn-default" type="reset">
                                                 <i class="fa fa-times"></i>
                                             </button>
                                           </span>
                                           <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="submit" ng-click="addComment(news.id, newComment)">
+                                            <button class="btn btn-primary" type="submit" ng-click="addComment(news.id, newsComment)">
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </span>

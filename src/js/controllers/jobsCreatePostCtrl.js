@@ -5,6 +5,7 @@
           ){
 
          $scope.job = {};
+         $scope.job.job_type = '1';
          $scope.$storage = $localStorage;
          $scope.job.posted_by ={};
          $scope.job.posted_by.id = $scope.$storage.user.id;
