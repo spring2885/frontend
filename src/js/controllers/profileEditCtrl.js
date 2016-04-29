@@ -4,10 +4,12 @@
         .controller('profileEditCtrl', ['$scope', '$state', '$stateParams', '$http', '$localStorage', 'MessageService', '$translate', 
                     function($scope, $state, $stateParams, $http, $localStorage, MessageService, $translate){
                  
-                 MessageService.configure({disabled:false, max:3, timeout:3500});
+                 MessageService.configure({disabled:false, max:3, timeout:4500});
                                             
                  /** Put everything in Scope **/
                  $scope.profile = {};
+                 $scope.message = {};
+                 $scope.message.notes = '';
                  $scope.$storage = $localStorage;
                  $scope.graduationYears = [];
                  $scope.degreeTypes = [];
@@ -36,6 +38,20 @@
                  $scope.removeSocial = function(index){
                      $scope.profile.social_connections.splice(index,1);
                  };
+                        
+                $scope.requstFaculty =  function() {
+                    
+                    $http.post('/api/v1/approvals/request/faculty', $scope.message)
+                    .success(
+                        function(response) {
+                            var msg =  $translate.instant('profile.AWAITING_APPROVAL');
+                            MessageService.broadcast(msg, {color: 'default'});
+                        })
+                        .error(
+                            function(response) {
+                                 console.log('FAILED: ' +JSON.stringify(response));
+                            });
+                };
                  /******************/
                  
                  /* Post To Server */
@@ -48,7 +64,6 @@
                                 $state.go('profile-view', { id: $scope.profile.id }, { reload: true });
                                 var msg =  $translate.instant('profile.UPDATED');
                                 MessageService.broadcast(msg, {color: 'success'});
-					           console.log("UPDATE succeeded");
 				        });
                  };                       
                 /******************/                            
@@ -65,6 +80,12 @@
                      function(response){
                          $state.go('404');
                      });
+                        
+                $http.get('http://localhost:8001/api/v1/socialservice')
+                    .success(
+                    function(response){
+                        console.log(JSON.stringify(response));
+                    });
                  $http.get('src/assets/core/graduationYears.json')
                     .success(
                         function(response){
