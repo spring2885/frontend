@@ -1,16 +1,27 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('newsfeedIndexCtrl', ['$scope', '$rootScope', '$http', '$state', '$localStorage', function($scope, $rootScope, $http, $state, $localStorage){
+        .controller('newsfeedIndexCtrl', ['$scope', '$rootScope', '$http', '$state', '$localStorage', 'abuseService', function($scope, $rootScope, $http, $state, $localStorage, abuseService){
                  
                  $scope.$storage = $localStorage;
                  $scope.newsfeed = [];
+                 $scope.newsComment = '';
+            var now = new Date();
                  
                  var newsPost = {
                      title : '',
                      description : '',
                      visible_to : []
                      
+                 };
+            
+                 newsPost.visible_to.push($scope.$storage.user.variety);
+            
+                 $scope.flagPost = function(id) {
+                     abuseService.abuse(id, "NEWSPOST", "");
+                 };
+                 $scope.flagComment = function(id) {
+                     abuseService.abuse(id, "NEWSCOMMENT", "");
                  };
                  
                  $scope.newPost = angular.copy(newsPost);
@@ -20,7 +31,7 @@
                      .success(
                       function(response){
                           $scope.newsfeed = response;
-                          return $scope.newsfeed;
+                          //return $scope.newsfeed;
                       })
                     .error(
                      function(response){
@@ -48,9 +59,11 @@
                   /*** Add Comment ***/
 >>>>>>> 56141a1070a20eab7e524e66f721526497aafb87
                   $scope.addComment = function(postId, comment){
+                      
+                      $scope.newsComment = '';
                       /*Make JSON */
                       var newComment = {};
-                      var today = new Date(); //.toJSON().slice(0,10);
+                      var today = new Date();
                       var userID = $scope.$storage.user.id;
                       var userName = $scope.$storage.user.name;
                       var userURL = $scope.$storage.user.image_url;
@@ -74,6 +87,7 @@
                                    }
                                 }
 					           console.log("Comment succeeded");
+                                
 				        });
                   };
             
@@ -87,6 +101,7 @@
                     image_url: $scope.$storage.user.image_url
                 };
                 
+                console.log('POST: ' + JSON.stringify($scope.newPost));
                 $http.post('/api/v1/news', $scope.newPost)
                     .success(
                         function(response) {
@@ -118,6 +133,9 @@
             $scope.editNewsComment = function(comment){
                 console.log(JSON.stringify(comment));
                 var apiURL = '/api/v1/news_comment/' + comment.id;
+                console.log(JSON.stringify(comment));
+                console.log(comment.id);
+                
                 $http.put(apiURL, comment)
                     .success(
                         function(response) {

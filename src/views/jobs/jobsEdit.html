@@ -1,32 +1,20 @@
-<div ng-controller="jobsEditCtrl">
-	<div class="input-group col-md-12">
-
-            <div class=" col-md-12" ng-repeat="job in jobs | filter:{{profile.name}} | orderBy:'start_date'">
-                <div class="row panel panel-default">
-                	<button type="button" class="btn btn-primary btn-space pull-right" ng-click="edit">
-                    <span><i class="glyphicon glyphicon-pencil"></i></span>
-                	</button>
-                   <div class="col-md-2 text-center" style="padding-top:35px;">
-                       <i class=" fa fa-institution fa-lg fa-4x"></i><br><br>{{job.type | uppercase}}
-                    </div>
-                    <div class="col-md-10 page-content" style="margin-bottom: 10px;">
-                        <div ng-href="/jobs/{{job.id}}" class="row col-md-12">
-                            <a ng-href="/jobs/{{job.id}}"><h4>{{job.title}}</h4></a>
-                        </div>
-                        <div class="row col-md-12">
-                            <a ng-href="/jobs/{{job.id}}">{{'COMPANY' | translate}}: {{job.poster_company}}</a>
-                        </div>
-                        <div ng-href="/jobs/{{job.type}}" class="text-muted row col-md-12">
-                                <h5 ng-text-truncate="job.description"
-                                            ng-tt-chars-threshold="170">
-                                </h5>
-                        </div>
-                     </div>
-                     
-                </div>
-            </div>
+<div ng-controller="jobsEditCtrl" style="margin-top: -45px;">
+    <h2><b>{{'EDIT_JOB'}}</b></h2>
+<!--
+    <div class="col-md-12">
+        <div ng-show="$storage.user.id === job.posted_by.id">
+            <button ng-click="deleteJob(job.id)" class="btn btn-danger">{{'DELETE_JOB' | translate}}</button>
         </div>
-
+        
+            <a ng-href="/jobs" class="btn btn-default">{{'BACK_TO_JOBS' | translate}}</a>
+       
+    </div>
+-->
+    <div ng-show="$storage.user.id === job.posted_by.id">
+        <button ng-click="deleteJob(job.id)" class="btn btn-danger">{{'DELETE_JOB' | translate}}</button>
+    </div>
+    <div>
+        <a ng-href="/jobs" class="btn btn-default">{{'BACK_TO_JOBS' | translate}}</a>
+    </div>
+    <div ng-include="'/src/views/jobs/_form.html'"></div>
 </div>
-
-

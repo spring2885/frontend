@@ -22,7 +22,7 @@
         <!-- Feed Tabs -->
         <div class="row col-md-10 col-md-offset-1">
             <ul class="nav nav-tabs filter-tabs">
-<<<<<<< HEAD
+
                 <li class="active"><a data-toggle="tab" href="">{{'ALL' | translate}}</a>
                 </li>
                 <li><a data-toggle="tab" href="">{{'STUDENTS' | translate}}</a>
@@ -30,7 +30,7 @@
                 <li><a data-toggle="tab" href="">{{'ALUMNI' | translate}}</a>
                 </li>
                 <li><a data-toggle="tab" href="">{{'FACULTY' | translate}}</a>
-=======
+
                 <li class="active">
                     <a data-toggle="tab" href="" ng-click="show('all')">{{'ALL' | translate}}</a>
                 </li>
@@ -42,7 +42,7 @@
                 </li>
                 <li>
                     <a data-toggle="tab" href="" ng-click="show('faculty')">{{'FACULTY' | translate}}</a>
->>>>>>> 56141a1070a20eab7e524e66f721526497aafb87
+
                 </li>
             </ul>
         </div>
@@ -52,7 +52,7 @@
         <div class="row col-md-10 col-md-offset-1">
             <div class="well">
                 <a ng-href="/profiles/{$storage.user.id}}">
-<<<<<<< HEAD
+
                     <img ng-src="{{$storage.user.image_url}}" class="profile-img img-rounded">
                 </a>
                 <div class="row">
@@ -77,7 +77,7 @@
                             <span class="input-group-btn" align="right">
                                             <button class="btn btn-danger" type="reset">
                                               {{'CLEAR' | translate}}
-=======
+
 		    	            <img ng-src="{{$storage.user.image_url}}" class="profile-img img-rounded">
 		    	         </a>
                         <div class="row">
@@ -104,13 +104,13 @@
                                           <span class="input-group-btn" aline="right">
                                             <button class="btn btn-default" type="reset" ng-click="resetNewPost()">
                                                 {{'CLEAR' | translate}}
->>>>>>> 56141a1070a20eab7e524e66f721526497aafb87
+
                                             </button>
                             
                                             <button class="btn btn-primary" type="submit" ng-click="addNewPost(news.posted);">
                                                 <i class="fa fa-plus"></i>{{'POST' | translate}}
                                             </button>
-<<<<<<< HEAD
+
                             </span>
                                         
                         </form>
@@ -282,7 +282,7 @@
                 </div>
             </div>
         </div>
-=======
+
                                         </span>
                                   </form>
                             </div>
@@ -294,5 +294,8 @@
         <div ng-show="studentNews" ng-include="'/src/views/newsfeed/newsFeedStudentTmpl.html'"></div>
         <div ng-show="alumniNews" ng-include="'/src/views/newsfeed/newsFeedAlumniTmpl.html'"></div>
         <div ng-show="facultyNews" ng-include="'/src/views/newsfeed/newsFeedFacultyTmpl.html'"></div>
->>>>>>> 56141a1070a20eab7e524e66f721526497aafb87
+
     </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+</div>

@@ -1,15 +1,21 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('jobsShowCtrl', ['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state){
-                 $scope.job = {};
-                 $http.get('/api/v1/jobs/' + $stateParams.id)
+        .controller('jobsMyPostsCtrl', ['$scope', '$stateParams', '$http', '$state', '$window', '$localStorage', function($scope, $stateParams, $http, $state, $window, $localStorage){
+            
+                 $scope.jobs = [];
+                 $scope.$storage = $localStorage;
+                 $scope.flag = function(id) {
+                    abuseService.abuse(id, "JOB", "");
+                 };
+
+                 $http.get('/api/v1/jobs')
                      .success(
                       function(response){
-                          $scope.job = response;
-                          return $scope.job;
+                          $scope.jobs = response;
+                          return $scope.jobs;
                       })
-                     .error(
+                    .error(
                      function(response){
                          $state.go('404');
                      });
@@ -20,8 +26,7 @@
                     $http.delete(apiURL, '')
                         .success(
                             function(response) {
-                                console.log('Job Deleted');
-                                $state.go('job-index');
+                                $window.location.reload();
                             });
                 };
     }]);

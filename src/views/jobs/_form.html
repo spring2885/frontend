@@ -1,0 +1,64 @@
+<div id="jobInputForm">
+    <div class="row page-content">
+        <form class="form-horizontal" role="form">
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="title">{{'TITLE' | translate}}:</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" id="title" placeholder="{{'TITLE' | translate}}" ng-model="job.title">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="title">{{'COMPANY' | translate}}:</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" id="company" placeholder="{{'COMPANY' | translate}}" ng-model="job.company">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="title">{{'LOCATION' | translate}}:</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" id="location" placeholder="{{'WHERE_IS_THIS_JOB_LOCATED' | translate}}" ng-model="job.location">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-2 col-md-2" for="jobType">{{'JOB_TYPE' | translate}}:</label>
+                    <div class="col-md-10">
+                        <select chosen
+                         placeholder="{{'JOB_TYPE' | translate}}"
+                         ng-model="job.job_type"
+                         id="jobTypeSelect"
+                         class="col-md-4">
+                                <option value=2>{{'PART_TIME' | translate}}</option>
+                                <option value=1>{{'FULL_TIME' | translate}}</option>
+                        </select>
+                        </div>
+                    </div>
+
+                <div class="form-group form-inline col-md-12" ng-controller="datePickerCtrl" style="display: inline-block;">
+                    <label class="control-label col-xs-2" for="title">{{'START_DATE' | translate}}:</label>
+                    <div class="input-group-btn" uib-datepicker-popup="{{format}}" ng-model="job.start_date"
+                    is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" style="padding-left: 10px;" >
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i> {{job.start_date | date:medium}}</button>
+                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-2" for="title">{{'DESCRIPTION' | translate}}:</label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control" id="description" placeholder="{{'DESCRIBE_THE_JOB' | translate}}" ng-model="job.description" row=5></textarea>
+                    </div>
+                </div>
+            </div> <!-- close col-md-12 -->
+        </form>
+        <div class="col-md-12 pull-right">
+            <button type="submit"  value="Send" class="btn btn-success" id="submit"  ng-click="submitClick()"><i class="glyphicon glyphicon-arrow-up"></i> Submit</button>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+</div>
+

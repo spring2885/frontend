@@ -1,7 +1,8 @@
 <div ng-controller="profileIndexCtrl">
 
-    <div class="row col-md-12" style="margin-top:-45px;">
-        <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-users"></i> {{'PROFILES' | translate}}</h2>
+    <div class="row">
+        <div class="row" style="margin-top:-45px;">
+        <h2 class="row col-md-12 col-md-offset-1"><i class="fa fa-suitcase fa-lg"></i> {{'PROFILES' | translate}}</h2>
         <div id="custom-search-input">
             <div class="input-group col-md-6 col-md-offset-3" style="border-radius:10px;">
                 <input type="text" class=" search-query form-control" 
@@ -11,55 +12,60 @@
                         <i class=" glyphicon glyphicon-search"></i>
                     </button>
                 </span>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" class = "btn-space" ng-click="advancedSearch = !advancedSearch">
+                    <span>{{'ADVANCED_SEARCH' | translate}} <i class="fa fa-search-plus"></i></span>
+                </button>
+                </span>
             </div>
         </div>
     </div>
 
-<div class="row">
-        <div class="row">
-            <div class="text-center">
-                 <button type="button" class="btn btn-primary" ng-click="advancedSearch = !advancedSearch">
-                    <span>{{'ADVANCED_SEARCH' | translate}} <i class="fa fa-search-plus"></i></span>
-                </button>
-            </div>
-            <div id="filter-panel" ng-show="advancedSearch" class="col-md-8 col-md-offset-2 text-center">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <form class="form-inline" role="form">
-                            <div class="form-group">
-                                <label class="filter-col" style="margin-right:0;" for="pref-perpage">
-                                    {{'JOBS_PER_PAGE' | translate}}:
-                                </label>
-                                <select id="pref-perpage" class="form-control">
-                                    <option value="5">5</option>
-                                    <option selected="selected" value="10">10</option>
-                                    <option value="15">15</option>
-                                    <option value="20">20</option>
-                                    <option value="30">30</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                    <option value="all">{{'SHOW_ALL' | translate}}</option>
-                                </select>                                
-                            </div>
+        <div class="row col-md-12">
+            <div class="row">
+                <br>
+                <div id="filter-panel" ng-show="advancedSearch" class="col-md-8 col-md-offset-2 text-center">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form class="form-inline" role="form">
+                                <div class="form-group">
+                                    <label class="filter-col" style="margin-right:0;" for="pref-perpage">
+                                        {{'JOBS_PER_PAGE' | translate}}:
+                                    </label>
+                                    <select id="pref-perpage" class="form-control">
+                                        <option value="5">5</option>
+                                        <option selected="selected" value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                        <option value="all">{{'SHOW_ALL' | translate}}</option>
+                                    </select>                                
+                                </div>
                             <!-- There should probably be a way to search only Profiles/jobs/news 
                                 or to not include one or more -->
-                            <div class="form-group">
-                                <label class="filter-col" style="margin-right:0;" for="pref-search">Key Words:</label>
-                                <input type="text" class="form-control input-sm" id="pref-search">
-                            </div>
-                            <div class="form-group">
-                                <label class="filter-col" style="margin-right:0;" for="pref-orderby">
-                                    {{'ORDER_BY' | translate}}:
-                                </label>
-                                <select id="pref-orderby" class="form-control">
-                                    <option>{{'ASCENDING' | translate}}</option>
-                                    <option>{{'DESCENDING' | translate}}</option>
-                                </select>                                
-                            </div> 
-                        </form>
+                                <div class="form-group">
+                                    <label class="filter-col" style="margin-right:0;" for="pref-search">Key Words:</label>
+                                    <input type="text" class="form-control input-sm" id="pref-search">
+                                </div>
+                                <div class="form-group">
+                                    <p>Date Posted: <input type="text" id="datepicker"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="filter-col" style="margin-right:0;" for="pref-orderby">
+                                        {{'ORDER_BY' | translate}}:
+                                    </label>
+                                    <select id="pref-orderby" class="form-control">
+                                        <option>{{'ASCENDING' | translate}}</option>
+                                        <option>{{'DESCENDING' | translate}}</option>
+                                    </select>                                
+                                </div> 
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </div>  
+                </div>  
+            </div>
         </div>
     </div>
 
@@ -89,6 +95,7 @@
 			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
 			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
 			        </div>
+			        <a ng-click="flag(profile.id);" href="" styple="width:100%;"><i class="fa fa-flag-o" title="flag as abuse"/> {{'FLAG' | translate}}</a> 
 		        </div>
 		    </li>
 		    </div>
@@ -105,6 +112,7 @@
 			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
 			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
 			        </div>
+			        <a ng-click="flag(profile.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
 		        </div>
 		    </li>
 		    </div>
@@ -120,6 +128,7 @@
 			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
 			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
 			        </div>
+			        <a ng-click="flag(profile.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
 		        </div>
 		    </li>
 		    </div>
@@ -135,10 +144,13 @@
 			        	<h4 class="sp-text-blk">{{profile.title}}</h4>
 			        	<h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
 			        </div>
+			        <a ng-click="flag(profile.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
 		        </div>
 		    </li>
-		    </div>
+		  </div>
 		    
 	    </div>
+	    <div class="row">&nbsp;</div>
+	    <div class="row">&nbsp;</div>
 	</div>  
 </div>

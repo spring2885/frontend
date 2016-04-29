@@ -1,11 +1,18 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('signUpCtrl', ['$scope', '$state', '$http', '$localStorage', 'authService', 'authDefaults', function($scope, $state, $http, $localStorage, authService, authDefaults) {
+        .controller('signUpCtrl', ['$scope', '$state', '$http', '$localStorage', 'authService', 'MessageService', '$translate', 'authDefaults', function($scope, $state, $http, $localStorage, authService, MessageService, $translate, authDefaults) {
        console.log("signUpCtrl");
            
         $scope.formData = {};
-        console.log('isLoggedIn ' + $localStorage.isLoggedIn);
+        $scope.acceptTerms = false;
+        
+        MessageService.configure({disabled:false, max:3, timeout:3500});
+            
+        $scope.acceptAlert = function() {
+            var msg = $translate.instant('signup.ACCEPT_TERMS_ERROR');
+            MessageService.broadcast(msg, {color: 'danger'});
+        };
         
         function getAuth(credentials) {
             authService
@@ -18,7 +25,7 @@
                 });
         }
 
-        $scope.signup = function() {
+        $scope.createUser = function() {
 
         	$http({
 			method  : 'POST',
@@ -39,14 +46,3 @@
             
     }]);
 })();
-
-/////////////////
-//$scope.login = function() {
-//                authService
-//                    .login($scope.credentials.username, $scope.credentials.password)
-//                    .error(function() {
-//                        console.log("FAILURE: login failed: " + $scope.credentials.username);
-//                        var msg = $translate.instant('login.FAILED');
-//                        MessageService.broadcast(msg, {color: 'danger'});
-//                    });
-//            };
