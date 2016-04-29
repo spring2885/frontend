@@ -48,16 +48,16 @@
                   $scope.editPost = function(){
                       $scope.edit = true;
                   };
-<<<<<<< HEAD
+
             	  
             	  $scope.remove = function(){
             	  //remove function
             	  };
             	
-=======
+
             
                   /*** Add Comment ***/
->>>>>>> 56141a1070a20eab7e524e66f721526497aafb87
+
                   $scope.addComment = function(postId, comment){
                       
                       $scope.newsComment = '';
