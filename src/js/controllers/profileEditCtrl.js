@@ -49,7 +49,9 @@
                         })
                         .error(
                             function(response) {
-                                 console.log('FAILED: ' +JSON.stringify(response));
+                                 //console.log('FAILED: ' +JSON.stringify(response));
+                                var msg =  $translate.instant('profile.APPROVAL_REQUEST_FAILED');
+                                MessageService.broadcast(msg, {color: 'danger'});
                             });
                 };
                  /******************/

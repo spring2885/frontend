@@ -15,7 +15,7 @@
 
             // listen for login events
             $rootScope.$on('login', function() {
-                console.log("login event handler.");
+
                 $scope.loggedInUsername = authService.username();
 
                 // Grab the current user profile.
@@ -43,7 +43,7 @@
 
             // listen for logout events
             $rootScope.$on('logout', function() {
-                console.log("Logout event handler.");
+
                 delete $scope.$storage.user;
                 $scope.$storage.isLoggedIn = false;
                 $scope.isLoggedIn = false;
@@ -69,7 +69,7 @@
                 authService
                     .login($scope.credentials.username, $scope.credentials.password)
                     .error(function() {
-                        console.log("FAILURE: login failed: " + $scope.credentials.username);
+                        //console.log("FAILURE: login failed: " + $scope.credentials.username);
                         var msg = $translate.instant('login.FAILED');
                         MessageService.broadcast(msg, {color: 'danger'});
                     });
