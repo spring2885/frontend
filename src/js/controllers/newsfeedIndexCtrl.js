@@ -48,8 +48,16 @@
                   $scope.editPost = function(){
                       $scope.edit = true;
                   };
+
+            	  
+            	  $scope.remove = function(){
+            	  //remove function
+            	  };
+            	
+
             
                   /*** Add Comment ***/
+
                   $scope.addComment = function(postId, comment){
                       
                       $scope.newsComment = '';
