@@ -43,6 +43,7 @@
     "COPYRIGHT": "Copyright",
     "DEGREE_TYPE": "Degree Type",
     "DEPARTMENT": "Department",
+    "DESCRIBE_THE_JOB": "Describe the job",
     "EDIT": "Edit",
     "EDIT_COMMENT": "Edit Comment",
     "EDIT_CURRENT_SITES": "Edit Social Networks",
@@ -271,5 +272,6 @@
     "WHAT_DEPARTMENT_ARE_YOU_A_PART_OF": "What Department are you a part of",
     "WHATS_ON_YOUR_MIND": "What's on your mind?",
     "WHERE_DO_YOU_WORK": "Current Company",
+    "WHERE_IS_THIS_JOB_LOCATED": "Where is this job located?",
     "YOU_ARE_A": "You are a"
 }
