@@ -26,6 +26,7 @@
 				.success(
 				function(response) {
 					console.log("success on id: " + id);
+					$state.reload();
 				});
 			};
 
