@@ -4,10 +4,14 @@ html {
 }
 
 body {
-    background-color: #3f729b;
+    background: url(src/assets/images/bg.jpg) #fff;
+
+    background-color: #fff; /* #3f729b; */
     margin-top: 120px;
     margin-bottom: 60px;
 }
+
+h2 { color: #fff; }
 
 /* profileIndex Start */
 .profile-img {
@@ -32,7 +36,7 @@ body {
 }
 
 .sp-text-blk {
-    color: black;
+    color: white;
 }
 /* profileIndex End */
 
@@ -107,7 +111,7 @@ body {
 }
 
 .logged-out-nav {
-    background-color: #313335;
+    background-color: #18426C; /* #313335; */
 }
 
 .logged-out-nav a {

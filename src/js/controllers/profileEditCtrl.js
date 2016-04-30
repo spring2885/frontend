@@ -15,6 +15,8 @@
                  $scope.degreeTypes = [];
                  $scope.majors = [];
                  $scope.minors = [];
+                 $scope.socialNetworks = [];
+                 $scope.socilaSite = {};
                                             
                  $scope.socialName = '';
                  $scope.socialUrl = '';
@@ -25,14 +27,15 @@
                                             
                  /** click functions **/                            
                  $scope.addToSocial = function() {
+                     var fullSiteURL = $scope.socialSite.url + $scope.socialName;
                      $scope.profile.social_connections.push({
-                         name: $scope.socialName,
-                         url: $scope.socialUrl
+                         name: $scope.socialSite.id,
+                         url: fullSiteURL
                      });
                      
                      //Reset Scope Vars
+                     $scope.socialSite = {};
                      $scope.socialName = '';
-                     $scope.socialUrl = '';
                  };
                  
                  $scope.removeSocial = function(index){
@@ -49,7 +52,9 @@
                         })
                         .error(
                             function(response) {
-                                 console.log('FAILED: ' +JSON.stringify(response));
+                                 //console.log('FAILED: ' +JSON.stringify(response));
+                                var msg =  $translate.instant('profile.APPROVAL_REQUEST_FAILED');
+                                MessageService.broadcast(msg, {color: 'danger'});
                             });
                 };
                  /******************/
@@ -84,7 +89,8 @@
                 $http.get('http://localhost:8001/api/v1/socialservice')
                     .success(
                     function(response){
-                        console.log(JSON.stringify(response));
+                        $scope.socialNetworks = response;
+                        //console.log(JSON.stringify(response));
                     });
                  $http.get('src/assets/core/graduationYears.json')
                     .success(

@@ -19,7 +19,7 @@
                 .login(credentials.email, credentials.password)
                   
                  .error(function() {
-                        console.log("FAILURE: login failed: " + $scope.credentials.username);
+                        //console.log("FAILURE: login failed: " + $scope.credentials.username);
                         var msg = $translate.instant('login.FAILED');
                         MessageService.broadcast(msg, {color: 'danger'});
                 });
@@ -33,13 +33,17 @@
 			data    : $.param($scope.formData),
 			headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
 			}).then(function successCallback(response) {
-                console.log($scope.formData);
+                //console.log($scope.formData);
                 getAuth($scope.formData);
-                console.log("Newuser succeeded " + JSON.stringify(response));
+                var msg = $translate.instant('signup.WELCOME');
+                MessageService.broadcast(msg, {color: 'success'});
+                //console.log("Newuser succeeded " + JSON.stringify(response));
                 
             }, function errorCallback(response) {
                 $scope.isLoggedIn = false;
-                console.log("Newuser failed " + JSON.stringify(response));
+                //console.log("Newuser failed " + JSON.stringify(response));
+                var msg = $translate.instant('signup.FAILED');
+                MessageService.broadcast(msg, {color: 'danger'});
                 $state.go('login');
             });
         };
