@@ -31,11 +31,18 @@
                        <div class="col-md-12">
                            <strong><u>{{'ADD_SOME_SOCIAL_NETWORKS' | translate}}</u></strong>
                        </div>
+                       
+                       <div class="col-md-12">
+                           {{socialNetworks}}
+                       </div>
+<!--
                        <div class="form-group">
                             <label class="control-label col-xs-2" for="Socialname">{{'NAME' | translate}}:</label>
+                            
                             <div class="col-xs-10">
                                 <input type="text" class="form-control" id="Socialname" placeholder="{{'NAME_OF_SITE_TO_ADD' | translate}}" ng-model="socialName">
                             </div>
+                            
                             <label class="control-label col-xs-2" for="SocialUrl">{{'URL' | translate}}:</label>
                             <div class="col-xs-10">
                                 <input type="text" class="form-control" id="SocialUrl" placeholder="{{'WEB_ADDRESS_OF_SITE' | translate}}" ng-model="socialUrl">
@@ -44,6 +51,7 @@
                                 {{'ADD_WEBSITE' | translate}}
                             </button>
                         </div>
+-->
                         <div class="row" ng-show="profile.social_connections.length > 0">
                             <div class="col-md-12">
                                 <u>{{'EDIT_CURRENT_SITES' | translate}}</u>
@@ -138,12 +146,18 @@
                                    />
                         </div>
                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-2 col-md-2" >
-                        {{'REQUEST_FACULTY_ACCESS' | translate}}:</label>
-                        <div class="col-md-10">
-                          <!-- TODO MAKE IT WORK -->
-                           <button class="btn btn-info btn-sm">{{'IM_FACULTY' | translate}}</button>
+                   
+                    <div class="col-md-12 text-center">
+                        <strong>{{'REQUEST_ACCESS_TO_BECOME_FACULTY' | translate}}</strong>
+                    </div>
+                     
+                     <div class="form-group">
+                        <label class="control-label col-xs-2" for="occupation">{{'REQUEST_MESSAGE' | translate}}:</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" id="message" placeholder="{{'FACULTY_REQUEST_MESSAGE' | translate}}" ng-model="message.notes">
+                        </div>
+                        <div class="col-md-3 col-md-offset-9">
+                            <button class="btn btn-success" ng-click="requstFaculty()">{{'SUBMIT_REQUEST' | translate}}</button>
                         </div>
                     </div>
                     

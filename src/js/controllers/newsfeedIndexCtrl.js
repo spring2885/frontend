@@ -5,8 +5,8 @@
                  
                  $scope.$storage = $localStorage;
                  $scope.newsfeed = [];
+                 $scope.newsComment = '';
             var now = new Date();
-            console.log(now);
                  
                  var newsPost = {
                      title : '',
@@ -14,6 +14,8 @@
                      visible_to : []
                      
                  };
+            
+                 newsPost.visible_to.push($scope.$storage.user.variety);
             
                  $scope.flagPost = function(id) {
                      abuseService.abuse(id, "NEWSPOST", "");
@@ -29,7 +31,7 @@
                      .success(
                       function(response){
                           $scope.newsfeed = response;
-                          return $scope.newsfeed;
+                          //return $scope.newsfeed;
                       })
                     .error(
                      function(response){
@@ -49,9 +51,11 @@
             
                   /*** Add Comment ***/
                   $scope.addComment = function(postId, comment){
+                      
+                      $scope.newsComment = '';
                       /*Make JSON */
                       var newComment = {};
-                      var today = new Date(); //.toJSON().slice(0,10);
+                      var today = new Date();
                       var userID = $scope.$storage.user.id;
                       var userName = $scope.$storage.user.name;
                       var userURL = $scope.$storage.user.image_url;
@@ -75,6 +79,7 @@
                                    }
                                 }
 					           console.log("Comment succeeded");
+                                
 				        });
                   };
             
@@ -82,7 +87,6 @@
             $scope.addNewPost = function(){
                 
                 $scope.newPost.posted = new Date();
-                console.log('DATE: '+ $scope.newPost.posted);
                 $scope.newPost.posted_by = {
                     id: $scope.$storage.user.id,
                     name: $scope.$storage.user.name,
@@ -121,6 +125,9 @@
             $scope.editNewsComment = function(comment){
                 console.log(JSON.stringify(comment));
                 var apiURL = '/api/v1/news_comment/' + comment.id;
+                console.log(JSON.stringify(comment));
+                console.log(comment.id);
+                
                 $http.put(apiURL, comment)
                     .success(
                         function(response) {

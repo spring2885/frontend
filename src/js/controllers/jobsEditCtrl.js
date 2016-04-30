@@ -1,15 +1,19 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('jobsEditCtrl', ['$scope', '$http', '$state', '$stateParams', 'MessageService', '$translate', function($scope, $http, $state, $stateParams, MessageService, $translate){
+        .controller('jobsEditCtrl', ['$scope', '$http', '$state', '$stateParams', 'MessageService', '$localStorage', '$translate', function($scope, $http, $state, $stateParams, MessageService, $localStorage, $translate){
                  $scope.job = {};
+                 $scope.$storage = $localStorage;
                  MessageService.configure({disabled:false, max:3, timeout:3500});
             
                  $http.get('/api/v1/jobs/' + $stateParams.id)
                      .success(
                       function(response){
                           $scope.job = response;
-                          console.log('JOB GET: ' + JSON.stringify($scope.job));
+                          if ($scope.$storage.user.id !== $scope.job.posted_by.id) {
+                              console.log('Illegal Action');
+                              $state.go('job-show', { id: $scope.job.id }, { reload: true });
+                          }
                           
                           return $scope.job;
                       })
@@ -31,6 +35,17 @@
                                 MessageService.broadcast(msg, {color: 'success'});
 					           console.log("UPDATE succeeded");
 				        });
+            };
+            
+            $scope.deleteJob = function(id) {
+                    var apiURL = '/api/v1/jobs/' + id;
+                    //Delete the Post in the Backend
+                    $http.delete(apiURL, '')
+                        .success(
+                            function(response) {
+                                console.log('Job Deleted');
+                                $state.go('job-index');
+                            });
             };
     }]);
 })();

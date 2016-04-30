@@ -12,26 +12,17 @@
                 .state('login', {
                     url: '/login',
                     templateUrl: 'src/views/login/loginIndex.html',
-                    //controller: 'loginCtrl'
                     data: {
                         requireLogin: false
                     }
              });
      
-//            //sign up page
-//            $stateProvider
-//                .state('sign-up', {
-//                url: '/signup',
-//                templateUrl: 'src/views/login/signupIndex.html',
-//                controller: 'signupCtrl'
-//            });
      
             //list profiles
             $stateProvider
                 .state('profile-list', {
                 url: '/profiles',
                 templateUrl: 'src/views/profile/profileIndex.html',
-                controller: 'profileIndexCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -42,7 +33,6 @@
                 .state('profile-view', {
                 url: '/profiles/:id',
                 templateUrl: '/src/views/profile/profileShow.html',
-                controller: 'profileShowCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -53,7 +43,6 @@
                 .state('profile-edit', {
                 url: '/profiles/:id/edit',
                 templateUrl: '/src/views/profile/profileEdit.html',
-                controller: 'profileEditCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -64,7 +53,6 @@
                 .state('newsfeed-index', {
                 url: '/newsfeed',
                 templateUrl: 'src/views/newsfeed/newsFeedIndex.html',
-                controller: 'newsfeedIndexCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -76,7 +64,6 @@
                 .state('job-show', {
                 url: '/jobs/:id',
                 templateUrl: 'src/views/jobs/jobsShow.html',
-                controller: 'jobsShowCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -87,7 +74,6 @@
                 .state('job-index', {
                 url: '/jobs',
                 templateUrl: 'src/views/jobs/jobsIndex.html',
-                controller: 'jobsIndexCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -98,7 +84,6 @@
                 .state('job-edit', {
                 url: '/jobs/:id/edit',
                 templateUrl: 'src/views/jobs/jobsEdit.html',
-                //controller: 'jobsEditCtrl',
                 data: {
                     requireLogin: true
                 }
@@ -109,19 +94,16 @@
                 .state('job-create', {
                 url: '/jobs/create/new',
                 templateUrl: 'src/views/jobs/jobsCreate.html',
-                //controller: 'jobsCreatePostCtrl',
                 data: {
                     requireLogin: true
                 }
             });
      
             //see your job postings
-            //create a job posting
             $stateProvider
                 .state('job-my-jobs', {
                 url: '/myjobs',
                 templateUrl: 'src/views/jobs/jobsMyJobs.html',
-                //controller: 'jobsCreatePostCtrl',
                 data: {
                     requireLogin: true
                 }

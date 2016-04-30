@@ -5,11 +5,10 @@
           ){
 
          $scope.job = {};
+         $scope.job.job_type = 1;
          $scope.$storage = $localStorage;
          $scope.job.posted_by ={};
          $scope.job.posted_by.id = $scope.$storage.user.id;
-         //console.log('USER: ' + JSON.stringify($scope.$storage.user));
-            console.log('In Create Ctrl');
 
           $scope.submitClick = function(){
 
@@ -18,11 +17,12 @@
             $http.post('/api/v1/jobs' , $scope.job)
                         .success(
                             function(response) {
-                               console.log("UPDATE succeeded " + JSON.stringify(response));
+                                $state.go('job-my-jobs');
+                               console.log("UPDATE succeeded ");
                         })
                         .error(
                           function(response) {
-                            console.log("Failed to post job " + JSON.stringify(response));
+                            console.log("Failed to post job"); //+ JSON.stringify(response));
                           });
           };
 
