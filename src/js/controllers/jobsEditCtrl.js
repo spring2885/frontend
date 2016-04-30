@@ -12,6 +12,8 @@
                           $scope.job = response;
                           if ($scope.$storage.user.id !== $scope.job.posted_by.id) {
                               console.log('Illegal Action');
+                              var msg =  $translate.instant('job.EDIT_SECURITY');
+                              MessageService.broadcast(msg, {color: 'danger'});
                               $state.go('job-show', { id: $scope.job.id }, { reload: true });
                           }
                           
@@ -33,7 +35,7 @@
                                 $state.go('job-show', { id: $scope.job.id }, { reload: true });
                                 var msg =  $translate.instant('job.UPDATED');
                                 MessageService.broadcast(msg, {color: 'success'});
-					           console.log("UPDATE succeeded");
+					           //console.log("UPDATE succeeded");
 				        });
             };
             
@@ -43,7 +45,9 @@
                     $http.delete(apiURL, '')
                         .success(
                             function(response) {
-                                console.log('Job Deleted');
+                                //console.log('Job Deleted');
+                                var msg =  $translate.instant('job.DELETED');
+                                MessageService.broadcast(msg, {color: 'success'});
                                 $state.go('job-index');
                             });
             };
