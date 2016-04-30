@@ -3,6 +3,8 @@
     angular.module('spring-2885')   
         .controller('jobsShowCtrl', ['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state){
                  $scope.job = {};
+                 MessageService.configure({disabled:false, max:3, timeout:3500});
+            
                  $http.get('/api/v1/jobs/' + $stateParams.id)
                      .success(
                       function(response){
@@ -20,8 +22,10 @@
                     $http.delete(apiURL, '')
                         .success(
                             function(response) {
-                                console.log('Job Deleted');
+                                //console.log('Job Deleted');
                                 $state.go('job-index');
+                                var msg =  $translate.instant('job.DELETED');
+                                MessageService.broadcast(msg, {color: 'success'});
                             });
                 };
     }]);

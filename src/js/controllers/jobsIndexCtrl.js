@@ -1,9 +1,9 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('jobsIndexCtrl', ['$scope', '$http', '$state', '$window', 'abuseService', 
-        function($scope, $http, $state, $window, abuseService) {
+        .controller('jobsIndexCtrl', ['$scope', '$http', '$state', '$window', 'abuseService', 'MessageService', function($scope, $http, $state, $window, abuseService, MessageService) {
                  $scope.jobs = [];
+                 MessageService.configure({disabled:false, max:3, timeout:3500});
                  $scope.flag = function(id) {
                     abuseService.abuse(id, "JOB", "");
                  };
@@ -25,8 +25,10 @@
                     $http.delete(apiURL, '')
                         .success(
                             function(response) {
-                                console.log('Job Deleted');
+                                //console.log('Job Deleted');
                                 $window.location.reload();
+                                var msg =  $translate.instant('job.DELETED');
+                                MessageService.broadcast(msg, {color: 'success'});
                             });
                 };
     }]);

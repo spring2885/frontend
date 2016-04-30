@@ -16,7 +16,7 @@
                     <h5 ng-text-truncate="job.description" ng-tt-chars-threshold="170">
                     </h5>
                 </div>
-                <a ng-click="flag(job.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>flag</a>
+                <a ng-click="flag(job.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
             </div>
             <div ng-show="$storage.user.id === job.posted_by.id" class="col-md-12 pull-right">
                 <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-sm btn-info">{{'EDIT' | translate}}</a>
