@@ -1,12 +1,13 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('newsfeedIndexCtrl', ['$scope', '$rootScope', '$http', '$state', '$localStorage', 'abuseService', function($scope, $rootScope, $http, $state, $localStorage, abuseService){
+        .controller('newsfeedIndexCtrl', ['$scope', '$rootScope', '$http', '$state', '$localStorage', 'abuseService', 'MessageService', function($scope, $rootScope, $http, $state, $localStorage, abuseService, MessageService){
                  
                  $scope.$storage = $localStorage;
                  $scope.newsfeed = [];
                  $scope.newsComment = '';
-            var now = new Date();
+                 MessageService.configure({disabled:false, max:3, timeout:3500});
+                 var now = new Date();
                  
                  var newsPost = {
                      title : '',
@@ -48,8 +49,16 @@
                   $scope.editPost = function(){
                       $scope.edit = true;
                   };
+
+            	  
+            	  $scope.remove = function(){
+            	  //remove function
+            	  };
+            	
+
             
                   /*** Add Comment ***/
+
                   $scope.addComment = function(postId, comment){
                       
                       $scope.newsComment = '';
@@ -75,10 +84,9 @@
 				            function(response) {
                                 for( var i = 0; i < $scope.newsfeed.length; i++){
                                   if($scope.newsfeed[i].id === postId){
-                                      $scope.newsfeed[i].comments.push(newComment);
+                                      $scope.newsfeed[i].comments.push(response);
                                    }
                                 }
-					           console.log("Comment succeeded");
                                 
 				        });
                   };
@@ -99,7 +107,7 @@
                         function(response) {
                             //reload page to update scope
                             $state.go($state.current, {}, {reload: true});
-                            console.log('New Post Succeded');
+                            //console.log('New Post Succeded');
                     });
                 
             };
@@ -116,7 +124,7 @@
                      $http.put(apiURL , editedPost)
 				        .success(
 				            function(response) {
-					           console.log("UPDATE Post succeeded");
+                                //something something something darkside
 				        });
             };
             
@@ -125,13 +133,11 @@
             $scope.editNewsComment = function(comment){
                 console.log(JSON.stringify(comment));
                 var apiURL = '/api/v1/news_comment/' + comment.id;
-                console.log(JSON.stringify(comment));
-                console.log(comment.id);
                 
                 $http.put(apiURL, comment)
                     .success(
                         function(response) {
-                            console.log('Edit Comment succeded');
+                            //send message
                         });
             }; 
             
@@ -143,7 +149,7 @@
                 $http.delete(apiURL, '')
                     .success(
                         function(response) {
-                            console.log('Comment Deleted');
+                            //send message
                         });
                 
                 //Remove Comment from Scope
@@ -165,7 +171,7 @@
                 $http.delete(apiURL, '')
                     .success(
                         function(response) {
-                            console.log('Post Deleted');
+                            //message ('Post Deleted');
                         });
                 //Delete the post in Scope
                 for (var i = 0; i < $scope.newsfeed.length; i++){

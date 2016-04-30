@@ -1,6 +1,12 @@
 <div ng-controller="jobsShowCtrl">
 	<div class="row" style="margin-top: -45px;">
         <h2><b>{{'JOB_DETAILS' | translate}}</b></h2>
+    
+        <div class="row">
+           <a ng-href="/jobs"><button class="btn btn-primary">{{'BACK_TO_BROWSE' | translate}}</button></a>
+        </div>
+
+             </div>
         <div ng-show="$storage.user.id === job.posted_by.id">
             <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-info">{{'EDIT_JOB_POST' | translate}}</a>
             <button ng-click="deleteJob(job.id)" class="btn btn-danger">{{'DELETE_JOB_POST' | translate}}</button>
