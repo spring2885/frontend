@@ -12,6 +12,10 @@ body {
 }
 
 h2 { color: #fff; }
+h2.login-page { color: rgb(119, 119, 119); }
+
+.ndnu-brown { color: rgb(119, 119, 119); }
+.ndnu-white { color: white; }
 
 /* profileIndex Start */
 .profile-img {
@@ -30,13 +34,22 @@ h2 { color: #fff; }
     margin-top: -10px;
 }
 
+.profile-details h4 {
+    margin-top: -10px;
+    color: rgb(119, 119, 119);
+}
+
+.profile-details h2 {
+    color: black;
+}
+
 .name:hover {
     color: black;
     text-decoration: none;
 }
 
 .sp-text-blk {
-    color: white;
+    color: black;
 }
 /* profileIndex End */
 
@@ -120,7 +133,7 @@ h2 { color: #fff; }
 
 .nav-font {
     font-size: 20px !important;
-    
+    color: white;
 }
 
 
@@ -131,15 +144,24 @@ h2 { color: #fff; }
     min-height:auto;
 }
   
+.nav > li > a {
+    color: #fff;
+}
+
+.nav > li > a:hover {
+    color: #000;
+}
+
+/** This one doesn't seem to do anything, the one above does. */
 .navbar-custom .navbar-nav > li > a {
-    color:#fff;
+    color: #fff;
     padding-left:25px;
     padding-right:25px;
     padding-top:20px;
     padding-bottom:20px;
 }
 .navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
-    color: #ffffff;
+    color: #000;
     background-color:transparent;
 }
       
