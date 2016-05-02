@@ -37,7 +37,7 @@
             
             <div class="col-md-10 col-md-offset-1" ng-show="job.description">
                     <div class="row sp-underline"><h5>{{'JOB_DESCRIPTION' | translate}}</h5></div>
-                    <h4>{{job.description}}</h4>
+                    <p ng-bind-html="job.description"></p>
             </div>
 	        
 	    </div>

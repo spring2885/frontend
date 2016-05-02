@@ -7,6 +7,7 @@
         'ngAnimate',
         'ngResource',
         'ngStorage',
+        'ngSanitize',
         'ngTextTruncate',
         'pascalprecht.translate',
         'ui.bootstrap',
