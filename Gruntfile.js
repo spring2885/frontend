@@ -23,6 +23,7 @@ module.exports = function(grunt) {
               'bower_components/angular/angular.js',
               'bower_components/chosen/chosen.jquery.js',
               'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+              'bower_components/angular-sanitize/angular-sanitize.min.js',
               'bower_components/angular-translate/angular-translate.min.js',
               'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
               'bower_components/ngstorage/ngStorage.min.js',
