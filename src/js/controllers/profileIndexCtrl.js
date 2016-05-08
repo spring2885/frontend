@@ -14,9 +14,9 @@
                     $state.go('404');
                 });
             
-//            $scope.flag = function(id) {
-//                abuseService.abuse(id, 'PROFILE', '');
-//            };
+            $scope.flag = function(id) {
+                abuseService.abuse(id, 'PROFILE', '');
+            };
             
             
             /*Show and Hide Filtered Lists */

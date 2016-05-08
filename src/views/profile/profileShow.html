@@ -1,6 +1,7 @@
 <div class="row" ng-controller="profileShowCtrl" style="margin-top:-45px; margin-bottom:15px;">
     <div class="row">
         <h2><i class="fa fa-user fa-2x"></i> {{profile.name}}</h2>
+        <span><a ng-href="/profiles"><button class="btn btn-primary">{{'BACK_TO_BROWSE' | translate}}</button></a></span>
         <span ng-show="$storage.user.id === profile.id">
            <a ng-href="/profiles/{{$storage.user.id}}/edit"><button class="btn btn-info">{{'EDIT_PROFILE' | translate}}</button></a>
        </span>

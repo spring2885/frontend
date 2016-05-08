@@ -55,7 +55,7 @@
                                 <button class="btn btn-primary" type="submit" ng-click="editNewsPost(news); edit = !edit">{{'SUBMIT_EDITED_POSTT' | translate}} </button>
                                 <button class="btn btn-default" ng-click="edit = !edit">{{'CANCEL' | translate}} </button>
                             </div>
-                           FOR DEBUGGING: {{news}}
+                       
                         </form>
             </div>   
                 <div class="row"><br> <br></div>
@@ -73,7 +73,7 @@
                                 <div class="profile-details col-md-10">
                                       <h6><a ng-href="/profiles/{{comments.posted_by.id}}">{{comments.posted_by.name}} </a><small>{{'REPLIED_ON' | translate}} {{comments.posted | date:medium}}</small></h6>
                                     <p><strong>{{comments.text}}</strong></p>
-                                    {{comments.id}}
+                                    
                                 </div>
                             </div>
                         </div>

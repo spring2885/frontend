@@ -13,10 +13,10 @@
                   $scope.ResetPassword = function (){
                       $http.post('/auth/reset', resetData)
                          .success(function(response){
-                             console.log("Success: " + JSON.stringify(response));
+                            // console.log("Success: " + JSON.stringify(response));
                          })
                          .error(function(response){
-                             console.log("Error: " + JSON.stringify(response));
+                            // console.log("Error: " + JSON.stringify(response));
                          });
                   };
     }]);

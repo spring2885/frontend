@@ -86,7 +86,7 @@
                          $state.go('404');
                      });
                         
-                $http.get('http://localhost:8001/api/v1/socialservice')
+                $http.get('/api/v1/socialservice')
                     .success(
                     function(response){
                         $scope.socialNetworks = response;
