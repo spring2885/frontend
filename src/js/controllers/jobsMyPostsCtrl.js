@@ -1,7 +1,7 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('jobsMyPostsCtrl', ['$scope', '$stateParams', '$http', '$state', '$window', '$localStorage', 'MessageService', function($scope, $stateParams, $http, $state, $window, $localStorage, MessageService){
+        .controller('jobsMyPostsCtrl', ['$scope', '$stateParams', '$http', '$state', '$window', '$localStorage', 'MessageService', '$translate', function($scope, $stateParams, $http, $state, $window, $localStorage, MessageService, $translate){
             
                  $scope.jobs = [];
                  $scope.$storage = $localStorage;

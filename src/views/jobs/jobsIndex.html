@@ -85,9 +85,12 @@
                             <a ng-href="/jobs/{{job.id}}">{{'COMPANY' | translate}}: {{job.company}}</a>
                         </div>
                         <div ng-href="/jobs/{{job.type}}" class="text-muted row col-md-12">
+<!--
                                 <h5 ng-text-truncate="job.description"
                                             ng-tt-chars-threshold="170">
                                 </h5>
+-->
+                            <h5>{{job.description | limitTo: 170}}</h5><h5 ng-show="job.description.length > 170"><a ng-href="/jobs/{{job.idh}}">...read more</a></h5>
                         </div>
                     <a ng-click="flag(job.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
                      </div>

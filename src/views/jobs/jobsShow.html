@@ -2,15 +2,22 @@
 	<div class="row" style="margin-top: -45px;">
         <h2><b>{{'JOB_DETAILS' | translate}}</b></h2>
     
-        <div class="row">
+        <div class="col-md-12">
            <a ng-href="/jobs"><button class="btn btn-primary">{{'BACK_TO_BROWSE' | translate}}</button></a>
+           <span ng-show="$storage.user.id === job.posted_by.id">
+            <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-info">{{'EDIT_JOB_POST' | translate}}</a>
+            <button ng-click="deleteJob(job.id)" class="btn btn-danger">{{'DELETE_JOB_POST' | translate}}</button>
+            </span>
         </div>
+    </div>
 
-             </div>
+             
+<!--
         <div ng-show="$storage.user.id === job.posted_by.id">
             <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-info">{{'EDIT_JOB_POST' | translate}}</a>
             <button ng-click="deleteJob(job.id)" class="btn btn-danger">{{'DELETE_JOB_POST' | translate}}</button>
-        </div>
+        </div></div>
+-->
 	    <div class="col-md-12 page-content">
 	        <div class="col-md-12"><h3>{{job.title}}</h3></div>
 	        <div class="col-md-12">{{'POSTED_BY' | translate}} <a ng-href="/profiles/{{job.posted_by.id}}">{{job.posted_by.name}}</a></div>
@@ -32,18 +39,23 @@
             
             <div class="col-md-10 col-md-offset-1" ng-show="job.start_date">
                     <div class="row sp-underline"><h5>{{'START_DATE' | translate}}</h5></div>
-                    <h4>{{job.start_date}}</h4>
+                    <h4>{{job.start_date | date:medium}}</h4>
             </div>
             
             <div class="col-md-10 col-md-offset-1" ng-show="job.description">
                     <div class="row sp-underline"><h5>{{'JOB_DESCRIPTION' | translate}}</h5></div>
                     <h4>{{job.description}}</h4>
             </div>
+            
+            <div class="col-md-10 col-md-offset-1" ng-show="job.description">
+                    <div class="row sp-underline"><h5>{{'CONTACT_POSTER' | translate}}</h5></div>
+                    <h4>{{job.posted_by.email}}</h4>
+            </div>
 	        
 	    </div>
 	</div>
    
-    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;<br><br></div>
     <div class="row">&nbsp;</div>
            
 

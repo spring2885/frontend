@@ -1,8 +1,7 @@
 (function() {
     "use strict";
     angular.module('spring-2885')
-        .controller('jobsCreatePostCtrl', ['$scope', '$http', '$state', '$localStorage', 'MessageService', function($scope, $http, $state, $localStorage, MessageService
-          ){
+        .controller('jobsCreatePostCtrl', ['$scope', '$http', '$state', '$localStorage', 'MessageService', '$translate', function($scope, $http, $state, $localStorage, MessageService, $translate){
 
          $scope.job = {};
          $scope.job.job_type = 1;

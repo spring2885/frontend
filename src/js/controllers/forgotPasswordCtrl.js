@@ -13,13 +13,13 @@
                     data    : $.param($scope.forgotData),
                     headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  
                     }).then(function successCallback(response) {
-                        console.log($scope.forgotData);
+                        //console.log($scope.forgotData);
                         
-                        console.log("Reset Email Sent succeeded " + JSON.stringify(response));
+                        //console.log("Reset Email Sent succeeded " + JSON.stringify(response));
 
                     }, function errorCallback(response) {
                         
-                        console.log("RESET failed " + JSON.stringify(response));
+                        //console.log("RESET failed " + JSON.stringify(response));
                 });
             };
                  
