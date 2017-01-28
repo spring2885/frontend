@@ -15,7 +15,7 @@ This document will walk you through the steps to build and use the initial Front
 ##Necessary Installations
 
 -------------
-We will be using both Grunt and NPM in our Dev environment , so you will need to make sure you have Node.js installed on you machine globaly.
+We will be using both Grunt and NPM in our Dev environment, so you will need to make sure you have Node.js installed on your machine globally.
 
 **In you terminal:**
 
