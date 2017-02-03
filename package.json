@@ -1,6 +1,7 @@
 {
   "name": "spring-2885-frontend",
   "version": "1.0.0",
+  "private": true,
   "description": "Front End development environment and workflow",
   "main": "index.html",
   "scripts": {
