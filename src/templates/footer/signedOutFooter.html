@@ -1,17 +1,16 @@
 <footer class="logged-out-footer">
-    
     <!-- Choose Language -->
     <div class="container footer-box" ng-controller="chooseLangCtrl" >
-        <div class="row row-centered" ng-show="false">
+        <div class="row row-centered" ng-show="true">
             <div class="col-md-12 col-centered text-center logged-out-footer-upper">
-                <h4><a href="javascript:;" ng-click="chooseLang('en_US');">English</a> &nbsp &nbsp
-                <a href="javascript:;" ng-click="chooseLang('es_ES');">Español</a> &nbsp &nbsp
-                <a href="javascript:;" ng-click="chooseLang('fr_FR');">Français</a> &nbsp &nbsp
-                <a href="javascript:;" ng-click="chooseLang('zh_CN');">中文</a></h4>
-                <!--<a href="javascript:;" ng-click="chooseLang('ar_AB');">العربية</a> &nbsp &nbsp -->
+                <h4>
+                    <a href="javascript:;" ng-click="chooseLang('en');">English</a> &nbsp &nbsp
+                    <a href="javascript:;" ng-click="chooseLang('es');">Español</a> &nbsp &nbsp
+                    <a href="javascript:;" ng-click="chooseLang('fr');">Français</a> &nbsp &nbsp
+                    <a href="javascript:;" ng-click="chooseLang('zh');">中文</a>
+                </h4>
             </div>
         </div>
-
         <div class="row row-centered">
             <div class="col-md-12 col-centered logged-out-footer-lower">
                <p class="text-center">
@@ -30,7 +29,5 @@
                 </h5>
             </div>
         </div>
-
     </div>
-    
 </footer>
