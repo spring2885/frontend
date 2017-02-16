@@ -132,7 +132,7 @@ h2.login-page { color: rgb(119, 119, 119); }
 }
 
 .logged-out-nav {
-    background-color: #18426C; /* #313335; */
+    background-color: #313335;
 }
 
 .logged-out-nav a {
@@ -209,13 +209,7 @@ h2.login-page { color: rgb(119, 119, 119); }
   padding-left: 10px;
 
 }
-/*
-.tab-content{
-    background-color:#303136;
-    color:#fff;
-    padding:5px
-}
-*/
+
 .filter-tabs > li > a{
   border: medium none;
       color: darkgrey;
