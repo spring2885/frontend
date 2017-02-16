@@ -297,5 +297,7 @@
     "WHERE_IS_THIS _JOB_LOCATED" :"Where is this job located?",
     "WHERE_DO_YOU_WORK": "Current Company",
     "WHERE_IS_THIS_JOB_LOCATED": "Where is this job located?",
-    "YOU_ARE_A": "You are a"
+    "YOU_ARE_A": "You are a",
+    "YOU_ARE_REGISTERED_AS_ALUMNI": "You are registered as Alumni",
+    "YOUR_SETTINGS": "Your Settings"
 }
