@@ -10,18 +10,33 @@ body {
 }
 
 pre {
- white-space: pre-wrap;       /* css-3 */
- white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
- white-space: -pre-wrap;      /* Opera 4-6 */
- white-space: -o-pre-wrap;    /* Opera 7 */
- word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    /* css-3 */
+    white-space: pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -moz-pre-wrap;
+    /* Opera 4-6 */
+    white-space: -pre-wrap;
+    /* Opera 7 */
+    white-space: -o-pre-wrap;
+    /* Internet Explorer 5.5+ */
+    word-wrap: break-word;
 }
 
-h2 { color: #fff; }
-h2.login-page { color: rgb(119, 119, 119); }
+h2 {
+    color: #fff;
+}
 
-.ndnu-brown { color: rgb(119, 119, 119); }
-.ndnu-white { color: white; }
+h2.login-page {
+    color: rgb(119, 119, 119);
+}
+
+.ndnu-brown {
+    color: rgb(119, 119, 119);
+}
+
+.ndnu-white {
+    color: white;
+}
 
 /* profileIndex Start */
 .profile-img {
@@ -63,8 +78,8 @@ h2.login-page { color: rgb(119, 119, 119); }
     min-height: 100%;
     height: 100%;
     height: auto !important;
-    position:relative;
-    padding: 0 0 20px; 
+    position: relative;
+    padding: 0 0 20px;
 }
 
 .page-content {
@@ -110,12 +125,11 @@ h2.login-page { color: rgb(119, 119, 119); }
     right: 0;
     border-radius: 10px !important;
     width: 100% !important;
-    border-color: black; !important;
+    border-color: black;
+    !important;
 }
 
 .logged-out-footer {
-/*    padding-top: 15px;*/
-/*    position: absolute;*/
     bottom: 0;
     width: 100%;
     height: 80px;
@@ -139,17 +153,16 @@ h2.login-page { color: rgb(119, 119, 119); }
 
 .nav-font {
     font-size: 20px !important;
-    color: white;
+    color: white !important;
 }
-
 
 .navbar-custom {
     background-color: #192f42;
-    color:#ffffff;
-    border-radius:0;
-    min-height:auto;
+    color: #ffffff;
+    border-radius: 0;
+    min-height: auto;
 }
-  
+
 .nav > li > a {
     color: #fff;
 }
@@ -158,65 +171,35 @@ h2.login-page { color: rgb(119, 119, 119); }
     color: #000;
 }
 
-/** This one doesn't seem to do anything, the one above does. */
-.navbar-custom .navbar-nav > li > a {
-    color: #fff;
-    padding-left:25px;
-    padding-right:25px;
-    padding-top:20px;
-    padding-bottom:20px;
-}
-.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
-    color: #000;
-    background-color:transparent;
-}
-      
-.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
-    text-decoration: none;
-    background-color: #2a3f53;
-}
-      
-.navbar-custom .navbar-brand {
-   color:#eeeeee;
-   padding:20px;
-}
 
-.navbar-custom .navbar-toggle,
-.navbar-custom .nav .open>a, .navbar-custom .nav .open>a:hover, .navbar-custom .nav .open>a:focus {
-   background-color:transparent;
-}
-
-.navbar-custom .icon-bar {
-   border: 1px solid #fff;                
-}
-
-/*-- change navbar dropdown color --*/
-.navbar-custom .navbar-nav .open .dropdown-menu>li>a,.navbar-custom .navbar-nav .open .dropdown-menu {
-    color:#428bca;
+/* change navbar dropdown color */
+.navbar-custom .navbar-nav .open .dropdown-menu>li>a,
+.navbar-custom .navbar-nav .open .dropdown-menu {
+    color: #428bca;
 }
 
 .tab-filters .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
+    color: white;
+    background-color: #428bca;
+    padding: 5px 15px;
 }
 
-.filter-tabs{
-  background-color:#707070;
-  border-radius: 10px;
-  padding-left: 10px;
-
+.filter-tabs {
+    background-color: #707070;
+    border-radius: 10px;
+    padding-left: 10px;
 }
 
-.filter-tabs > li > a{
-  border: medium none;
-      color: darkgrey;
+.filter-tabs > li > a {
+    border: medium none;
+    color: darkgrey;
 }
-.filter-tabs > li > a:hover{
-  background-color: #303136 !important;
+
+.filter-tabs > li > a:hover {
+    background-color: #303136 !important;
     border: medium none;
     border-radius: 10px;
-    color:#fff;
+    color: #fff;
 }
 
 .even {
@@ -247,6 +230,7 @@ h2.login-page { color: rgb(119, 119, 119); }
     background-color: rgb(50, 118, 177);
     border-color: rgb(40, 94, 142);
 }
+
 .btn-space {
     margin-right: 10px;
     margin-left: 10px;
@@ -254,5 +238,5 @@ h2.login-page { color: rgb(119, 119, 119); }
 
 .sp-underline {
     border-width: 2px;
-   border-bottom: 2px grey solid;
+    border-bottom: 2px grey solid;
 }
