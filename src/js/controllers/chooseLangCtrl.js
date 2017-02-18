@@ -1,27 +1,26 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('chooseLangCtrl', ['$scope', function($scope){
-            
-           // $scope.storage = $localStorage
+        .controller('chooseLangCtrl', ['$scope', '$translate', function($scope, $translate){
             $scope.chooseLang = function(langKey) {
-              switch(langKey) {
-                  case 'zh_CN':
-                      break;
-                  case 'en_US':
-                      break;
-                  case 'fr_FR':
-                      break;
-                 // case 'ar_AB':
-                //      break;
-                  default:
-                      langKey = "en_US";
-                      break;
-              }
+                switch(langKey) {
+                    case 'en':
+                        langKey = 'en_US';
+                        break;
+                    case 'es':
+                        langKey = 'es_ES';
+                        break;
+                    case 'fr':
+                        langKey = 'fr_FR';
+                        break;
+                    case 'zh':
+                        langKey = 'zh_CN';
+                        break;
+                    default:
+                        langKey = 'en_US';
+                        break;
+                }
                 $translate.use(langKey);
-               // $scope.storage.profile.myLanguage = langKey;
-                tmhDynamicLocale.set(langKet.toLowerCase().replace(/_/g, '-'));
             };
     }]);
 })();
-    

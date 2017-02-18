@@ -1,7 +1,8 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('jobsIndexCtrl', ['$scope', '$http', '$state', '$window', 'abuseService', 'MessageService', function($scope, $http, $state, $window, abuseService, MessageService) {
+        .controller('jobsIndexCtrl', ['$scope', '$http', '$state', '$translate', '$window', 'abuseService', 'MessageService', 
+            function($scope, $http, $state, $translate, $window, abuseService, MessageService) {
                  $scope.jobs = [];
                  MessageService.configure({disabled:false, max:3, timeout:3500});
                  $scope.flag = function(id) {

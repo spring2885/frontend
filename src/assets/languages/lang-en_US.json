@@ -294,5 +294,12 @@
     "WHERE_IS_THIS _JOB_LOCATED": "Where is this job located?",
     "WHERE_DO_YOU_WORK": "Current Company",
     "WHERE_IS_THIS_JOB_LOCATED": "Where is this job located?",
+<<<<<<< HEAD
     "YOU_ARE_A": "You are a"
 }
+=======
+    "YOU_ARE_A": "You are a",
+    "YOU_ARE_REGISTERED_AS_ALUMNI": "You are registered as Alumni",
+    "YOUR_SETTINGS": "Your Settings"
+}
+>>>>>>> ff15e0b7435bdb2170c4868a78ba2f96f793ab61

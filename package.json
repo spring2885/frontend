@@ -1,11 +1,13 @@
 {
   "name": "spring-2885-frontend",
   "version": "1.0.0",
+  "private": true,
   "description": "Front End development environment and workflow",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "os" : [ "!win32" ],
   "author": "test",
   "license": "MIT",
   "devDependencies": {
