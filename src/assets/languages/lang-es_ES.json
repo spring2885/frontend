@@ -68,7 +68,6 @@
     "FAQ_ANS1": "El propósito del sitio es tener una red social para la comunidad Universidad Notre Dame de Namur . Permite a los estudiantes , profesores y ex alumnos para presentar y compartir oportunidades, así como los logros entre sí.",
     "FAQ_ANS2": "Con una cuenta, el sitio le proporciona su propio perfil que no sólo mostrará lo que eres , pero permite a las empresas llegar a conocerte y ver sus logros. Para las oportunidades , el sitio cuenta con una función de búsqueda que le permitirá buscar cualquier trabajo que se ofrecen para su gran designado . El sitio también tiene un suministro de noticias y un calendario para ponerle al día con las últimas noticias .",
     "FAQ_ANS3": "El sitio está dirigido sólo a los estudiantes , ex alumnos y profesores de la comunidad NDNU .",
-<<<<<<< HEAD
     "FAQ_ANS4": "Para inscribirse , sólo tiene que rellenar el correo electrónico y la contraseña de la caja de registro en la página principal del sitio , o puede crear una cuenta haciendo clic en el enlace 'Crear una cuenta' en la cabecera de inicio de sesión .",
     "FAQ_ANS5": "Si ha olvidado su contraseña , puede seleccionar en el enlace ¿Ha olvidado Pssword ' en la cabecera de inicio de sesión , en la que , sólo tendrá que seguir las instrucciones para restablecer la contraseña .",
     "FAQ_ANS6": "Para acceder a su cuenta , sólo tiene que escribir su correo electrónico y contraseña en la cabecera de inicio de sesión y haga clic .",
@@ -76,15 +75,6 @@
     "FAQ_ANS8": "Para editar su página, ingrese a su cuenta y haga clic en la pestaña 'Perfil' para cambiar el menú desplegable que le permite seleccionar la opción ' Editar Perfil' y le dirigirá a la página.",
     "FAQ_ANS9": "Para ver su suministro de noticias , acceder a su cuenta y haga clic en la pestaña ' suministro de noticias ' y cargar su suministro de noticias .",
     "FAQ_ANS10": "En la parte inferior de la página , hay un enlace 'Contacto' que le puede dirigir a la página que le dará información para ponerse en contacto con nosotros para obtener ayuda .",
-=======
-    "FAQ_ANS4": "Para inscribirse , sólo tiene que rellenar el correo electrónico y la contraseña de la caja de registro en la página principal del sitio , o puede crear una cuenta haciendo clic en el enlace Crear una cuenta en la cabecera de inicio de sesión .",
-    "FAQ_ANS5": "Si ha olvidado su contraseña , puede seleccionar en el enlace ¿Ha olvidado Pssword ' en la cabecera de inicio de sesión , en la que , sólo tendrá que seguir las instrucciones para restablecer la contraseña .",
-    "FAQ_ANS6": "Para acceder a su cuenta , sólo tiene que escribir su correo electrónico y contraseña en la cabecera de inicio de sesión y haga clic .",
-    "FAQ_ANS7": "Para cerrar la sesión , haga clic en el botón ' Salir ' en la esquina superior derecha de la cabecera .",
-    "FAQ_ANS8": "Para editar su página, ingrese a su cuenta y haga clic en la pestaña Perfil para cambiar el menú desplegable que le permite seleccionar la opción ' Editar Perfil' y le dirigirá a la página.",
-    "FAQ_ANS9": "Para ver su suministro de noticias , acceder a su cuenta y haga clic en la pestaña ' suministro de noticias ' y cargar su suministro de noticias .",
-    "FAQ_ANS10": "En la parte inferior de la página , hay un enlace Contacto que le puede dirigir a la página que le dará información para ponerse en contacto con nosotros para obtener ayuda .",
->>>>>>> ff15e0b7435bdb2170c4868a78ba2f96f793ab61
     "FAQ_Q1": "¿Cuál es el propósito del sitio ?",
     "FAQ_Q2": "¿Cuáles son las características del sitio ?",
     "FAQ_Q3": "¿Cualquiera puede usar el sitio?",
@@ -148,11 +138,7 @@
     "POSTED_ON": "Publicado en",
     "PRIVACY_POLICY": "Política de privacidad",
     "PP.HEADER": "www.spring2885.org Política de privacidad",
-<<<<<<< HEAD
     "PP.P1": "Esta política de privacidad ha sido compilada para servir mejor a los que tienen que ver con la forma en su ' información personal identificable ' ( PII ) se está utilizando en línea . PII , tal como se utiliza en la ley de privacidad y seguridad de la información de Estados Unidos , es la información que puede ser utilizado por sí solo o con otra información para identificar, contactar o localizar a una sola persona , o para identificar a un individuo en su contexto. Por favor lea nuestra política de privacidad cuidadosamente para obtener una clara comprensión de cómo recogemos, utilizamos , proteger o manejar su información de identificación personal de acuerdo con nuestra página web .",
-=======
-    "PP.P1": "Esta política de privacidad ha sido compilada para servir mejor a los que tienen que ver con la forma en su \" información personal identificable \" ( PII ) se está utilizando en línea . PII , tal como se utiliza en la ley de privacidad y seguridad de la información de Estados Unidos , es la información que puede ser utilizado por sí solo o con otra información para identificar, contactar o localizar a una sola persona , o para identificar a un individuo en su contexto. Por favor lea nuestra política de privacidad cuidadosamente para obtener una clara comprensión de cómo recogemos, utilizamos , proteger o manejar su información de identificación personal de acuerdo con nuestra página web .",
->>>>>>> ff15e0b7435bdb2170c4868a78ba2f96f793ab61
     "PP.P2": "¿Qué información personal que obtenemos de las personas que visitan nuestro blog , sitio web o aplicación ?",
     "PP.P3": "Al solicitar o registrar en nuestro sitio , en su caso, se le puede pedir que introduzca su nombre, dirección de correo electrónico u otros detalles que le ayude con su experiencia.",
     "PP.P4": "¿Cuándo obtenemos información?",
@@ -171,11 +157,7 @@
     "PP.P17": "Nosotros sólo proporcionamos artículos e información . Nunca le solicitamos información personal o privada más allá de profife información, como números de tarjetas de crédito .",
     "PP.P18": "Su información personal se guarda bajo redes seguras y sólo es accesible por un número limitado de personas que tienen derechos especiales de acceso a dichos sistemas , y están obligados a mantener la información confidencial . Además , toda la información sensible / de crédito que usted suministra está cifrada a través de la tecnología Secure Socket Layer ( SSL ) .",
     "PP.P19": "Implementamos una variedad de medidas de seguridad cuando un usuario entra , se somete , o accede a su información para mantener la seguridad de su información personal .",
-<<<<<<< HEAD
     "PP.P20": "¿Utilizamos 'cookies' ?",
-=======
-    "PP.P20": "¿Utilizamos cookies ?",
->>>>>>> ff15e0b7435bdb2170c4868a78ba2f96f793ab61
     "PP.P21": "Sí. Las cookies son pequeños archivos que un sitio o de su proveedor de servicios transfiere al disco duro de su ordenador mediante el navegador Web ( si lo permiten) que permite a los sistemas del proveedor de servicio de sitio o para reconocer su navegador y captura y recuerde cierta información. Por ejemplo , utilizamos cookies para ayudarnos a recordar y procesar los artículos en su carrito de compras. También se utilizan para ayudar a entender sus preferencias sobre la base de la actividad del sitio anterior o actual , lo que nos permite ofrecerle un mejor servicio . También utilizamos cookies para ayudarnos a recopilar datos agregados sobre el tráfico y la interacción del sitio para que podamos ofrecer mejores experiencias de sitios y herramientas en el futuro .",
     "PP.P22": "Nosotros utilizamos cookies para :",
     "PP.P23": "Entender y guardar las preferencias del usuario para futuras visitas .",
@@ -278,15 +260,9 @@
     "UPDATE_PROFILE": "Actualización del perfil",
     "URL_FOR_IMAGE": "Dirección Web / enlace a la imagen",
     "USER_AGREEMENT": "Acuerdo de usuario",
-<<<<<<< HEAD
     "USR_AGREEMENT.HEADING": "Condiciones de Uso ( ' Términos ')",
     "USR_AGREEMENT.P1": "Última actualización : 08 abril , el año 2016",
     "USR_AGREEMENT.P2": "Por favor, lea estas Condiciones de Uso ( ' Términos ', ' Condiciones de Uso ') antes de utilizar el sitio web http://www.spring-2885.org ( el 'Servicio' ) operado por la primavera 2885 ( 'nosotros' , ' nos ' , o ' nuestro ' ) .",
-=======
-    "USR_AGREEMENT.HEADING": "Condiciones de Uso (  Términos )",
-    "USR_AGREEMENT.P1": "Última actualización : 08 abril , el año 2016",
-    "USR_AGREEMENT.P2": "Por favor, lea estas Condiciones de Uso (  Términos , Condiciones de Uso) antes de utilizar el sitio web http://www.spring-2885.org ( el Servicio ) operado por la primavera 2885 ( nosotros ,  nos  , o  nuestro  ) .",
->>>>>>> ff15e0b7435bdb2170c4868a78ba2f96f793ab61
     "USR_AGREEMENT.P3": "Su acceso y uso del Servicio está condicionado a la aceptación y cumplimiento de estas condiciones . Estos términos se aplican a todos los visitantes, usuarios y otras personas que accedan o usen el servicio .",
     "USR_AGREEMENT.P4": "Al acceder o utilizar el Servicio usted acepta que quedará vinculado por estas Condiciones . Si no está de acuerdo con alguna parte de los términos , entonces no puede tener acceso al servicio .",
     "USR_AGREEMENT.P5": "Al crear una cuenta con nosotros , nos debe proporcionar información que sea precisa, completa y actualizada en todo momento . De no hacerlo constituye una violación de los términos, que pueden resultar en la terminación inmediata de su cuenta en nuestro servicio .",
@@ -318,5 +294,7 @@
     "WHERE_IS_THIS _JOB_LOCATED": "¿Dónde se encuentra este trabajo?",
     "WHERE_DO_YOU_WORK": "Compañía actual",
     "WHERE_IS_THIS_JOB_LOCATED": "¿Dónde se encuentra este trabajo?",
-    "YOU_ARE_A": "Usted es un"
+    "YOU_ARE_A": "Usted es un",
+    "YOU_ARE_REGISTERED_AS_ALUMNI": "Usted está registrado como Alumni",
+    "YOUR_SETTINGS": "Su configuración"
 }
