@@ -3,6 +3,8 @@
     angular.module('spring-2885')   
         .controller('chooseLangCtrl', ['$scope', '$translate', function($scope, $translate){
             $scope.chooseLang = function(langKey) {
+                if ($scope.selected) {langKey = $scope.selected;}
+
                 switch(langKey) {
                     case 'en':
                         langKey = 'en_US';
