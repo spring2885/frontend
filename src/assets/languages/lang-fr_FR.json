@@ -1,6 +1,8 @@
 {
     "404_EXPLAINER": "Pour l'instant, soit revenir à la page précédente ou à la tête de la page d'accueil. Il y a une erreur dans ce que vous recherchez, mais",
     "A_PLACE_TO_CONNECT.elips": "Un endroit pour se connecter...",
+"about.P1": "Ce site a été développé par les étudiants en Informatique de la catégorie Senior Project du Printemps 2016 à l'Université Notre Dame De Namur. ",
+    "about.P2": "Notre objectif est de développer une plateforme dans laquelle les étudiants, les anciens et le corps professoral peuvent se connecter les uns aux autres. Grâce à cette application Web, les utilisateurs pourront afficher des nouvelles et des opportunités d'emploi pour les autres utilisateurs. En faisant cela, les étudiants et les anciens peuvent prendre conscience des offres d'emploi possibles, salons de l'emploi et des annonces qui peuvent les intéresser et les aider avec leurs objectifs de carrière.",
     "ABOUT_ME": "À propos de moi",
     "ABOUT_US": "À propos de nous",
     "ACCOUNTS": "Accounts",
