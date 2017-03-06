@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background-color: #8996a0;
+    background-color: #edf0f5;
     margin-top: 120px;
     margin-bottom: 60px;
 }
@@ -91,22 +91,22 @@ h2.login-page {
 }
 
 .login-box {
-    background-color: #9ba5a8;
     height: 100% !important;
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
     border-color: black;
+    color: black;
 }
 
 .sign-up-explain-box {
-    background: url(src/assets/images/gradhats2.jpg) #e8eded;
     height: 100% !important;
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
     font-size: 15px;
     border-color: black;
+    color: black;
 }
 
 .sign-up-explain-box ul {
@@ -130,25 +130,22 @@ h2.login-page {
 }
 
 .logged-out-footer {
+    background-color: #fff;    
     bottom: 0;
     width: 100%;
     height: 80px;
 }
 
-.logged-out-footer-upper {
-    background-color: #9ba5a8;
-}
-
-.logged-out-footer-lower {
-    background-color: #9ba5a8;
-}
-
 .logged-out-nav {
-    background-color: #313335;
+    background-color: #18426c;
 }
 
 .logged-out-nav a {
     border-radius: 10px !important;
+}
+
+.logged-out-nav #email, .logged-out-nav #password {
+    background-color: #faffbd;
 }
 
 .nav-font {
@@ -175,7 +172,7 @@ h2.login-page {
 /* change navbar dropdown color */
 .navbar-custom .navbar-nav .open .dropdown-menu>li>a,
 .navbar-custom .navbar-nav .open .dropdown-menu {
-    color: #428bca;
+    color: #18426c;
 }
 
 .tab-filters .tab-content {

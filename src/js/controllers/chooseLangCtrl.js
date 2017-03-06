@@ -18,6 +18,9 @@
                     case 'zh':
                         langKey = 'zh_CN';
                         break;
+                    case 'ar':
+                        langKey = 'ar_AE';
+                        break;
                     default:
                         langKey = 'en_US';
                         break;

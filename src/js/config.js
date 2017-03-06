@@ -11,11 +11,12 @@
                 suffix: '.json'
             });
             $translateProvider
-                .registerAvailableLanguageKeys(['en_US', 'es_ES', 'fr_FR', 'zh_CN'], {
+                .registerAvailableLanguageKeys(['en_US', 'es_ES', 'fr_FR', 'zh_CN', 'ar_AE'], {
                     'en*': 'en_US',
                     'es*': 'es_ES',
                     'fr*': 'fr_FR',
-                    'zh*': 'zh_CN'
+                    'zh*': 'zh_CN',
+                    'ar*': 'ar_AE'
                 })
                 .determinePreferredLanguage()
                 .useSanitizeValueStrategy('escape');

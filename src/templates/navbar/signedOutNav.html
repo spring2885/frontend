@@ -1,8 +1,7 @@
 <div>
 <nav id="NavBar" class="navbar" role="navigation">
-   
-    <div class="container-fluid">
         <div class="row logged-out-nav">
+        <div class="container">
             <div class="navbar-header col-md-6">
                 <a class="navbar-brand" href="/">
                     <img style="height: 60px;
@@ -20,34 +19,34 @@
                     <div class="form-group col-centered">
                     
                     <div class="col-md-5">
-                        <input class="form-control input-lg" 
+                        <input class="form-control input-sm" 
                         type="email" 
                         id="email"
                         ng-model="credentials.username" 
                         placeholder="{{'EMAIL_ADDRESS' | translate}}">                
                     </div>
                     <div class="col-md-5">
-                        <input class="form-control input-lg"
+                        <input class="form-control input-sm"
                          type="password" 
                          id="password"
                          ng-model="credentials.password" 
                          placeholder="{{'PASSWORD' | translate}}">
                     </div>
-                    <button class="btn btn-primary btn-lg" 
+                    <button class="btn btn-primary btn-sm" 
                             type="submit">
                             {{'SIGN_IN' | translate}}
                     </button>
                </form>    
             </div>
+            </div>
         </div>
-    </div>
     <div class="row logged-out-nav">
+    <div class="container">
         <div class="col-md-6"></div>
         <div class="row col-md-6 navbar-right">
-        <div class="col-md-6 text-center"><a href="/">{{'CREATE_AN_ACCOUNT' | translate}}</a></div>
         <div class="col-md-6 pull-right"><a href="/forgot">{{'FORGOT_MY_PASSWORD' | translate}}</a></div>
         </div>
+        </div>
     </div>
-    
 </nav>
 </div>
