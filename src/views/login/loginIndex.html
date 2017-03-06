@@ -1,12 +1,8 @@
 <div class="row">
-   
     <div class="col-md-12">
-      
-       <!-- What the app is -->
         <div class="col-md-6 sign-up-explain-box">
-           <h2 class="login-page">{{'CONNECT_W_NDNU_COMMUNITY' | translate}}</h2> 
+            <h2 class="login-page">{{'CONNECT_W_NDNU_COMMUNITY' | translate}}</h2>
             <div class="col-md-7">
-                
                 <p>{{'SITE_EXPLAINER' | translate}}</p>
                 <ul>
                     <li>{{'SITE_EXPLAINER.ONE' | translate}}</li><br>
@@ -16,73 +12,57 @@
                 </ul>
             </div>
         </div>
-        
-        <!-- Lazy Spacing -->
         <div class="col-md-1"></div>
-        
-        <!-- Sign Up -->
         <div class="col-md-5 col-centered login-box" ng-controller="signUpCtrl">
-        
-         <!-- Title Lable -->
-          <div class="col-md-12">
-            <h2 class="text-center login-page">{{'NEW_TO_SPRING2885' | translate}}</h2>
-          </div>
-         
-           
-           <form>
-               <div class="form-group col-centered">
-                 <form>
-                    <div class="col-md-12 text-centered form-padding"></div>
-                    
-                    <div class="col-md-12 text-centered form-padding">
-                        <input class="form-control input-lg" 
-                        type="email" 
-                        id="email"
-                        ng-model="formData.email"
-                        placeholder="{{'EMAIL_ADDRESS' | translate}}">
-                    </div>
-        
-                   <div class="col-md-12 text-centered form-padding"></div>
-                   
-                    <div class="col-md-12 text-centered form-padding">
-                        <input class="form-control input-lg" 
-                        type="password" 
-                        id="password" 
-                        ng-model="formData.password"
-                        placeholder="{{'NEW_PASSWORD' | translate}}">
-                    </div>
-                    
-                   <div class="col-md-12 text-centered form-padding"></div>
-                   
-                    <div class="col-md-12 radio text-center form-padding">
-                        <label>
-                            <input type="radio" 
-                            ng-model="acceptTerms"
-                            value=true 
-                            name="accept">
-                                {{'I_ACCEPT_ALL' | translate}}
-                                <a ng-href="/ua" >{{'TERMS_AND_POLICIES' | translate}}</a>
-                        </label>
-                    </div>
-                    
-                    <div class="col-md-12 text-centered form-padding">
-                       <div ng-show="!acceptTerms">
-                           <button class="btn btn-primary btn-block btn-lg" ng-click="acceptAlert()" >
-                                {{'SIGN_UP' | translate}}
-                            </button>
-                       </div>
-                       <div ng-show="acceptTerms">
-                            <button class="btn btn-primary btn-block btn-lg" ng-click="createUser()" type="submit">
-                                {{'SIGN_UP' | translate}}
-                            </button>
+            <div class="col-md-12">
+                <h2 class="text-center login-page">{{'NEW_TO_SPRING2885' | translate}}</h2>
+            </div>
+            <form>
+                <div class="form-group col-centered">
+                    <form>
+                        <div class="col-md-12 text-centered form-padding"></div>
+                        <div class="col-md-12 text-centered form-padding">
+                            <input class="form-control input-lg" 
+                                type="email" 
+                                id="email"
+                                ng-model="formData.email"
+                                placeholder="{{'EMAIL_ADDRESS' | translate}}">
                         </div>
-                    </div>
-                    
-                    <div class="col-md-12 text-centered form-padding"></div>
-                   </form>
-               </div>
-           </form>
-            
-        </div> <!-- End Sign Up -->
+                        <div class="col-md-12 text-centered form-padding"></div>
+                        <div class="col-md-12 text-centered form-padding">
+                            <input class="form-control input-lg" 
+                                type="password" 
+                                id="password" 
+                                ng-model="formData.password"
+                                placeholder="{{'NEW_PASSWORD' | translate}}">
+                        </div>
+                        <div class="col-md-12 text-centered form-padding"></div>
+                        <div class="col-md-12 radio text-center form-padding">
+                            <label>
+                                <input type="radio" 
+                                    ng-model="acceptTerms"
+                                    value=true 
+                                    name="accept">
+                                    {{'I_ACCEPT_ALL' | translate}}
+                                    <a ng-href="/ua" >{{'TERMS_AND_POLICIES' | translate}}</a>
+                            </label>
+                        </div>
+                        <div class="col-md-12 text-centered form-padding">
+                            <div ng-show="!acceptTerms">
+                                <button class="btn btn-success btn-block btn-lg" ng-click="acceptAlert()" >
+                                    {{'SIGN_UP' | translate}}
+                                </button>
+                            </div>
+                            <div ng-show="acceptTerms">
+                                <button class="btn btn-success btn-block btn-lg" ng-click="createUser()" type="submit">
+                                    {{'SIGN_UP' | translate}}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-centered form-padding"></div>
+                    </form>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
