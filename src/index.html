@@ -8,21 +8,21 @@
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.min.css"> 
-    <link rel="icon" type="image/png" href="/src/assets/images/Profilepic.png">
+    <link rel="stylesheet" type="text/css" href="styles.min.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body ng-controller="mainCtrl">
-    <div class="container-fluid" ng-switch on="isLoggedIn">
+    <header class="container-fluid" ng-switch on="isLoggedIn">
         <div ng-switch-when="true"><logged-in-nav></logged-in-nav></div>
         <div ng-switch-when="false"><logged-out-nav></logged-out-nav></div>
-    </div>
-    <div id="wrap">
+    </header>
+    <section id="wrap">
         <div id="container" class="container" ui-view></div>
-    </div> 
-    <div class="container-fluid" ng-switch on="isLoggedIn">
+    </section>
+    <footer class="container-fluid" ng-switch on="isLoggedIn">
         <div ng-switch-when="true"><logged-in-footer></logged-in-footer></div>
         <div ng-switch-when="false"><logged-out-footer></logged-out-footer></div>
-    </div>
+    </footer>
     <script src="app.min.js"></script>
 </body>
 </html>
