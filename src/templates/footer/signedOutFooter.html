@@ -1,29 +1,25 @@
-<div class="logged-out-footer">
-    <div class="row row-centered" ng-controller="chooseLangCtrl">
-        <div class=" text-center">
-            <h4>
-                <a href="javascript:;" ng-click="chooseLang('en');">English</a> &nbsp &nbsp
-                <a href="javascript:;" ng-click="chooseLang('es');">Español</a> &nbsp &nbsp
-                <a href="javascript:;" ng-click="chooseLang('fr');">Français</a> &nbsp &nbsp
-                <a href="javascript:;" ng-click="chooseLang('zh');">中文</a> &nbsp &nbsp
-                <a href="javascript:;" ng-click="chooseLang('ar');">عربى</a>
-            </h4>
-            <hr>
-        </div>
+<div class="footer signed-out-footer">
+    <div class="text-center" ng-controller="chooseLangCtrl">
+        <a href="javascript:;" ng-click="chooseLang('en');">English</a> &nbsp &nbsp
+        <a href="javascript:;" ng-click="chooseLang('es');">Español</a> &nbsp &nbsp
+        <a href="javascript:;" ng-click="chooseLang('fr');">Français</a> &nbsp &nbsp
+        <a href="javascript:;" ng-click="chooseLang('zh');">中文</a> &nbsp &nbsp
+        <a href="javascript:;" ng-click="chooseLang('ar');">عربى</a>
+        <hr>
     </div>
-    <div class="row row-centered">
+    <div>
        <p class="text-center">
             <a ng-href="/ua">{{'USER_AGREEMENT' | translate}}</a> &nbsp &nbsp
             <a ng-href="/privacy">{{'PRIVACY_POLICY' | translate}}</a> &nbsp &nbsp
-            <a ng-href="/community-guidlines">{{'COMMUNITY_GUIDLINES' | translate}}</a> &nbsp &nbsp
+            <a ng-href="/community-guidelines">{{'COMMUNITY_GUIDELINES' | translate}}</a> &nbsp &nbsp
             <a ng-href="/about">{{'ABOUT_US' | translate}}</a> &nbsp &nbsp
             <a ng-href="/contact">{{'CONTACT' | translate}}</a> &nbsp &nbsp
-            <a ng-href="#">{{'POST_A_JOB' | translate}}</a> &nbsp &nbsp
+            <a ng-href="/postAJob">{{'POST_A_JOB' | translate}}</a> &nbsp &nbsp
         </p>
-        <div class="text-center text-muted">{{'COPYRIGHT' | translate}} &copy; 2016 Spring-2885</div>
         <div class="text-center text-muted">
             <small>
-                A <a href="http://www.ndnu.edu/arts-and-sciences/undergraduate/computer-information-science/" target="_blank">Notre Dame De Namur Computer Science</a> Project
+                <a href="http://www.ndnu.edu/arts-and-sciences/undergraduate/computer-information-science/" target="_blank">
+                Notre Dame De Namur Computer Science</a> &copy; 2017
             </small>
         </div>
     </div>

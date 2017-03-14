@@ -1,7 +1,6 @@
 
 <div ng-controller="profileEditCtrl" style="margin-top:-45px; margin-bottom:15px;">
    <h2><i class="fa fa-edit fa-2x"></i> {{ 'EDIT_YOUR_PROFILE' | translate }}</h2>
-   
    <div class="row page-content" style="padding-bottom:15px;">
       <form class="form-horizontal" role="form">
            <div class="col-md-12">
@@ -215,10 +214,11 @@
                             ng-model="profile.lang"
                             id="lang" 
                             class="col-md-8">
-                                <option value="en_US">English</option>
-                                <option value="es_ES">Español</option>
-                                <option value="fr_FR">Français</option>
-                                <option value="zh_CN">中文</option>
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                                <option value="fr">Français</option>
+                                <option value="zh-CN">中文</option>
+                                <option value="ar">عربى</option>
                             </select>
                         </div>
                     </div>

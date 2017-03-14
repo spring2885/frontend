@@ -7,16 +7,16 @@
             }])
         .config(['$translateProvider', function($translateProvider){
             $translateProvider.useStaticFilesLoader({
-                prefix: '/src/assets/languages/lang-',
+                prefix: '/src/assets/languages/',
                 suffix: '.json'
             });
             $translateProvider
-                .registerAvailableLanguageKeys(['en_US', 'es_ES', 'fr_FR', 'zh_CN', 'ar_AE'], {
-                    'en*': 'en_US',
-                    'es*': 'es_ES',
-                    'fr*': 'fr_FR',
-                    'zh*': 'zh_CN',
-                    'ar*': 'ar_AE'
+                .registerAvailableLanguageKeys(['en', 'es', 'fr', 'zh-CN', 'ar'], {
+                    'en*': 'en',
+                    'es*': 'es',
+                    'fr*': 'fr',
+                    'zh*': 'zh-CN',
+                    'ar*': 'ar'
                 })
                 .determinePreferredLanguage()
                 .useSanitizeValueStrategy('escape');

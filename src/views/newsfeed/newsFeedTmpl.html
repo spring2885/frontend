@@ -57,7 +57,7 @@
         <div ng-show="!editComment">
             <a ng-click="flagComment(comments.id);" href="" class="pull-right"><i class="fa fa-flag-o" title="flag as abuse"/> {{'FLAG' | translate}}</a>
             <a ng-href="/profiles/{{comments.posted_by.id}}">
-            <img ng-src="{{comments.posted_by.image_url}}" class="comment-img img-rounded img-responsive"></a>
+            <img id="comment-img" ng-src="{{comments.posted_by.image_url}}" class="img-rounded img-responsive"></a>
             <div class="row">
                 <div class="profile-details col-md-10">
                     <h6><a ng-href="/profiles/{{comments.posted_by.id}}">{{comments.posted_by.name}} </a>
@@ -69,7 +69,7 @@
         </div>
         <div ng-show="editComment">
             <a ng-href="/profiles/{{$storage.user.id}}">
-            <img ng-src="{{$storage.user.image_url}}" class="comment-img img-rounded"></a>
+            <img id="comment-img" ng-src="{{$storage.user.image_url}}" class="img-rounded"></a>
             <div class="row">
                 <div class="profile-details col-md-10">
                     <strong>{{'EDIT_COMMENT' | translate}}</strong><br>
@@ -106,7 +106,7 @@
 <div class="row">
     <div class="well" syle="background-color:white !important;">
         <a ng-href="/profiles/{$storage.user.id}}">
-            <img ng-src="{{$storage.user.image_url}}" class="comment-img img-rounded">
+            <img id="comment-img" ng-src="{{$storage.user.image_url}}" class="img-rounded">
         </a>
         <div class="row">
             <div class="profile-details col-md-10">

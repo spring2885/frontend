@@ -6,241 +6,60 @@ html {
 body {
     background-color: #edf0f5;
     margin-top: 120px;
-    margin-bottom: 60px;
+    margin-bottom: 160px;
 }
 
 pre {
-    /* css-3 */
     white-space: pre-wrap;
-    /* Mozilla, since 1999 */
     white-space: -moz-pre-wrap;
-    /* Opera 4-6 */
     white-space: -pre-wrap;
-    /* Opera 7 */
     white-space: -o-pre-wrap;
-    /* Internet Explorer 5.5+ */
     word-wrap: break-word;
 }
 
-h2 {
-    color: #fff;
-}
-
-h2.login-page {
-    color: rgb(119, 119, 119);
-}
-
-.ndnu-brown {
-    color: rgb(119, 119, 119);
-}
-
-.ndnu-white {
-    color: white;
-}
-
-/* profileIndex Start */
-.profile-img {
-    float: left;
-    width: 110px;
-    height: 110px;
-}
-
-.comment-img {
-    float: left;
-    width: 65px;
-    height: 65px;
-}
-
-.profile-details {
-    margin-top: -10px;
-}
-
-.profile-details h4 {
-    margin-top: -10px;
-    color: rgb(119, 119, 119);
-}
-
-.profile-details h2 {
-    color: black;
-}
-
-.name:hover {
-    color: black;
-    text-decoration: none;
-}
-
-.sp-text-blk {
-    color: black;
-}
-/* profileIndex End */
-
-#wrap {
-    min-height: 100%;
-    height: 100%;
-    height: auto !important;
-    position: relative;
-    padding: 0 0 20px;
-}
-
-.page-content {
-    background-color: #eeeeee;
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 10px;
-    border-color: black;
+.navbar {
+    background-color: #18426c;
+    background-image: none;
 }
 
 #signed-out-nav {
     margin-top: -120px;
 }
 
-.login-box {
-    height: 100% !important;
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 10px;
-    border-color: black;
-    color: black;
+.logged-out-nav #email, .logged-out-nav #password {
+    background-color: #faffbd;
 }
 
-.sign-up-explain-box {
-    height: 100% !important;
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 15px;
-    border-color: black;
-    color: black;
-}
-
-.sign-up-explain-box ul {
-    padding-left: 85px;
+.sign-up-explain-box li{
+    list-style-type: none;
 }
 
 .form-padding {
     margin-top: 10px !important;
 }
 
-.footer-box {
-    clear: both;
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0;
-    right: 0;
-    border-radius: 10px !important;
-    width: 100% !important;
-    border-color: black;
-    !important;
+.profile-img {
+    float: left;
+    width: 55px;
+    height: 55px;
 }
 
-.logged-out-footer {
-    background-color: #fff;    
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-}
-
-.logged-out-nav, .logged-in-nav, .navbar {
-    background-color: #18426c;
-    background-image: none;
-}
-
-.logged-out-nav a {
-    border-radius: 10px !important;
-}
-
-.logged-out-nav #email, .logged-out-nav #password {
-    background-color: #faffbd;
-}
-
-.nav-font {
-    font-size: 20px !important;
-    color: white !important;
-}
-
-.navbar-custom {
-    background-color: #192f42;
-    color: #ffffff;
-    border-radius: 0;
-    min-height: auto;
-}
-
-.nav > li > a {
-    color: #fff;
-}
-
-.nav > li > a:hover {
-    color: #000;
-}
-
-.navbar-inverse .navbar-toggle .icon-bar {
-    background-color: #c29029;
-}
-
-.navbar-custom .navbar-nav .open .dropdown-menu>li>a,
-.navbar-custom .navbar-nav .open .dropdown-menu {
-    color: #18426c;
-}
-
-.tab-filters .tab-content {
-    color: white;
-    background-color: #428bca;
-    padding: 5px 15px;
-}
-
-.filter-tabs {
-    background-color: #707070;
-    border-radius: 10px;
-    padding-left: 10px;
-}
-
-.filter-tabs > li > a {
-    border: medium none;
-    color: darkgrey;
-}
-
-.filter-tabs > li > a:hover {
-    background-color: #303136 !important;
-    border: medium none;
-    border-radius: 10px;
-    color: #fff;
-}
-
-.even {
-    background-color: #E5E5E5;
-    border-radius: 10px;
-}
-
-.odd {
-    background-color: #d8d8d8;
-    border-radius: 10px;
-}
-
-.newPost {
-    background-color: #cbcbcb;
-    border-radius: 10px;
-}
-
-.clear-btn {
-    float: right;
-    margin-right: 6px;
-    margin-top: -20px;
-    position: relative;
-    z-index: 2;
-}
-
-.input-group-addon.primary {
-    color: rgb(255, 255, 255);
-    background-color: rgb(50, 118, 177);
-    border-color: rgb(40, 94, 142);
-}
-
-.btn-space {
-    margin-right: 10px;
-    margin-left: 10px;
+#comment-img {
+    float: left;
+    width: 35px;
+    height: 36px;
 }
 
 .sp-underline {
     border-width: 2px;
     border-bottom: 2px grey solid;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 160px;
+  background-color: #f5f5f5;
+}
+
