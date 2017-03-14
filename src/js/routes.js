@@ -1,13 +1,11 @@
- (function() {
-   "use strict";
-     
-   angular.module('spring-2885')
+(function() {
+    "use strict";
+
+    angular.module('spring-2885')
         .config(function($stateProvider, $urlRouterProvider){
-     
-            //If not a page redirect to login
+
             $urlRouterProvider.otherwise('/newsfeed');
-            
-            //loging page
+
             $stateProvider
                 .state('login', {
                     url: '/login',
@@ -16,9 +14,7 @@
                         requireLogin: false
                     }
              });
-     
-     
-            //list profiles
+
             $stateProvider
                 .state('profile-list', {
                 url: '/profiles',
@@ -27,8 +23,7 @@
                     requireLogin: true
                 }
             });
-     
-            //view a profile
+
             $stateProvider
                 .state('profile-view', {
                 url: '/profiles/:id',
@@ -37,8 +32,7 @@
                     requireLogin: true
                 }
             });
-     
-            //edit profile
+
             $stateProvider
                 .state('profile-edit', {
                 url: '/profiles/:id/edit',
@@ -47,8 +41,7 @@
                     requireLogin: true
                 }
             });
-     
-            //newesfeed index
+
             $stateProvider
                 .state('newsfeed-index', {
                 url: '/newsfeed',
@@ -57,9 +50,7 @@
                     requireLogin: true
                 }
             });
-     
-     
-            //job view page
+
             $stateProvider
                 .state('job-show', {
                 url: '/jobs/:id',
@@ -68,8 +59,7 @@
                     requireLogin: true
                 }
             });
-     
-            //Jobs list page
+
             $stateProvider
                 .state('job-index', {
                 url: '/jobs',
@@ -78,8 +68,7 @@
                     requireLogin: true
                 }
             });
-     
-            //edit a job posting
+
             $stateProvider
                 .state('job-edit', {
                 url: '/jobs/:id/edit',
@@ -89,7 +78,6 @@
                 }
             });
 
-            //create a job posting
             $stateProvider
                 .state('job-create', {
                 url: '/jobs/create/new',
@@ -98,8 +86,7 @@
                     requireLogin: true
                 }
             });
-     
-            //see your job postings
+
             $stateProvider
                 .state('job-my-jobs', {
                 url: '/myjobs',
@@ -108,9 +95,7 @@
                     requireLogin: true
                 }
             });
-            
-       
-            //about us page
+
             $stateProvider
                 .state('about', {
                 url: '/about',
@@ -119,8 +104,7 @@
                     requireLogin: false
                 }
             });
-       
-            //User Agreement
+
             $stateProvider
                 .state('user-agreement', {
                 url: '/ua',
@@ -129,8 +113,7 @@
                     requireLogin: false
                 }
             });
-       
-            //Privacy Policy
+
             $stateProvider
                 .state('privacy', {
                 url: '/privacy',
@@ -139,18 +122,16 @@
                     requireLogin: false
                 }
             });
-       
-            //Community Guidlines
+
             $stateProvider
                 .state('community-guidelines', {
-                url: '/community-guidlines',
-                templateUrl: 'src/views/info/communityGuidlines.html',
+                url: '/community-guidelines',
+                templateUrl: 'src/views/info/communityGuidelines.html',
                 data: {
                     requireLogin: false
                 }
             });
-       
-            //Contact Us
+
             $stateProvider
                 .state('contact-us', {
                 url: '/contact',
@@ -159,8 +140,7 @@
                     requireLogin: false
                 }
             });
-       
-            //Logged Out Post a job
+
             $stateProvider
                 .state('loggedOut-postAJob', {
                 url: '/postAJob',
@@ -169,8 +149,7 @@
                     requireLogin: false
                 }
             });
-       
-            //forgot password
+
             $stateProvider
                 .state('forgot-password', {
                 url: '/forgot',
@@ -179,8 +158,7 @@
                     requireLogin: false
                 }
             });
-       
-            //reset password
+
             $stateProvider
                 .state('reset-password', {
                 url: '/reset',
@@ -189,8 +167,7 @@
                     requireLogin: false
                 }
             });
-            
-            //404
+
             $stateProvider
                 .state('404', {
                 url: '/404',
@@ -199,8 +176,7 @@
                     requireLogin: false
                 }
             });
-       
-            //Admin
+
             $stateProvider
                 .state('admin', {
                 url: '/admin',
@@ -209,8 +185,7 @@
                     requireLogin: true
                 }
             });
-       
-            //Preferences
+
             $stateProvider
                 .state('user-settings', {
                 url: '/:id/preferences',
@@ -219,8 +194,7 @@
                     requireLogin: true
                 }
             });
-       
-            //Help
+
             $stateProvider
                 .state('help', {
                 url: '/help',
@@ -229,6 +203,5 @@
                     requireLogin: false
                 }
             });
-            
         });
  })();

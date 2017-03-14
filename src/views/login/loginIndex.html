@@ -1,19 +1,16 @@
 <div class="col-md-6 sign-up-explain-box">
-    <h2 class="login-page">{{'CONNECT_W_NDNU_COMMUNITY' | translate}}</h2>
-    <div class="col-md-7 hidden-xs">
-        <p>{{'SITE_EXPLAINER' | translate}}</p>
-        <ul>
-            <li>{{'SITE_EXPLAINER.ONE' | translate}}</li><br>
-            <li>{{'SITE_EXPLAINER.TWO' | translate}}</li><br>
-            <li>{{'SITE_EXPLAINER.THREE' | translate}}</li><br>
-            <li><a href="/about">{{'READ_MORE_ABOUT_SPRING2885' | translate}}</a></li>
-        </ul>
+    <div class="hidden-xs">
+        <h2 class="login-page">{{'CONNECT_W_NDNU_COMMUNITY' | translate}}</h2>
+        <li><i class="fa fa-newspaper-o fa-3x" aria-hidden="true"></i> {{'SITE_EXPLAINER.ONE' | translate}}</li><br>
+        <li><i class="fa fa-graduation-cap fa-3x" aria-hidden="true"></i> {{'SITE_EXPLAINER.TWO' | translate}}</li><br>
+        <li><i class="fa fa-briefcase fa-3x" aria-hidden="true"></i> {{'SITE_EXPLAINER.THREE' | translate}}</li><br>
+        <li><a href="/about">{{'READ_MORE_ABOUT_SPRING2885' | translate}}</a></li>
     </div>
 </div>
 <div class="col-md-1"></div>
 <div class="col-md-5 col-centered login-box" ng-controller="signUpCtrl">
     <div class="col-md-12">
-        <h2 class="text-center login-page">{{'NEW_TO_SPRING2885' | translate}}</h2>
+        <h2 class="login-page">{{'NEW_TO_SPRING2885' | translate}}</h2>
     </div>
     <form>
         <div class="form-group col-centered">
@@ -27,29 +24,25 @@
                         placeholder="{{'EMAIL_ADDRESS' | translate}}">
                 </div>
                 <div class="col-md-12 text-centered form-padding"></div>
-                <div class="col-md-12 text-centered form-padding">
+                <div class="col-md-12 form-padding">
                     <input class="form-control input-lg" 
                         type="password" 
                         id="password" 
                         ng-model="formData.password"
                         placeholder="{{'NEW_PASSWORD' | translate}}">
                 </div>
-                <div class="col-md-12 radio text-center form-padding">
-                    <label>
-                        <input type="radio" 
-                            ng-model="acceptTerms"
-                            value=true 
-                            name="accept">
-                            {{'I_ACCEPT_ALL' | translate}}
-                            <a ng-href="/ua" >{{'TERMS_AND_POLICIES' | translate}}</a>
-                    </label>
+                <div class="col-md-12 radio form-padding">
+                    <small>
+                        {{'DISCLAIMER1' | translate}}
+                        <a ng-href="/ua" >{{'DISCLAIMER2' | translate}}</a>
+                        {{'DISCLAIMER3' | translate}}
+                        <a ng-href="/privacy" >{{'DISCLAIMER4' | translate}}</a>
+                        {{'DISCLAIMER5' | translate}}
+                        <a ng-href="/community-guidelines" >{{'DISCLAIMER6' | translate}}</a>
+                        {{'DISCLAIMER7' | translate}}
+                    </small>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-centered form-padding">
-                    <div ng-show="!acceptTerms">
-                        <button class="btn btn-success btn-block btn-lg" ng-click="acceptAlert()" >
-                            {{'SIGN_UP' | translate}}
-                        </button>
-                    </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-padding">
                     <div ng-show="acceptTerms">
                         <button class="btn btn-success btn-block btn-lg" ng-click="createUser()" type="submit">
                             {{'SIGN_UP' | translate}}

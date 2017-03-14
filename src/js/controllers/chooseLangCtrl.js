@@ -7,22 +7,22 @@
 
                 switch(langKey) {
                     case 'en':
-                        langKey = 'en_US';
+                        langKey = 'en';
                         break;
                     case 'es':
-                        langKey = 'es_ES';
+                        langKey = 'es';
                         break;
                     case 'fr':
-                        langKey = 'fr_FR';
+                        langKey = 'fr';
                         break;
                     case 'zh':
-                        langKey = 'zh_CN';
+                        langKey = 'zh-CN';
                         break;
                     case 'ar':
-                        langKey = 'ar_AE';
+                        langKey = 'ar';
                         break;
                     default:
-                        langKey = 'en_US';
+                        langKey = 'en';
                         break;
                 }
                 $translate.use(langKey);
