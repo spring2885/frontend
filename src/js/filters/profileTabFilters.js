@@ -33,5 +33,27 @@
             });
             return faculty;
         };
+    })
+    .filter('classOf', function() {
+        return function(input) {
+            var classOf = [];
+            angular.forEach(input, function(person) {
+                if (person.graduation_year === $storage.user.graduation_year) {
+                    classOf.push(person);
+                }
+            });
+            return classOf;
+        };
+    })
+    .filter('major', function() {
+        return function(input) {
+            var major = [];
+            angular.forEach(input, function(person) {
+                if (person.degree_major === $storage.user.degree_major) {
+                    major.push(person);
+                }
+            });
+            return major;
+        };
     });
 })();

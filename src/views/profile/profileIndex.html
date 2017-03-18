@@ -22,6 +22,8 @@
                     <li><a data-toggle="tab" ng-click="filterProfiles('student')" href="">{{'STUDENTS' | translate}}</a></li>
                     <li><a data-toggle="tab" ng-click="filterProfiles('alumni')" href="">{{'ALUMNI' | translate}}</a></li>
                     <li><a data-toggle="tab" ng-click="filterProfiles('faculty')" href="">{{'FACULTY' | translate}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('classOf')" href="">Class of {{$storage.user.graduation_year}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('major')" href="">{{$storage.user.degree_major}} Degree</a></li>
                 </ul>
             </div>
             <div ng-show="noFilter">
@@ -83,5 +85,33 @@
                 </div>
             </li>
         </div>
+        <div ng-show="classOfFilter">
+            <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | classOf | filter:query | orderBy:'name'" id="all">
+                <img src={{profile.image_url}} class="profile-img img-rounded">
+                <div class="row">
+                    <div class="profile-details col-md-10">
+                        <a class="name" ng-href="/profiles/{{profile.id}}">
+                          <h2>{{profile.name || profile.email}}</h2></a>
+                        <h4 class="sp-text-blk">{{profile.title}}</h4>
+                        <h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
+                    </div>
+                    <a ng-click="flag(profile.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
+                </div>
+            </li>
+        </div>
+        <div ng-show="majorFilter">
+            <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | major | filter:query | orderBy:'name'" id="all">
+                <img src={{profile.image_url}} class="profile-img img-rounded">
+                <div class="row">
+                    <div class="profile-details col-md-10">
+                        <a class="name" ng-href="/profiles/{{profile.id}}">
+                          <h2>{{profile.name || profile.email}}</h2></a>
+                        <h4 class="sp-text-blk">{{profile.title}}</h4>
+                        <h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
+                    </div>
+                    <a ng-click="flag(profile.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
+                </div>
+            </li>
+        </div> 
     </div>
 </div>
