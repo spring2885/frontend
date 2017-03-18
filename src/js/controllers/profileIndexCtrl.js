@@ -24,30 +24,56 @@
             $scope.studentFilter = false;
             $scope.alumniFilter = false;
             $scope.facultyFilter = false;
+            $scope.classOfFilter = false;
+            $scope.majorFilter = false;
             $scope.filterProfiles  = function(type){
                 if (type === 'all'){
                     $scope.noFilter = true;
                     $scope.studentFilter = false;
                     $scope.alumniFilter = false;
                     $scope.facultyFilter = false;
+                    $scope.classOfFilter = false;
+                    $scope.majorFilter = false;
                 }
                 if (type === 'student'){
                     $scope.noFilter = false;
                     $scope.studentFilter = true;
                     $scope.alumniFilter = false;
                     $scope.facultyFilter = false;
+                    $scope.classOfFilter = false;
+                    $scope.majorFilter = false;
                 }
                 if (type === 'alumni'){
                     $scope.noFilter = false;
                     $scope.studentFilter = false;
                     $scope.alumniFilter = true;
                     $scope.facultyFilter = false;
+                    $scope.classOfFilter = false;
+                    $scope.majorFilter = false;
                 }
                 if (type === 'faculty'){
                     $scope.noFilter = false;
                     $scope.studentFilter = false;
                     $scope.alumniFilter = false;
                     $scope.facultyFilter = true;
+                    $scope.classOfFilter = false;
+                    $scope.majorFilter = false;
+                }
+                if (type === 'classOf'){
+                    $scope.noFilter = false;
+                    $scope.studentFilter = false;
+                    $scope.alumniFilter = false;
+                    $scope.facultyFilter = false;
+                    $scope.classOfFilter = true;
+                    $scope.majorFilter = false;
+                }
+                if (type === 'major'){
+                    $scope.noFilter = false;
+                    $scope.studentFilter = false;
+                    $scope.alumniFilter = false;
+                    $scope.facultyFilter = false;
+                    $scope.classOfFilter = false;
+                    $scope.majorFilter = true;
                 }
             };
         
