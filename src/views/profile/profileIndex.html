@@ -18,16 +18,24 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
                 <ul class="nav nav-tabs filter-tabs">
-                    <li class="active"><a data-toggle="tab" href="" ng-click="filterProfiles('all')">{{'ALL' | translate}}</a></li>
-                    <li><a data-toggle="tab" ng-click="filterProfiles('student')" href="">{{'STUDENTS' | translate}}</a></li>
-                    <li><a data-toggle="tab" ng-click="filterProfiles('alumni')" href="">{{'ALUMNI' | translate}}</a></li>
-                    <li><a data-toggle="tab" ng-click="filterProfiles('faculty')" href="">{{'FACULTY' | translate}}</a></li>
-                    <li><a data-toggle="tab" ng-click="filterProfiles('classOf')" href="">Class of {{$storage.user.graduation_year}}</a></li>
-                    <li><a data-toggle="tab" ng-click="filterProfiles('major')" href="">{{$storage.user.degree_major}} Degree</a></li>
+                    <li class="active"><a data-toggle="tab" href="" ng-click="filterProfiles('all')">
+                        {{'ALL' | translate}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('student')" href="">
+                        {{'STUDENTS' | translate}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('alumni')" href="">
+                        {{'ALUMNI' | translate}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('faculty')" href="">
+                        {{'FACULTY' | translate}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('classOf')" href="" 
+                        ng-hide="$storage.user.variety === 'faculty' || $storage.user.admin">
+                        Class of {{$storage.user.graduation_year}}</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('major')" href=""
+                        ng-hide="$storage.user.variety === 'faculty' || $storage.user.admin">
+                        {{$storage.user.degree_major}} Degree</a></li>
                 </ul>
             </div>
             <div ng-show="noFilter">
-            <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | filter:query | orderBy:'name'" id="all">
+            <li class="panel panel-default list-unstyled form-padding" ng-repeat="profile in profiles | filter:query | orderBy:'name'" id="all">
                 <img src={{profile.image_url}} class="profile-img img-rounded">
                 <div class="row">
                     <div class="profile-details col-md-10">
@@ -44,7 +52,7 @@
             </li>
         </div>
         <div ng-show="studentFilter">
-            <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | students | filter:query | orderBy:'name'">
+            <li class="panel panel-default list-unstyled form-padding" ng-repeat="profile in profiles | students | filter:query | orderBy:'name'">
                 <img src={{profile.image_url}} class="profile-img img-rounded">
                 <div class="row">
                     <div class="profile-details col-md-10">
@@ -58,7 +66,7 @@
             </li>
         </div>
         <div ng-show="alumniFilter">
-            <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | alumni | filter:query | orderBy:'name'" id="all">
+            <li class="panel panel-default list-unstyled form-padding" ng-repeat="profile in profiles | alumni | filter:query | orderBy:'name'" id="all">
                 <img src={{profile.image_url}} class="profile-img img-rounded">
                 <div class="row">
                     <div class="profile-details col-md-10">
@@ -72,7 +80,7 @@
             </li>
         </div>
         <div ng-show="facultyFilter">
-            <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | faculty | filter:query | orderBy:'name'" id="all">
+            <li class="panel panel-default list-unstyled form-padding" ng-repeat="profile in profiles | faculty | filter:query | orderBy:'name'" id="all">
                 <img src={{profile.image_url}} class="profile-img img-rounded">
                 <div class="row">
                     <div class="profile-details col-md-10">
@@ -86,7 +94,7 @@
             </li>
         </div>
         <div ng-show="classOfFilter">
-            <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | classOf | filter:query | orderBy:'name'" id="all">
+            <li class="panel panel-default list-unstyled form-padding" ng-repeat="profile in profiles | classOf | filter:query | orderBy:'name'" id="all">
                 <img src={{profile.image_url}} class="profile-img img-rounded">
                 <div class="row">
                     <div class="profile-details col-md-10">
@@ -100,7 +108,7 @@
             </li>
         </div>
         <div ng-show="majorFilter">
-            <li class="well list-unstyled form-padding" ng-repeat="profile in profiles | major | filter:query | orderBy:'name'" id="all">
+            <li class="panel panel-default list-unstyled form-padding" ng-repeat="profile in profiles | major | filter:query | orderBy:'name'" id="all">
                 <img src={{profile.image_url}} class="profile-img img-rounded">
                 <div class="row">
                     <div class="profile-details col-md-10">
