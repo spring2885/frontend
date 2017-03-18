@@ -1,4 +1,4 @@
-<nav  id="signed-in-nav" class="navbar navbar-inverse navbar-fixed-top " role="navigation">
+<nav id="signed-in-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,65 +12,55 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="nav-font text-center">
-                    <a ng-href="/newsfeed">
-                        <i class="fa fa-newspaper-o"></i> {{'NEWSFEED' | translate}}</a>
+                <li>
+                    <a ng-href="/newsfeed">{{'NEWSFEED' | translate}}</a>
                 </li>
-                <li class="nav-font text-center">
-                    <a ng-href="/profiles">
-                        <i class="fa fa-users"></i> {{'PROFILES' | translate}}</a>
+                <li>
+                    <a ng-href="/profiles">{{'PROFILES' | translate}}</a>
                 </li>
-               
-                <li class="dropdown nav-font text-center">
-                    <a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">
-                        <i class="fa fa-suitcase"></i> {{'JOBS' | translate}} <b class="caret"></b>
-                    </a>
-                    <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
-                        <li role="presentation">
-                            <a ng-href="/jobs" role="menuitem">
-                                <i class="fa fa-list-alt"></i> {{'BROWSE_JOB_POSTS' | translate}}</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/jobs/create/new" role="menuitem">
-                                <i class="glyphicon glyphicon-eye-open"></i> {{'CREATE_A_JOB_POST' | translate}}</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/myjobs" role="menuitem">
-                                <i class="fa fa-pencil-square-o"></i> {{'JOBS_IVE_POSTED' | translate}}</a>
-                        </li>
-                    </ul>
+                <li>
+                    <a ng-href="/jobs" role="menuitem">{{'JOBS' | translate}}</a>
                 </li>
-                <li class="nav-font text-center" ng-show="false">
-                    <a ng-href="/events">
-                        <i class="fa fa-calendar-check-o"></i> {{'CALENDER' | translate}}</a>
+                <li ng-show="false">
+                    <a ng-href="/events">{{'CALENDER' | translate}}</a>
                 </li>
-                <li class="nav-font text-center" ng-show="$storage.user.admin">
-                    <a ng-href="/admin">
-                        <i class="fa fa-optin-monster"></i> {{'ADMIN' | translate}}</a>
+                <li ng-show="$storage.user.admin">
+                    <a ng-href="/admin">{'ADMIN' | translate}}</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown nav-font text-center">
-                    <a href="/profiles/{{$storage.user.id}}" id="profilesDrop" data-toggle="dropdown" class="dropdown-toggle" role="button">
-                        <i class="fa fa-user"></i><span> {{$storage.user.name}}<b class="caret"></b></span>
+                    <a href="#" id="newDrop" data-toggle="dropdown" class="dropdown-toggle" role="button">
+                        <span class="fa fa-plus"></span> <span class="fa fa-caret-down" aria-hidden="true"></span>
+                    </a>
+                    <ul role="menu" class="dropdown-menu" aria-labelledby="newDropDown">
+                        <li role="presentation">
+                            <a href="/jobs/create/new" role="menuitem">{{'CREATE_A_JOB_POST' | translate}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-font text-center">
+                    <a href="#" id="profilesDrop" data-toggle="dropdown" class="dropdown-toggle" role="button">
+                        <span class="fa fa-user"></span> <span class="fa fa-caret-down" aria-hidden="true"></span>
                     </a>
                     <ul role="menu" class="dropdown-menu" aria-labelledby="userDropDown">
                         <li role="presentation">
-                            <a ng-href="/{{$storage.user.id}}/preferences" role="menuitem">
-                                <i class="fa fa-cog"></i> {{'MY_SETTINGS' | translate}}</a>
+                            <a ng-href="/profiles/{{$storage.user.id}}" role="menuitem">{{$storage.user.name}}</a>
                         </li>
                         <li role="presentation">
-                            <a ng-href="/profiles/{{$storage.user.id}}/edit" role="menuitem">
-                                <i class="fa fa-pencil-square-o"></i> {{'EDIT_MY_PROFILE' | translate}}</a>
+                            <a href="/myjobs" role="menuitem">{{'JOBS_IVE_POSTED' | translate}}</a>
                         </li>
                         <li role="presentation">
-                            <a href="/help" role="menuitem">
-                                <i class="fa fa-question"></i> {{'HELP' | translate}}</a>
+                            <a ng-href="/profiles/{{$storage.user.id}}/edit" role="menuitem">{{'EDIT_MY_PROFILE' | translate}}</a>
                         </li>
-                        <li>
-                            <button class="btn btn-danger btn-sm" ng-click="logout()" type="submit">
-                                {{'SIGN_OUT' | translate}}
-                            </button>
+                        <li role="presentation">
+                            <a href="/help" role="menuitem">{{'HELP' | translate}}</a>
+                        </li>
+                        <li role="presentation">
+                            <a ng-href="/{{$storage.user.id}}/preferences" role="menuitem">{{'MY_SETTINGS' | translate}}</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#" ng-click="logout()">{{'SIGN_OUT' | translate}}</a>
                         </li>
                     </ul>
                 </li>
