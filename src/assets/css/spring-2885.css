@@ -26,8 +26,14 @@ pre {
     margin-top: -120px;
 }
 
-.logged-out-nav #email, .logged-out-nav #password {
+#signed-out-nav #email, #signed-out-nav #password {
     background-color: #faffbd;
+}
+
+#signed-out-nav .navbar-brand img {
+    height: 45px;
+    width: 300px;
+    border-radius: 2px;
 }
 
 .sign-up-explain-box li{
