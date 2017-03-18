@@ -1,23 +1,21 @@
 <div ng-show="!edit">
     <div class="col-md-3">
         <a ng-href="/profiles/{{news.posted_by.id}}">
-        <img ng-src="{{news.posted_by.image_url}}" class="profile-img img-rounded"></a>
+            <img ng-src="{{news.posted_by.image_url}}" class="profile-img img-rounded"></a>
         <a ng-href="/profiles/{{news.posted_by.id}}">
-            <h4 style="color: black;">
-                <strong>{{news.posted_by.name || news.posted_by.email}}</strong>
-            </h4>
-        </a>
+            <h4><strong>{{news.posted_by.name || news.posted_by.email}}</strong></h4></a>
     </div>
     <div class="col-md-9" style="padding-left 15px;">
         <div class="profile-details">
-            <a ng-click="flagPost(news.id);" href="" class="pull-right"><i class="fa fa-flag-o" title="flag as abuse"/> {{'FLAG' | translate}}</a>
+            <a ng-click="flagPost(news.id);" href="" class="pull-right"><i class="fa fa-flag-o" title="flag as abuse"/> 
+                {{'FLAG' | translate}}</a>
             <h2>{{news.title}}</h2>
             <h5><small>{{'POSTED_ON' | translate}} {{news.posted | date:medium}}</small></h5>
             <div class="divider"></div>
             <div class="text-muted">
                 <h4 ng-text-truncate="news.description" ng-tt-chars-threshold="170"></h4>
             </div>
-            <div class="" align="right">
+            <div align="right">
                 <div class="row" ng-show="$storage.user.id === news.posted_by.id" style="width:60%;">
                     <button class="btn btn-primary" ng-model="item.SELECTED" ng-click="edit = !edit">
                     <i class="glyphicon glyphicon-pencil"></i> {{'EDIT' | translate}}
@@ -45,19 +43,23 @@
             <input class="form-control input-lg" type="text" id="title" ng-model="news.description">
         </div>
         <div>
-            <button class="btn btn-primary" type="submit" ng-click="editNewsPost(news); edit = !edit">{{'SUBMIT_EDITED_POST' | translate}} </button>
-            <button class="btn btn-default" ng-click="edit = !edit">{{'CANCEL' | translate}} </button>
+            <button class="btn btn-primary" type="submit" ng-click="editNewsPost(news); edit = !edit">{
+                {'SUBMIT_EDITED_POST' | translate}} </button>
+            <button class="btn btn-default" ng-click="edit = !edit">
+                {{'CANCEL' | translate}} </button>
         </div>
     </form>
 </div>
 <div class="row"><br> <br></div>
 <div class="row"><strong><u>{{'COMMENTS' | translate}}</u></strong></div>
 <div class="row">
-    <div class="well" ng-repeat="comments in news.comments |orderBy: comments.posted" ng-class-odd="'odd'" ng-class-even="'even'" >
+    <div class="panel panel-default" ng-repeat="comments in news.comments |orderBy: comments.posted" 
+        ng-class-odd="'odd'" ng-class-even="'even'" >
         <div ng-show="!editComment">
-            <a ng-click="flagComment(comments.id);" href="" class="pull-right"><i class="fa fa-flag-o" title="flag as abuse"/> {{'FLAG' | translate}}</a>
+            <a ng-click="flagComment(comments.id);" href="" class="pull-right"><i class="fa fa-flag-o" title="flag as abuse"/> 
+                {{'FLAG' | translate}}</a>
             <a ng-href="/profiles/{{comments.posted_by.id}}">
-            <img id="comment-img" ng-src="{{comments.posted_by.image_url}}" class="img-rounded img-responsive"></a>
+                <img id="comment-img" ng-src="{{comments.posted_by.image_url}}" class="img-rounded img-responsive"></a>
             <div class="row">
                 <div class="profile-details col-md-10">
                     <h6><a ng-href="/profiles/{{comments.posted_by.id}}">{{comments.posted_by.name}} </a>
@@ -69,7 +71,7 @@
         </div>
         <div ng-show="editComment">
             <a ng-href="/profiles/{{$storage.user.id}}">
-            <img id="comment-img" ng-src="{{$storage.user.image_url}}" class="img-rounded"></a>
+                <img id="comment-img" ng-src="{{$storage.user.image_url}}" class="img-rounded"></a>
             <div class="row">
                 <div class="profile-details col-md-10">
                     <strong>{{'EDIT_COMMENT' | translate}}</strong><br>
@@ -104,7 +106,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="well" syle="background-color:white !important;">
+    <div class="panel panel-default" syle="background-color:white !important;">
         <a ng-href="/profiles/{{$storage.user.id}}">
             <img id="comment-img" ng-src="{{$storage.user.image_url}}" class="img-rounded">
         </a>
