@@ -17,6 +17,11 @@ pre {
     word-wrap: break-word;
 }
 
+.btn{
+    white-space:normal !important;
+    word-wrap:break-word; 
+}
+
 .navbar {
     background-color: #18426c;
     background-image: none;
