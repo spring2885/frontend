@@ -1,7 +1,7 @@
 <div ng-controller="newsfeedIndexCtrl">
     <div class="row">
         <div id="custom-search-input">
-            <div class="input-group col-md-6 col-md-offset-3">
+            <div class="input-group col-md-12">
                 <input type="text" class=" search-query form-control" 
                             ng-model="query" placeholder="{{'QUICK_SEARCH' | translate}}"/>
                 <span class="input-group-btn">
@@ -11,7 +11,7 @@
                 </span>
             </div>
         </div>
-        <div class="row col-md-10 col-md-offset-1">
+        <div class="col-md-12">
             <ul class="nav nav-tabs filter-tabs">
                 <li class="active">
                     <a data-toggle="tab" href="" ng-click="show('all')">{{'ALL' | translate}}</a>
@@ -27,13 +27,13 @@
                 </li>
             </ul>
         </div>
-        <div class="row col-md-10 col-md-offset-1">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <a ng-href="/profiles/{$storage.user.id}}">
                      <img ng-src="{{$storage.user.image_url}}" class="profile-img img-rounded">
                 </a>
                 <div class="row">
-                    <div class="profile-details col-md-10">
+                    <div class="profile-details col-md-12">
                           <form class="form-group">
                             <div class="input-group">
                                 <div class="text-center">

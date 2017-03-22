@@ -16,8 +16,7 @@
         <div ng-switch-when="true"><logged-in-nav></logged-in-nav></div>
         <div ng-switch-when="false"><logged-out-nav></logged-out-nav></div>
     </header>
-    <section id="wrap">
-        <div id="container" class="container" ui-view></div>
+    <section class="container" ui-view>
     </section>
     <footer class="container-fluid" ng-switch on="isLoggedIn">
         <div ng-switch-when="true"><logged-in-footer></logged-in-footer></div>

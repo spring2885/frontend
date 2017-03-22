@@ -5,18 +5,17 @@
         <a ng-href="/profiles/{{news.posted_by.id}}">
             <h4><strong>{{news.posted_by.name || news.posted_by.email}}</strong></h4></a>
     </div>
-    <div class="col-md-9" style="padding-left 15px;">
+    <div class="col-md-9">
         <div class="profile-details">
             <a ng-click="flagPost(news.id);" href="" class="pull-right"><i class="fa fa-flag-o" title="flag as abuse"/> 
                 {{'FLAG' | translate}}</a>
             <h2>{{news.title}}</h2>
             <h5><small>{{'POSTED_ON' | translate}} {{news.posted | date:medium}}</small></h5>
-            <div class="divider"></div>
             <div class="text-muted">
                 <h4 ng-text-truncate="news.description" ng-tt-chars-threshold="170"></h4>
             </div>
             <div align="right">
-                <div class="row" ng-show="$storage.user.id === news.posted_by.id" style="width:60%;">
+                <div class="row" ng-show="$storage.user.id === news.posted_by.id">
                     <button class="btn btn-primary" ng-model="item.SELECTED" ng-click="edit = !edit">
                     <i class="glyphicon glyphicon-pencil"></i> {{'EDIT' | translate}}
                     </button>
@@ -27,9 +26,8 @@
             </div>
         </div>
     </div>
-    <div class="divider"></div>
 </div>
-<div ng-show="edit" style="width:100% !important; height:100% !important;">
+<div ng-show="edit">
     <form>
         <div class="row text-center">
             <h5>{{'EDIT_YOUR_POST' | translate}}</h5>
@@ -50,9 +48,8 @@
         </div>
     </form>
 </div>
-<div class="row"><br> <br></div>
-<div class="row"><strong><u>{{'COMMENTS' | translate}}</u></strong></div>
-<div class="row">
+<div class="col-md-12"><strong><u>{{'COMMENTS' | translate}}</u></strong></div>
+<div class="col-md-12">
     <div class="panel panel-default" ng-repeat="comments in news.comments |orderBy: comments.posted" 
         ng-class-odd="'odd'" ng-class-even="'even'" >
         <div ng-show="!editComment">
@@ -72,12 +69,12 @@
         <div ng-show="editComment">
             <a ng-href="/profiles/{{$storage.user.id}}">
                 <img id="comment-img" ng-src="{{$storage.user.image_url}}" class="img-rounded"></a>
-            <div class="row">
+            <div class="col-md-12">
                 <div class="profile-details col-md-10">
                     <strong>{{'EDIT_COMMENT' | translate}}</strong><br>
                     <form class="form-group">
                         <div class="input-group">
-                            <div class="input-group" style="width:100%;">     
+                            <div class="input-group">
                                 <input type="text" class="form-control " ng-model="comments.text" />
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="reset">
@@ -95,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" ng-show="$storage.user.id === comments.posted_by.id" style="width:100%;" align="right">
+        <div class="row" ng-show="$storage.user.id === comments.posted_by.id" align="right">
             <button class="btn btn-primary btn-sm" ng-model="item.SELECTED" ng-click="editComment = !editComment"> 
                 <i class="glyphicon glyphicon-pencil"></i> {{'EDIT' | translate}}
             </button>
@@ -115,7 +112,7 @@
                 <strong>{{'ADD_COMMENT' | translate}}</strong><br>
                 <form class="form-group">
                     <div class="input-group">
-                        <div class="input-group" style="width:100%;">
+                        <div class="input-group">
                             <input type="text" class="form-control " ng-model="newsComment" />
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="reset">

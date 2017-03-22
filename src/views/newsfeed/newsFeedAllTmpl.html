@@ -1,5 +1,5 @@
-<div class="row col-md-10 col-md-offset-1">
+<div class="col-md-12">
     <div class="panel panel-default" ng-repeat="news in newsfeed | filter:query | orderBy:'-posted' track by news.id">
-         <div ng-include="'/src/views/newsfeed/newsFeedTmpl.html'"></div>
-	</div>
+        <div ng-include="'/src/views/newsfeed/newsFeedTmpl.html'"></div>
+    </div>
 </div>
