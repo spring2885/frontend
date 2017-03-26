@@ -37,6 +37,9 @@
                         <li role="presentation">
                             <a href="/jobs/create/new" role="menuitem">{{'CREATE_A_JOB_POST' | translate}}</a>
                         </li>
+                        <li role="presentation">
+                            <a href="/myjobs" role="menuitem">{{'JOBS_IVE_POSTED' | translate}}</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="dropdown nav-font text-center">
@@ -46,9 +49,6 @@
                     <ul role="menu" class="dropdown-menu" aria-labelledby="userDropDown">
                         <li role="presentation">
                             <a ng-href="/profiles/{{$storage.user.id}}" role="menuitem">{{$storage.user.name}}</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="/myjobs" role="menuitem">{{'JOBS_IVE_POSTED' | translate}}</a>
                         </li>
                         <li role="presentation">
                             <a ng-href="/profiles/{{$storage.user.id}}/edit" role="menuitem">{{'EDIT_MY_PROFILE' | translate}}</a>
