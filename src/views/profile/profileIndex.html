@@ -32,6 +32,9 @@
                     <li><a data-toggle="tab" ng-click="filterProfiles('major')" href=""
                         ng-hide="$storage.user.variety === 'faculty' || $storage.user.admin">
                         {{$storage.user.degree_major}} Degree</a></li>
+                    <li><a data-toggle="tab" ng-click="filterProfiles('department')" href="" 
+                        ng-hide="$storage.user.variety === 'student' || $storage.user.variety === 'alumni'">
+                        {{$storage.user.faculty_department}} Department</a></li>
                 </ul>
             </div>
             <div ng-show="noFilter">
@@ -120,6 +123,20 @@
                     <a ng-click="flag(profile.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
                 </div>
             </li>
-        </div> 
+        </div>
+        <div ng-show="departmentFilter">
+            <li class="panel panel-default list-unstyled form-padding" ng-repeat="profile in profiles | major | filter:query | orderBy:'name'" id="all">
+                <img src={{profile.image_url}} class="profile-img img-rounded">
+                <div class="row">
+                    <div class="profile-details col-md-10">
+                        <a class="name" ng-href="/profiles/{{profile.id}}">
+                          <h2>{{profile.name || profile.email}}</h2></a>
+                        <h4 class="sp-text-blk">{{profile.title}}</h4>
+                        <h4 class="sp-text-blk">{{profile.company_name}} - {{profile.occupation}}</h4>
+                    </div>
+                    <a ng-click="flag(profile.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
+                </div>
+            </li>
+        </div>
     </div>
 </div>
