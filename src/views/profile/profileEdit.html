@@ -1,4 +1,3 @@
-
 <div ng-controller="profileEditCtrl" style="margin-top:-45px; margin-bottom:15px;">
     <h2><i class="fa fa-edit fa-2x"></i> {{ 'EDIT_YOUR_PROFILE' | translate }}</h2>
     <div class="row page-content" style="padding-bottom:15px;">
@@ -117,40 +116,6 @@
                                 class="col-md-8">
                                 <option value=""></option>
                             </select>
-                            <p class="help-block" ng-show="profile.graduation_year <= thisYear">{{'YOU_ARE_REGISTERED_AS_ALUMNI' | translate}}</p>
-                            <p class="help-block" ng-show="profile.graduation_year > thisYear">{{'YOU_ARE_REGISTERED_AS_A_STUDENT' | translate}}</p>
-                        </div>
-                    </div>
-                   <div class="form-group">
-                        <label class="control-label col-xs-2 col-md-2" for="variety">{{'YOU_ARE_A' | translate}}:</label>
-                        <div class="col-md-9">
-                            <label>{{'STUDENT'}}</label>
-                            <input type="radio" name="student" 
-                                ng-model="profile.variety" 
-                                value="student" 
-                                ng-disabled="profile.graduation_year <= thisYear"/>
-                            <label>{{'ALUMNI'}}</label>
-                            <input type="radio" name="alumni" 
-                                ng-model="profile.variety" 
-                                value="alumni" 
-                                ng-disabled="profile.graduation_year > thisYear || !profile.graduation_year"/>
-                            <label>{{'FACULTY'}}</label>
-                            <input type="radio" name="faculty" 
-                                ng-model="profile.variety" 
-                                value="faculty" 
-                                ng-disabled="profile.variety !== 'faculty'"/>
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <strong>{{'REQUEST_ACCESS_TO_BECOME_FACULTY' | translate}}</strong>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-2" for="occupation">{{'REQUEST_MESSAGE' | translate}}:</label>
-                        <div class="col-xs-10">
-                            <input type="text" class="form-control" id="message" placeholder="{{'FACULTY_REQUEST_MESSAGE' | translate}}" ng-model="message.notes">
-                        </div>
-                        <div class="col-md-3 col-md-offset-9">
-                            <button class="btn btn-success" ng-click="requstFaculty()">{{'SUBMIT_REQUEST' | translate}}</button>
                         </div>
                     </div>
                     <div class="form-group" ng-hide="$storage.user.variety === 'faculty' || $storage.user.admin">
