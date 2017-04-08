@@ -55,5 +55,16 @@
             });
             return major;
         };
+    })
+    .filter('department', function() {
+        return function(input) {
+            var department = [];
+            angular.forEach(input, function(person) {
+                if (person.faculty_department === $storage.user.faculty_department) {
+                    department.push(person);
+                }
+            });
+            return department;
+        };
     });
 })();
