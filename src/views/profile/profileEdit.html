@@ -195,7 +195,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-hide="$storage.user.variety === 'student' || $storage.user.variety === 'alumni'">
                         <label class="control-label col-xs-2 col-md-2" for="major">{{'FACULTY_DEPARTMENT' | translate}}:</label>
                         <div class="col-md-10">
                             <select chosen
