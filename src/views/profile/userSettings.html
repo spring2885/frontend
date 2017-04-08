@@ -1,9 +1,9 @@
-<div class="row">
-    <h2><i class="fa fa-gears"></i> {{'YOUR_SETTINGS' | translate}}</h2>
-    <div class="page-content">
+<div ng-controller="profileEditCtrl">
+    <div class="row">
+        <h2><i class="fa fa-gears"></i> {{'YOUR_SETTINGS' | translate}}</h2>
         <div class="row">
             <div class="col-md-12">
-                <div class="row col-md-10 col-md-offset-1 form-group" >
+                <div class="form-group">
                     <label>{{'SET_LANGUAGE' | translate}}:</label>
                     <select ng-controller="chooseLangCtrl" ng-model="selected"  ng-change="chooseLang()">
                         <option value="en">English</option>
@@ -13,8 +13,32 @@
                         <option value="ar">عربى</option>
                     </select>
                 </div>
-                <div class="row col-md-10 col-md-offset-1 " style="display: inline">
-                    <label>{{'PASSWORD' | translate}}:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="variety">{{'YOU_ARE_A' | translate}}: {{$storage.user.variety}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-12 col-md-4">
+                    <label>{{'REQUEST_ACCESS_TO_BECOME_FACULTY' | translate}}: </label>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <input type="text" class="form-control" id="message" placeholder="{{'FACULTY_REQUEST_MESSAGE' | translate}}" ng-model="message.notes">
+                </div>
+                <div class="col-xs-12 col-md-2">
+                    <button class="btn btn-warning" ng-click="requstFaculty()">{{'SUBMIT_REQUEST' | translate}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>{{'PASSWORD' | translate}}: </label>
                     <a href="/forgot">{{'REQUEST_A_NEW_PASSWORD' | translate}}</a>
                 </div>
             </div>
