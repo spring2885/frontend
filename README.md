@@ -6,11 +6,11 @@ This document will walk you through the steps to build and use the initial Front
 ----------
 
 # Table of Contents
-1. [Necessary Installations](#Necessary Installations)
-2. [Pull in Project Dependancies](#Pull in Project Dependancies)
-3. [Use Grunt to put it all together](#Use Grunt to put it all together)
-4. [Current Packages Installed](#Current Packages Installed)
-5. [File Structure](#File Structure)
+1. [Necessary Installations](#Necessary-Installations)
+2. [Pull in Project Dependancies](#Pull-in-Project-Dependancies)
+3. [Use Grunt to put it all together](#Use-Grunt-to-put-it-all-together)
+4. [Current Packages Installed](#Current-Packages-Installed)
+5. [File Structure](#File-Structure)
 
 ##Necessary Installations
 
@@ -89,27 +89,25 @@ This will run the default set of tasks that were assigned in the Gruntfile.  In 
 -------------
 
 **Angular.js**
-We will be using Angular.js to make our single page application.  Read more from the docs:
-[Angular.js API Docs](https://docs.angularjs.org/api)
+We will be using Angular.js to make our single page application.  Read more from the docs: [Angular.js API Docs](https://docs.angularjs.org/api)
 
 **Bootstrap**
-A great framework for developing responsive web-apps.  Check it out: [Bootstrap](http://getbootstrap.com/)
+A mobile first CSS framework for developing responsive web apps.  Check it out: [Bootstrap](http://getbootstrap.com/)
 
 **jQuery**
-JavaScript Library. Check it out: [jQuery](https://jquery.com/)
+jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. Check it out: [jQuery](https://jquery.com/)
 
 **Angular-Bootstrap**
-This is a great integration between Bootstrap and Angular.  Check it out : [Angular-UI-Bootstrap](http://angular-ui.github.io/bootstrap/)
+This is a great integration between Bootstrap and Angular.  Check it out: [Angular-UI-Bootstrap](http://angular-ui.github.io/bootstrap/)
 
 **Font Awesome**
-This is a great library of SVGs that we can use to build the app.  Check it out: [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
+Library of SVG icons that we can use throughout the app.  Check it out: [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 
-**Angular-Chosen**
-A cool integration between the jQuery plugin [Chosen](http://harvesthq.github.io/chosen/)  Check it out: [Angular-Chosen](https://github.com/localytics/angular-chosen)
+**Angular Chosen**
+An integration between the jQuery plugin [Chosen](http://harvesthq.github.io/chosen/)  Check it out: [Angular-Chosen](https://github.com/localytics/angular-chosen)
 
-...more to come
-
-Find something cool we need, let Sean know!
+**Angular Translate**
+angular-translate is a JavaScript translation library for AngularJS 1.x app Check it out: [angular-translate](https://github.com/angular-translate/angular-translate)
 
 
 
@@ -118,13 +116,71 @@ Find something cool we need, let Sean know!
 
 -------------
 
-**Project:**
-
-![Hmm something went wrong...](http://s16.postimg.org/t04oemjj9/Screen_Shot_2016_01_30_at_12_02_08_PM.png)
-
-**src Directory:**
-
-![Hmm something went wrong...](http://s21.postimg.org/3sk04wqzr/Screen_Shot_2016_01_30_at_12_03_03_PM.png)
-
-
-
+```
+frontend/
+    bower_componenets/
+       \_ ...
+    bower.json
+    CodingStyleGuide.md
+    CONTRIBUTING.md
+    docs/
+       \_ ...
+    fonts/
+       \_ ...
+    generated/
+       \_ ...
+    Gruntfile.js
+    node_modules/
+       \_ ...
+    package.json
+    README.md
+    src/
+       \_ assets/
+             \_ core/
+                  \_ JSON
+             \_ css/
+                  \_ ...
+             \_ images/
+                  \_ ...
+             \_ languages/
+                   \_ JSON
+       \_ favicon.ico
+       \_ index.html
+       \_ js/
+            \_ app.js
+            \_ config.js
+            \_ controllers/
+                 \_ ...
+            \_ directives/
+                 \_ ...
+            \_ filters/
+                 \_ ...
+            \_ routes_protection.js
+            \_ routes.js
+            \_ services/
+                 \_ ...
+       \_ templates/
+             \_ footer/
+                  \_ ...
+             \_ navbar
+                  \_ ...
+       \_ views/
+            \_ admin
+                 \_ ...
+            \_ info
+                 \_ ...
+            \_ jobs
+                 \_ ...
+            \_ login
+                 \_ ...
+            \_ lostPassword
+                 \_ ...
+            \_ newsfeed
+                 \_ ...
+            \_ profile
+                 \_ ...
+            \_ status
+                 \_ ...
+    tasks/
+       \_ ...
+```
