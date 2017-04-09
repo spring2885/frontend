@@ -1,38 +1,44 @@
-<div class="row">
-    <div id="custom-search-input">
+<div class="custom-search-input">
+    <div id="row">
         <div class="input-group col-md-6 col-md-offset-3">
-            <input type="text" class=" search-query form-control" 
-                ng-model="query" placeholder="{{'QUICK_SEARCH' | translate}}"/>
+            <input type="text"
+                   class=" search-query form-control"
+                   ng-model="query"
+                   placeholder="{{'QUICK_SEARCH' | translate}}"/>
             <span class="input-group-btn">
                 <button class="btn btn-sucess" type="button">
-                    <i class=" glyphicon glyphicon-search"></i>
+                    <i class="glyphicon glyphicon-search"></i>
                 </button>
             </span>
         </div>
     </div>
 </div>
-<div ng-controller="jobsIndexCtrl" class="col-md-10 col-md-offset-1">
-    <div class="input-group col-md-12">
-        <div class=" col-md-12" ng-repeat="job in jobs | filter:query | orderBy:'-start_date'">
-            <div class="row panel panel-default">
-                <div class="col-md-12 page-content">
-                    <div ng-href="/jobs/{{job.id}}" class="row col-md-12">
-                        <a ng-href="/jobs/{{job.id}}"><h4>{{job.title}}</h4></a>
+<div ng-controller="jobsIndexCtrl">
+    <div class="input-group">
+        <div class="row">
+            <div class="col-md-12" ng-repeat="job in jobs | filter:query | orderBy:'-start_date'">
+                <div class="row panel panel-default">
+                    <div class="col-md-12 page-content">
+                        <div ng-href="/jobs/{{job.id}}" class="row col-md-12">
+                            <a ng-href="/jobs/{{job.id}}"><h4>{{job.title}}</h4></a>
+                        </div>
+                        <div class="row col-md-12">
+                            <a ng-href="/jobs/{{job.id}}">{{'COMPANY' | translate}}: {{job.company}}</a>
+                        </div>
+                        <div ng-href="/jobs/{{job.type}}" class="text-muted row col-md-12">
+                            <h5>{{job.description | limitTo: 170}}</h5>
+                            <h5 ng-show="job.description.length > 170">
+                                <a ng-href="/jobs/{{job.id}}">...read more</a>
+                            </h5>
+                        </div>
+                        <a ng-click="flag(job.id);" href="">
+                            <i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}
+                        </a>
                     </div>
-                    <div class="row col-md-12">
-                        <a ng-href="/jobs/{{job.id}}">{{'COMPANY' | translate}}: {{job.company}}</a>
+                    <div ng-show="$storage.user.id === job.posted_by.id" class="col-md-12 pull-right">
+                        <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-sm btn-info">{{'EDIT' | translate}}</a>
+                        <button ng-click="deleteJob(job.id)" class="btn btn-sm btn-danger">{{'DELETE' | translate}}</button>
                     </div>
-                    <div ng-href="/jobs/{{job.type}}" class="text-muted row col-md-12">
-                        <h5>{{job.description | limitTo: 170}}</h5>
-                        <h5 ng-show="job.description.length > 170">
-                            <a ng-href="/jobs/{{job.id}}">...read more</a>
-                        </h5>
-                    </div>
-                    <a ng-click="flag(job.id);" href=""><i class="fa fa-flag-o" title="flag as abuse"/>{{'FLAG' | translate}}</a>
-                </div>
-                <div ng-show="$storage.user.id === job.posted_by.id" class="col-md-12 pull-right">
-                    <a ng-href="/jobs/{{job.id}}/edit" class="btn btn-sm btn-info">{{'EDIT' | translate}}</a>
-                    <button ng-click="deleteJob(job.id)" class="btn btn-sm btn-danger">{{'DELETE' | translate}}</button>
                 </div>
             </div>
         </div>
