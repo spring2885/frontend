@@ -1,32 +1,28 @@
 <div ng-controller="newsfeedIndexCtrl">
     <div class="row">
-        <div id="custom-search-input">
-            <div class="input-group col-md-12">
-                <input type="text" class=" search-query form-control" 
-                            ng-model="query" placeholder="{{'QUICK_SEARCH' | translate}}"/>
-                <span class="input-group-btn">
-                    <button class="btn btn-sucess" type="button">
-                        <i class=" glyphicon glyphicon-search"></i>
-                    </button>
-                </span>
-            </div>
+        <div class="input-group col-md-6 col-md-offset-3">
+            <input type="text" 
+                   class="search-query form-control" 
+                   ng-model="query" 
+                   placeholder="{{'QUICK_SEARCH' | translate}}"/>
+            <span class="input-group-btn">
+                <button class="btn btn-sucess" type="button">
+                    <i class=" glyphicon glyphicon-search"></i>
+                </button>
+            </span>
         </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <ul class="nav nav-tabs filter-tabs">
-                <li class="active">
-                    <a data-toggle="tab" href="" ng-click="show('all')">{{'ALL' | translate}}</a>
-                </li>
-                <li>
-                    <a data-toggle="tab" href="" ng-click="show('students')">{{'STUDENTS' | translate}}</a>
-                </li>
-                <li>
-                    <a data-toggle="tab" href="" ng-click="show('alumni')">{{'ALUMNI' | translate}}</a>
-                </li>
-                <li>
-                    <a data-toggle="tab" href="" ng-click="show('faculty')">{{'FACULTY' | translate}}</a>
-                </li>
+                <li class="active"><a data-toggle="tab" href="" ng-click="show('all')">{{'ALL' | translate}}</a></li>
+                <li><a data-toggle="tab" href="" ng-click="show('students')">{{'STUDENTS' | translate}}</a></li>
+                <li><a data-toggle="tab" href="" ng-click="show('alumni')">{{'ALUMNI' | translate}}</a></li>
+                <li><a data-toggle="tab" href="" ng-click="show('faculty')">{{'FACULTY' | translate}}</a></li>
             </ul>
         </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <a ng-href="/profiles/{$storage.user.id}}">
@@ -34,40 +30,52 @@
                 </a>
                 <div class="row">
                     <div class="profile-details col-md-12">
-                          <form class="form-group">
+                        <form class="form-group">
                             <div class="input-group">
                                 <div class="text-center">
                                     <label>{{'WHATS_ON_YOUR_MIND' | translate}}</label>
                                 </div>  
-                                <input type="text" class="form-control" placeholder="{{'POST_TITLE' | translate}}" 
-                                    ng-model="newPost.title" required/> 
-                                <textarea class="form-control" placeholder="{{'POST_BODY' | translate}}" ng-model="newPost.description"/>
+                                <input type="text"
+                                       class="form-control"
+
+                                       placeholder="{{'POST_TITLE' | translate}}"
+                                       ng-model="newPost.title"
+                                       style="min-width: 100%"
+                                       required/> 
+                                <textarea class="form-control"
+                                          placeholder="{{'POST_BODY' | translate}}"
+                                          style="min-width: 100%"
+                                          ng-model="newPost.description"/>
                             </div>
                             <div class="col-md-12 form-horizontal form-group">
-                            <label>{{'POST_TO' | translate}}: </label>
-                            <select chosen multiple id="states"  ng-model="newPost.visible_to" style="width:350px" required>
-                                <option value="student">{{'STUDENTS' | translate}}</option>
-                                <option value="alumni">{{'ALUMNI' | translate}}</option>
-                                <option value="faculty">{{'FACULTY' | translate}}</option>
-                                <option value=""></option>
-                              </select>
+                                <label>{{'POST_TO' | translate}}: </label>
+                                <select chosen
+                                        multiple 
+                                        id="states"
+                                        ng-model="newPost.visible_to"
+                                        style="min-width: 100%"
+                                        required>
+                                    <option value="student">{{'STUDENTS' | translate}}</option>
+                                    <option value="alumni">{{'ALUMNI' | translate}}</option>
+                                    <option value="faculty">{{'FACULTY' | translate}}</option>
+                                    <option value=""></option>
+                                </select>
                             </div>
-                                 
-                                  <span class="input-group-btn" aline="right">
-                                    <button class="btn btn-default" type="reset" ng-click="resetNewPost()">
-                                        {{'CLEAR' | translate}}
-                                    </button>
-                                  </span>
-                              
+                            <span class="input-group-btn" align="right">
+                            <button class="btn btn-default" type="reset" ng-click="resetNewPost()">
+                                {{'CLEAR' | translate}}
+                            </button>
+                            </span>
                                 <span class="input-group-btn">
                                     <button class="btn btn-primary" type="submit" ng-click="addNewPost();">
                                         <i class="fa fa-plus"></i>{{'POST' | translate}}
                                     </button>
                                 </span>
-                          </form>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
     <div ng-show="allNews" ng-include="'/src/views/newsfeed/newsFeedAllTmpl.html'"></div>
     <div ng-show="studentNews" ng-include="'/src/views/newsfeed/newsFeedStudentTmpl.html'"></div>
