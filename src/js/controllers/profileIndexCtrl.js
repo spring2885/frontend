@@ -1,19 +1,19 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('profileIndexCtrl', ['$scope', '$http', '$state', 'abuseService', function($scope, $http, $state, abuseService){
+        .controller('profileIndexCtrl', ['$scope', '$http', '$state', 'abuseService', 
+        function($scope, $http, $state, abuseService) {
 
             $scope.profiles = [];
             $http.get('/api/v1/profiles')
-                .success(
-                 function(response){
-                     $scope.profiles = response;
-                     return $scope.profiles;
-                 })
-                .error(
-                 function(response){
-                    $state.go('404');
-                });
+            .success(function(response) {
+                $scope.profiles = response;
+                return $scope.profiles;
+            })
+            .error(function(response){
+                $state.go('404');
+                console.log(response);
+            });
 
             $scope.flag = function(id) {
                 abuseService.abuse(id, 'PROFILE', '');
@@ -27,7 +27,7 @@
             $scope.majorFilter = false;
             $scope.departmentFilter = false;
 
-            $scope.filterProfiles  = function(type){
+            $scope.filterProfiles  = function(type) {
                 if (type === 'all'){
                     $scope.noFilter = true;
                     $scope.studentFilter = false;
