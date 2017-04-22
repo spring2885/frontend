@@ -1,9 +1,11 @@
 (function() {
     "use strict";
     angular.module('spring-2885')   
-        .controller('chooseLangCtrl', ['$scope', '$translate', function($scope, $translate){
+        .controller('chooseLangCtrl', ['$scope', '$translate', 
+        function($scope, $translate) {
+
             $scope.chooseLang = function(langKey) {
-                if ($scope.selected) {langKey = $scope.selected;}
+                if ($scope.selected) { langKey = $scope.selected; }
 
                 switch(langKey) {
                     case 'en':
@@ -25,6 +27,7 @@
                         langKey = 'en';
                         break;
                 }
+
                 $translate.use(langKey);
             };
     }]);

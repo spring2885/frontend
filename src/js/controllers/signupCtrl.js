@@ -2,12 +2,13 @@
     "use strict";
     angular.module('spring-2885')   
         .controller('signUpCtrl', ['$scope', '$state', '$http', '$localStorage', 'authService', 'MessageService', '$translate', 'authDefaults', 
-            function($scope, $state, $http, $localStorage, authService, MessageService, $translate, authDefaults) {
-           
+        function($scope, $state, $http, $localStorage, authService, MessageService, $translate, authDefaults) {
+
         $scope.formData = {};
         $scope.acceptTerms = true;
         
         MessageService.configure({disabled:false, max:3, timeout:3500});
+
         $scope.acceptAlert = function() {
             var msg = $translate.instant('signup.ACCEPT_TERMS_ERROR');
             MessageService.broadcast(msg, {color: 'danger'});
